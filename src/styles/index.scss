@@ -1,8 +1,9 @@
 @use 'reset';
 @use 'vars';
 
-body {
-  font-family: sans-serif;
+html body {
+  background-color: vars.$backgroundColor;
+  font-family: 'Inter', sans-serif;
 }
 
 /* 

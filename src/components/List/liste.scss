@@ -17,11 +17,13 @@
         font-size: 2em;
         font-weight: bold;
         margin-right: 1em;
+        color: vars.$lightColor;
       }
       .list-header-title-label {
         position: absolute;
         top: -.5em;
         right: -2.5em;
+        background-color: vars.$modeColor;
       }
     }
 
@@ -29,13 +31,9 @@
       display: flex;
       justify-content: center;
       margin-bottom: 1em;
-  
-      .list-header-toggle-list {
-        margin-right: .5em;
-      }
-    
-      .llist-header-toggle-reco {
-        margin-left: .5em;
+      
+      .list-header-toggle-icon {
+        color: vars.$modeColor;
       }
     }
 
@@ -45,26 +43,63 @@
       
       .list-header-progress-status {
         border-radius: 2em;
-        background-color: black;
+        background-color: #E3E1FF;
         width: fit-content;
         padding: .3em;
+
+        .list-header-progress-status-button {
+          background-color: transparent;
+        }
+
+        .list-header-progress-status-button-active {
+          background-color: vars.$modeColor;
+        }
+
+        .list-header-progress-status-button,
+        .list-header-progress-status-button-active {
+          border-radius: 1em;
+          border: none;
+          padding: .5em 1em;
+        }
+
+      }
+    }
+  }
+  
+  .list-add {
+    margin-bottom: 1em;
+    
+    .list-add-button {
+      background-color: vars.$infoColor;
+      
+      .list-add-button-link {
+        color: vars.$lightColor;
       }
     }
   }
   
   .list-items {
-    .list-add {
-      margin-bottom: 1em;
-    }
+    overflow-y: scroll;
+    height: 400px;
     @media screen and (min-width: 768px) {
-      padding: 3em 20em;
+      padding: 3em 5em 3em 15em;
     }
+
+    .list-items-date {
+      color: vars.$lightColor;
+    }
+
     .list-items-item-status {
       text-transform: uppercase;
     }
 
     .list-items-item-content {
-      background-color: grey;
+      background-color: vars.$darkColor;
+      margin-top: 1em;
+
+      .list-items-item-content-title {
+        color: vars.$lightColor;
+      }
     }
   }
 }
