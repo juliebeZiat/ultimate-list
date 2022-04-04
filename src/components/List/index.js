@@ -6,9 +6,9 @@ import {
 import { Link } from 'react-router-dom';
 
 const List = () => (
-  <div className="header">
+  <div className="list">
     <div className="list-menu">
-      <Menu icon vertical>
+      <Menu compact icon>
         <Menu.Item>
           <Icon name="gamepad" />
         </Menu.Item>
@@ -19,7 +19,7 @@ const List = () => (
     </div>
 
     <div className="list-header">
-      <Icon name="gamepad" className="list-header-icon" />
+      {/* <Icon name="gamepad" className="list-header-icon" /> */}
       <div className="list-header-title">Jeux vidéo</div>
       <Label circular className="list-header-label">15</Label>
     </div>
@@ -31,15 +31,15 @@ const List = () => (
     </div>
 
     <div className="list-progress">
-      <Button>Tous</Button>
-      <Button>À jouer</Button>
-      <Button>En cours</Button>
-      <Button>Fini</Button>
       <Button>
         <Link to="/jeuxvideo/ajouter">
           Ajouter un item
         </Link>
       </Button>
+      <Button>Tous</Button>
+      <Button>À jouer</Button>
+      <Button>En cours</Button>
+      <Button>Fini</Button>
     </div>
     <div className="list-items">
       <div className="list-items-date">Mars 2022</div>
