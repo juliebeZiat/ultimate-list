@@ -1,4 +1,5 @@
 import {
+  Grid,
   Card,
   Search,
   Image,
@@ -22,83 +23,129 @@ const Add = () => (
 
     <div className="add-reco">
       <h2 className="add-modSubtitle">Nos recommandations pour toi</h2>
-      <Card.Group
+      <Grid
         className="add-reco-cardGroup"
-        itemsPerRow={4}
+        columns={4}
+        doubling
       >
-        <Card className="add-reco-cardGroup-card">
-          <Button
-            className="add-reco-cardGroup-card-button"
-            icon="plus"
-          />
-          <Image src="https://picsum.photos/200/200" />
-          <Card.Content>
-            <Card.Header>
-              Titre du jeu
-            </Card.Header>
 
-            <Card.Meta>
-              Info supplémentaire
-            </Card.Meta>
+        <Grid.Column>
+          <Card className="add-reco-cardGroup-card">
+            <Button
+              className="add-reco-cardGroup-card-button"
+              icon="plus"
+            />
+            <Image src="https://picsum.photos/200/200" />
+            <Card.Content>
+              <Card.Header>
+                Titre du jeu
+              </Card.Header>
 
-            <Card.Description>
-              Description du jeu
-            </Card.Description>
-          </Card.Content>
-        </Card>
+              <Card.Meta>
+                Info supplémentaire
+              </Card.Meta>
 
-        <Card>
-          <Image src="https://picsum.photos/200/200" />
-          <Card.Content>
-            <Card.Header>
-              Titre du jeu
-            </Card.Header>
+              <Card.Description>
+                Description du jeu
+              </Card.Description>
+            </Card.Content>
+          </Card>
+        </Grid.Column>
 
-            <Card.Meta>
-              Info supplémentaire
-            </Card.Meta>
+        <Grid.Column>
+          <Card className="add-reco-cardGroup-card">
+            <Button
+              className="add-reco-cardGroup-card-button"
+              icon="plus"
+            />
+            <Image src="https://picsum.photos/200/200" />
+            <Card.Content>
+              <Card.Header>
+                Titre du jeu
+              </Card.Header>
 
-            <Card.Description>
-              Description du jeu
-            </Card.Description>
-          </Card.Content>
-        </Card>
+              <Card.Meta>
+                Info supplémentaire
+              </Card.Meta>
 
-        <Card>
-          <Image src="https://picsum.photos/200/200" />
-          <Card.Content>
-            <Card.Header>
-              Titre du jeu
-            </Card.Header>
+              <Card.Description>
+                Description du jeu
+              </Card.Description>
+            </Card.Content>
+          </Card>
+        </Grid.Column>
 
-            <Card.Meta>
-              Info supplémentaire
-            </Card.Meta>
+        <Grid.Column>
+          <Card className="add-reco-cardGroup-card">
+            <Button
+              className="add-reco-cardGroup-card-button"
+              icon="plus"
+            />
+            <Image src="https://picsum.photos/200/200" />
+            <Card.Content>
+              <Card.Header>
+                Titre du jeu
+              </Card.Header>
 
-            <Card.Description>
-              Description du jeu
-            </Card.Description>
-          </Card.Content>
-        </Card>
+              <Card.Meta>
+                Info supplémentaire
+              </Card.Meta>
 
-        <Card>
-          <Image src="https://picsum.photos/200/200" />
-          <Card.Content>
-            <Card.Header>
-              Titre du jeu
-            </Card.Header>
+              <Card.Description>
+                Description du jeu
+              </Card.Description>
+            </Card.Content>
+          </Card>
+        </Grid.Column>
 
-            <Card.Meta>
-              Info supplémentaire
-            </Card.Meta>
+        <Grid.Column>
+          <Card className="add-reco-cardGroup-card">
+            <Button
+              className="add-reco-cardGroup-card-button"
+              icon="plus"
+            />
+            <Image src="https://picsum.photos/200/200" />
+            <Card.Content>
+              <Card.Header>
+                Titre du jeu
+              </Card.Header>
 
-            <Card.Description>
-              Description du jeu
-            </Card.Description>
-          </Card.Content>
-        </Card>
+              <Card.Meta>
+                Info supplémentaire
+              </Card.Meta>
 
-      </Card.Group>
+              <Card.Description>
+                Description du jeu
+              </Card.Description>
+            </Card.Content>
+          </Card>
+        </Grid.Column>
+
+        <Grid.Column>
+          <Card className="add-reco-cardGroup-card">
+            <Button
+              className="add-reco-cardGroup-card-button"
+              icon="plus"
+            />
+            <Image src="https://picsum.photos/200/200" />
+            <Card.Content>
+              <Card.Header>
+                Titre du jeu
+              </Card.Header>
+
+              <Card.Meta>
+                Info supplémentaire
+              </Card.Meta>
+
+              <Card.Description>
+                Description du jeu
+              </Card.Description>
+            </Card.Content>
+          </Card>
+        </Grid.Column>
+
+      </Grid>
+
     </div>
   </div>
 );
