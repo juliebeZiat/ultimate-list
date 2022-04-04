@@ -17,7 +17,6 @@ import 'semantic-ui-css/semantic.min.css';
 // == Composant
 const App = () => (
   <div className="app">
-    <h1>Ultimate List</h1>
     <Header />
     <Routes>
       <Route path="/" element={<div>Bienvenue sur la page d'accueil</div>} />
