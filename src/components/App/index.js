@@ -4,8 +4,11 @@ import { Routes, Route } from 'react-router-dom';
 // == Import component
 import Header from 'src/components/Header';
 import Footer from 'src/components/Footer';
-import Connexion from 'src/components/Connexion';
-import Inscription from 'src/components/Inscription';
+import Login from 'src/components/Login';
+import SignUp from 'src/components/SignUp';
+import List from 'src/components/List';
+import Error404 from 'src/components/Error404';
+import Add from 'src/components/List/Add';
 
 // == Import style
 import './styles.scss';
@@ -18,10 +21,14 @@ const App = () => (
     <Header />
     <Routes>
       <Route path="/" element={<div>Bienvenue sur la page d'accueil</div>} />
-      <Route path="/connexion" element={<Connexion />} />
-      <Route path="/inscription" element={<Inscription />} />
-      {/* Component Connexion and Inscription with their own header */}
+      <Route path="/connexion" element={<Login />} />
+      <Route path="/inscription" element={<SignUp />} />
+      <Route path="/jeuxvideo/liste" element={<List />} />
+      <Route path="/jeuxvideo/ajouter" element={<Add />} />
+
+      <Route path="/*" element={<Error404 />} />
     </Routes>
+
     <Footer />
   </div>
 );
