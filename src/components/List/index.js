@@ -20,8 +20,10 @@ const List = () => (
 
     <div className="list-header">
       {/* <Icon name="gamepad" className="list-header-icon" /> */}
-      <div className="list-header-title">Jeux vidéo</div>
-      <Label circular className="list-header-label">15</Label>
+      <div className="list-header-title">
+        Jeux vidéo
+        <Label size="mini" circular className="list-header-label">15</Label>
+      </div>
     </div>
 
     <div className="list-toggle">
@@ -30,17 +32,21 @@ const List = () => (
       <div className="list-toggle-reco">Recommandations</div>
     </div>
 
-    <div className="list-progress">
-      <Button>
+    <div className="list-add">
+      <Button circular>
         <Link to="/jeuxvideo/ajouter">
-          Ajouter un item
+          + Ajouter un item
         </Link>
       </Button>
-      <Button>Tous</Button>
-      <Button>À jouer</Button>
-      <Button>En cours</Button>
-      <Button>Fini</Button>
     </div>
+
+    <div className="list-progress">
+      <Button circular>Tous</Button>
+      <Button circular>À jouer</Button>
+      <Button circular>En cours</Button>
+      <Button circular>Fini</Button>
+    </div>
+
     <div className="list-items">
       <div className="list-items-date">Mars 2022</div>
       <Item.Group>
@@ -49,7 +55,18 @@ const List = () => (
           <Item.Content>
             <Item.Header className="list-items-item-image">Stardew Valley</Item.Header>
             <Item.Extra>
-              <Label className="list-items-item-status">En cours</Label>
+              <Label size="mini" className="list-items-item-status">En cours</Label>
+            </Item.Extra>
+          </Item.Content>
+        </Item>
+      </Item.Group>
+      <Item.Group>
+        <Item className="list-items-item">
+          <Item.Image />
+          <Item.Content>
+            <Item.Header className="list-items-item-image">Stardew Valley</Item.Header>
+            <Item.Extra>
+              <Label size="mini" className="list-items-item-status">En cours</Label>
             </Item.Extra>
           </Item.Content>
         </Item>

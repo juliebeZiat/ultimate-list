@@ -1,0 +1,59 @@
+.list {
+  // Menu
+  .list-menu {
+    text-align: center;
+    padding: 1em;
+  }
+
+  // Header
+  .list-header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1em;
+  
+    .list-header-title {
+      position: relative;
+    }
+    .list-header-label {
+      position: absolute;
+      top: -.5em;
+      right: -2.5em;
+    }
+  }
+
+  // Toggle
+  .list-toggle {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1em;
+
+    .list-toggle-list {
+      margin-right: .5em;
+    }
+  
+    .list-toggle-reco {
+      margin-left: .5em;
+    }
+  }
+
+  // Add
+  .list-add {
+    margin-bottom: 1.5em;
+  }
+
+  // Progress
+  .list-progress {
+    //! A centrer
+    background-color: black;
+    width: fit-content;
+    padding: .3em .3em .3em .4em;
+    border-radius: 2em;
+    margin-bottom: 1.5em;
+  }
+
+  .list-items {
+    .list-items-item-status {
+      text-transform: uppercase;
+    }
+  }
+}
