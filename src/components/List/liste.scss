@@ -1,59 +1,70 @@
+@use 'src/styles/vars';
+
 .list {
-  // Menu
-  .list-menu {
+  margin-bottom: 5em;
+
+  .list-header {
     text-align: center;
     padding: 1em;
-  }
 
-  // Header
-  .list-header {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 1em;
-  
     .list-header-title {
-      position: relative;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 1em;
+    
+      .list-header-title-mode {
+        position: relative;
+        font-size: 2em;
+        font-weight: bold;
+        margin-right: 1em;
+      }
+      .list-header-title-label {
+        position: absolute;
+        top: -.5em;
+        right: -2.5em;
+      }
     }
-    .list-header-label {
-      position: absolute;
-      top: -.5em;
-      right: -2.5em;
-    }
-  }
 
-  // Toggle
-  .list-toggle {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 1em;
-
-    .list-toggle-list {
-      margin-right: .5em;
-    }
+    .list-header-toggle {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 1em;
   
-    .list-toggle-reco {
-      margin-left: .5em;
+      .list-header-toggle-list {
+        margin-right: .5em;
+      }
+    
+      .llist-header-toggle-reco {
+        margin-left: .5em;
+      }
+    }
+
+    .list-header-progress {
+      display: flex;
+      justify-content: center;
+      
+      .list-header-progress-status {
+        border-radius: 2em;
+        background-color: black;
+        width: fit-content;
+        padding: .3em;
+      }
     }
   }
-
-  // Add
-  .list-add {
-    margin-bottom: 1.5em;
-  }
-
-  // Progress
-  .list-progress {
-    //! A centrer
-    background-color: black;
-    width: fit-content;
-    padding: .3em .3em .3em .4em;
-    border-radius: 2em;
-    margin-bottom: 1.5em;
-  }
-
+  
   .list-items {
+    .list-add {
+      margin-bottom: 1em;
+    }
+    @media screen and (min-width: 768px) {
+      padding: 3em 20em;
+    }
     .list-items-item-status {
       text-transform: uppercase;
+    }
+
+    .list-items-item-content {
+      background-color: grey;
     }
   }
 }
