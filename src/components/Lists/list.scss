@@ -32,15 +32,14 @@
         }
 
         &:hover {
-          background-color: rgba(128, 128, 128, 0.151);
+          background-color: lighten(vars.$backgroundColor, 5%);
         }
 
         &.active {
-          background-color: blueviolet;
+          background-color: vars.$iconVideogameBackgroundColor;
 
           &:hover {
-            color: vars.$darkColor;
-            background-color: vars.$secondaryColor;
+            background-color: lighten(vars.$iconVideogameBackgroundColor, 10%);
           }
         }
       }

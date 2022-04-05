@@ -20,7 +20,7 @@ const Lists = () => (
     <div className="list-header-title">
       <div className="list-header-title-mode">
         Jeux vidéo
-        <span className="list-header-title-label">15</span>
+        {window.location.href === 'http://localhost:8080/jeuxvideo/liste' && <span className="list-header-title-label">15</span>}
       </div>
     </div>
   </div>
