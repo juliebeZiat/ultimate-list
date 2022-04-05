@@ -2,6 +2,7 @@
 import {
   Search,
   Icon,
+  Grid,
 } from 'semantic-ui-react';
 import Lists from '.';
 
@@ -23,6 +24,7 @@ const Add = () => (
 
       <div className="add-reco">
         <h2 className="add-modSubtitle">Nos recommandations pour toi</h2>
+
         <ul className="add-reco-cards">
           <li className="add-reco-cards-card">
             <img className="add-reco-cards-card-img" src="https://picsum.photos/500/500" alt="" />
@@ -59,25 +61,8 @@ const Add = () => (
             </div>
             <button className="add-reco-cards-card-button" type="button" aria-label="icon plus"><Icon name="plus" /></button>
           </li>
-
-          <li className="add-reco-cards-card">
-            <img className="add-reco-cards-card-img" src="https://picsum.photos/500/500" alt="" />
-            <div className="add-reco-cards-card-content">
-              <h3>Card</h3>
-              <p>Description</p>
-            </div>
-            <button className="add-reco-cards-card-button" type="button" aria-label="icon plus"><Icon name="plus" /></button>
-          </li>
-
-          <li className="add-reco-cards-card">
-            <img className="add-reco-cards-card-img" src="https://picsum.photos/500/500" alt="" />
-            <div className="add-reco-cards-card-content">
-              <h3>Card</h3>
-              <p>Description</p>
-            </div>
-            <button className="add-reco-cards-card-button" type="button" aria-label="icon plus"><Icon name="plus" /></button>
-          </li>
         </ul>
+
       </div>
     </div>
   </>
