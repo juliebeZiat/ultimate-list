@@ -28,12 +28,57 @@ const Add = () => (
       <ul className="add-reco-cards">
         <li className="add-reco-cards-card">
           <img className="add-reco-cards-card-img" src="https://picsum.photos/500/500" alt="" />
-          Card
+          <div className="add-reco-cards-card-content">
+            <h3>Card</h3>
+            <p>Description</p>
+          </div>
+          <button className="add-reco-cards-card-button" type="button" aria-label="icon plus"><Icon name="plus" /></button>
         </li>
-        <li className="add-reco-cards-card">Card</li>
-        <li className="add-reco-cards-card">Card</li>
-        <li className="add-reco-cards-card">Card</li>
-        <li className="add-reco-cards-card">Card</li>
+
+        <li className="add-reco-cards-card">
+          <img className="add-reco-cards-card-img" src="https://picsum.photos/500/500" alt="" />
+          <div className="add-reco-cards-card-content">
+            <h3>Card</h3>
+            <p>Description</p>
+          </div>
+          <button className="add-reco-cards-card-button" type="button" aria-label="icon plus"><Icon name="plus" /></button>
+        </li>
+
+        <li className="add-reco-cards-card">
+          <img className="add-reco-cards-card-img" src="https://picsum.photos/500/500" alt="" />
+          <div className="add-reco-cards-card-content">
+            <h3>Card</h3>
+            <p>Description</p>
+          </div>
+          <button className="add-reco-cards-card-button" type="button" aria-label="icon plus"><Icon name="plus" /></button>
+        </li>
+
+        <li className="add-reco-cards-card">
+          <img className="add-reco-cards-card-img" src="https://picsum.photos/500/500" alt="" />
+          <div className="add-reco-cards-card-content">
+            <h3>Card</h3>
+            <p>Description</p>
+          </div>
+          <button className="add-reco-cards-card-button" type="button" aria-label="icon plus"><Icon name="plus" /></button>
+        </li>
+
+        <li className="add-reco-cards-card">
+          <img className="add-reco-cards-card-img" src="https://picsum.photos/500/500" alt="" />
+          <div className="add-reco-cards-card-content">
+            <h3>Card</h3>
+            <p>Description</p>
+          </div>
+          <button className="add-reco-cards-card-button" type="button" aria-label="icon plus"><Icon name="plus" /></button>
+        </li>
+
+        <li className="add-reco-cards-card">
+          <img className="add-reco-cards-card-img" src="https://picsum.photos/500/500" alt="" />
+          <div className="add-reco-cards-card-content">
+            <h3>Card</h3>
+            <p>Description</p>
+          </div>
+          <button className="add-reco-cards-card-button" type="button" aria-label="icon plus"><Icon name="plus" /></button>
+        </li>
       </ul>
     </div>
   </div>
