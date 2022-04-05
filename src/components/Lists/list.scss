@@ -11,6 +11,10 @@
     &-menu {
       display: flex;
       flex-wrap: wrap;
+      @media screen and (min-width: 768px) {
+        width: 50px;
+        position: fixed;
+      }
       @media screen and (max-width: 768px) {
         justify-content: center;
         margin-right: .5em;
@@ -45,7 +49,6 @@
     &-title {
       display: flex;
       justify-content: center;
-      margin-bottom: 1em;
       
       &-label {
         background-color: vars.$modeColor;
@@ -112,7 +115,11 @@
 
     @media screen and (min-width: 768px) {
       width: 800px;
-      margin: 2em 0 2em 22em;
+      margin: 2em auto;
+    }
+
+    @media screen and (max-width: 768px) {
+      margin-top: 2em;
     }
     
     &-button {
@@ -135,7 +142,7 @@
     margin: auto;
     @media screen and (min-width: 768px) {
       width: 800px;
-      margin: 2em 0 2em 22em;
+      margin: 2em auto;
     }
     
     &-date {
