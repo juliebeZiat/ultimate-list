@@ -14,8 +14,10 @@
   }
 
   &-modSubtitle {
+    display: inline-block;
     font-size: 1.3rem;
     font-weight: normal;
+    margin-top: 2rem!important;
   }
   
   &-search {
