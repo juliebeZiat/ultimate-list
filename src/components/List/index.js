@@ -1,5 +1,5 @@
 // == Import style
-import './liste.scss';
+import './list.scss';
 import {
   Button, Grid, Icon, Label, Menu, Image, Header,
 } from 'semantic-ui-react';
