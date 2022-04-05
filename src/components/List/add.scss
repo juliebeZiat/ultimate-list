@@ -1,0 +1,57 @@
+@use 'src/styles/vars';
+
+// scss Page Ajouter un item
+.add {
+  margin-bottom: vars.$marginBottom;
+  width: 800px;
+  margin: auto;
+
+  &-modTitle {
+    font-weight: bold;
+    margin-bottom: vars.$marginBottom;
+  }
+
+  &-modSubtitle {
+    font-size: 1.3rem;
+    font-weight: normal;
+    margin-bottom: vars.$marginBottom;
+  }
+  
+  &-search {
+    margin-bottom: 5rem;
+
+    &-bar {
+      .ui.input>input {
+        background-color: vars.$secondaryColor;
+      }
+    }
+  }
+
+  &-reco {
+    &-cardGroup {
+      background-color: vars.$secondaryColor;
+      border-radius: vars.$borderRadius;
+      padding: 2rem;
+
+      &-card {
+        position: relative;
+
+        &-button {
+          position: absolute;
+          top: -0.5rem;
+          left: -0.5rem;
+          z-index: 1;
+
+          width: 2rem!important;
+          padding: 0.5rem!important;
+        }
+
+        .card-content {
+          .card-tag {
+            margin-top: .5rem;
+          }
+        }
+      }
+    }
+  }
+}
