@@ -4,60 +4,100 @@
 .list {
   margin-bottom: 5em;
 
-  .list-header {
+  &-header {
     text-align: center;
     padding: 1em;
 
-    .list-header-title {
+    &-menu {
+      display: flex;
+      flex-wrap: wrap;
+      @media screen and (max-width: 768px) {
+        justify-content: center;
+        margin-right: .5em;
+      }
+
+      &-mode {
+        color: vars.$lightColor;
+        padding: 1em;
+        margin-bottom: 1em;
+        border-radius: .8em;
+        transition: 0.3s;
+
+        @media screen and (max-width: 768px) {
+          margin-left: .5em;
+        }
+
+        &:hover {
+          background-color: rgba(128, 128, 128, 0.151);
+        }
+
+        &.active {
+          background-color: blueviolet;
+
+          &:hover {
+            color: vars.$darkColor;
+            background-color: vars.$secondaryColor;
+          }
+        }
+      }
+    }
+
+    &-title {
       display: flex;
       justify-content: center;
       margin-bottom: 1em;
-    
-      .list-header-title-mode {
+      
+      &-label {
+        background-color: vars.$modeColor;
+        position: absolute;
+        top: -.5em;
+        right: -2.5em;
+        font-size: .3em;
+        font-weight: 400;
+        padding: 0 .5em;
+        border-radius: 1em;
+      }
+
+      &-mode {
         position: relative;
         font-size: 2em;
         font-weight: bold;
         margin-right: 1em;
         color: vars.$lightColor;
       }
-      .list-header-title-label {
-        position: absolute;
-        top: -.5em;
-        right: -2.5em;
-        background-color: vars.$modeColor;
-      }
+
     }
 
-    .list-header-toggle {
+    &-toggle {
       display: flex;
       justify-content: center;
       margin-bottom: 1em;
       
-      .list-header-toggle-icon {
+      &-icon {
         color: vars.$modeColor;
       }
     }
 
-    .list-header-progress {
+    &-progress {
       display: flex;
       justify-content: center;
       
-      .list-header-progress-status {
+      &-status {
         border-radius: 2em;
         background-color: #E3E1FF;
         width: fit-content;
         padding: .3em;
 
-        .list-header-progress-status-button {
+        &-button {
           background-color: transparent;
         }
 
-        .list-header-progress-status-button-active {
+        &-button-active {
           background-color: vars.$modeColor;
         }
 
-        .list-header-progress-status-button,
-        .list-header-progress-status-button-active {
+        &-button,
+        &-button-active {
           border-radius: 1em;
           border: none;
           padding: .5em 1em;
@@ -68,12 +108,22 @@
   }
   
   .list-add {
-    margin-bottom: 1em;
+    margin-bottom: 2em;
+
+    @media screen and (min-width: 768px) {
+      width: 800px;
+      margin: 2em 0 2em 22em;
+    }
     
-    .list-add-button {
+    &-button {
       background-color: vars.$infoColor;
-      
-      .list-add-button-link {
+      padding: .8em;
+      border-radius: 1.2em;
+      border: none;
+      transition: 0.3s;
+
+      &:hover {
+        background-color: vars.$infoHoverColor;
         color: vars.$lightColor;
       }
     }
@@ -81,26 +131,41 @@
   
   .list-items {
     overflow-y: scroll;
-    height: 400px;
+    height: 300px;
+    margin: auto;
     @media screen and (min-width: 768px) {
-      padding: 3em 5em 3em 15em;
+      width: 800px;
+      margin: 2em 0 2em 22em;
     }
-
-    .list-items-date {
+    
+    // @media screen and (min-width: 768px) {
+    //   padding: 3em 5em 3em 15em;
+    // }
+    
+    &-date {
       color: vars.$lightColor;
     }
+    
+    &-content {
+      margin-top: 2em;
+      display: flex;
 
-    .list-items-item-status {
-      text-transform: uppercase;
-    }
+      &-details {
+        background-color: vars.$darkColor;
+        padding: .5em 1em;
+        width: 80%;
 
-    .list-items-item-content {
-      background-color: vars.$darkColor;
-      margin-top: 1em;
+        &-title {
+          color: vars.$lightColor;
+          margin-bottom: 1em;
+        }
 
-      .list-items-item-content-title {
-        color: vars.$lightColor;
-              }
+        .list-items-content-details-status {
+          text-transform: uppercase;
+          background-color: #E3E1FF;
+          font-weight: 500;
+        }
+      }
     }
   }
 }
