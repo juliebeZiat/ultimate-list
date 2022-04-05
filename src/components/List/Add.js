@@ -1,11 +1,6 @@
 import {
-  Grid,
-  Card,
   Search,
-  Image,
-  Button,
   Icon,
-  Label,
 } from 'semantic-ui-react';
 
 const Add = () => (
