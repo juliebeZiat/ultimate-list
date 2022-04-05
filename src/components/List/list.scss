@@ -1,5 +1,112 @@
 @use 'src/styles/vars';
 
+// Page Liste
+.list {
+  margin-bottom: 5em;
+
+  .list-header {
+    text-align: center;
+    padding: 1em;
+
+    .list-header-title {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 1em;
+    
+      .list-header-title-mode {
+        position: relative;
+        font-size: 2em;
+        font-weight: bold;
+        margin-right: 1em;
+        color: vars.$lightColor;
+      }
+      .list-header-title-label {
+        position: absolute;
+        top: -.5em;
+        right: -2.5em;
+        background-color: vars.$modeColor;
+      }
+    }
+
+    .list-header-toggle {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 1em;
+      
+      .list-header-toggle-icon {
+        color: vars.$modeColor;
+      }
+    }
+
+    .list-header-progress {
+      display: flex;
+      justify-content: center;
+      
+      .list-header-progress-status {
+        border-radius: 2em;
+        background-color: #E3E1FF;
+        width: fit-content;
+        padding: .3em;
+
+        .list-header-progress-status-button {
+          background-color: transparent;
+        }
+
+        .list-header-progress-status-button-active {
+          background-color: vars.$modeColor;
+        }
+
+        .list-header-progress-status-button,
+        .list-header-progress-status-button-active {
+          border-radius: 1em;
+          border: none;
+          padding: .5em 1em;
+        }
+
+      }
+    }
+  }
+  
+  .list-add {
+    margin-bottom: 1em;
+    
+    .list-add-button {
+      background-color: vars.$infoColor;
+      
+      .list-add-button-link {
+        color: vars.$lightColor;
+      }
+    }
+  }
+  
+  .list-items {
+    overflow-y: scroll;
+    height: 400px;
+    @media screen and (min-width: 768px) {
+      padding: 3em 5em 3em 15em;
+    }
+
+    .list-items-date {
+      color: vars.$lightColor;
+    }
+
+    .list-items-item-status {
+      text-transform: uppercase;
+    }
+
+    .list-items-item-content {
+      background-color: vars.$darkColor;
+      margin-top: 1em;
+
+      .list-items-item-content-title {
+        color: vars.$lightColor;
+              }
+    }
+  }
+}
+
+
+// scss Page Ajouter un item
 .add {
   margin-bottom: vars.$marginBottom;
 
