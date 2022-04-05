@@ -2,6 +2,7 @@
 import {
   Search,
   Icon,
+  Label,
 } from 'semantic-ui-react';
 import Lists from '.';
 
@@ -30,6 +31,12 @@ const Add = () => (
             <div className="add-reco-cards-card-content">
               <h3>Card</h3>
               <p>Description</p>
+              <Label
+                className="card-tag"
+                color="teal"
+              >
+                TAG
+              </Label>
             </div>
             <button className="add-reco-cards-card-button" type="button" aria-label="icon plus"><Icon name="plus" /></button>
           </li>
@@ -39,6 +46,12 @@ const Add = () => (
             <div className="add-reco-cards-card-content">
               <h3>Card</h3>
               <p>Description</p>
+              <Label
+                className="card-tag"
+                color="teal"
+              >
+                TAG
+              </Label>
             </div>
             <button className="add-reco-cards-card-button" type="button" aria-label="icon plus"><Icon name="plus" /></button>
           </li>
@@ -48,6 +61,12 @@ const Add = () => (
             <div className="add-reco-cards-card-content">
               <h3>Card</h3>
               <p>Description</p>
+              <Label
+                className="card-tag"
+                color="teal"
+              >
+                TAG
+              </Label>
             </div>
             <button className="add-reco-cards-card-button" type="button" aria-label="icon plus"><Icon name="plus" /></button>
           </li>
@@ -57,6 +76,12 @@ const Add = () => (
             <div className="add-reco-cards-card-content">
               <h3>Card</h3>
               <p>Description</p>
+              <Label
+                className="card-tag"
+                color="teal"
+              >
+                TAG
+              </Label>
             </div>
             <button className="add-reco-cards-card-button" type="button" aria-label="icon plus"><Icon name="plus" /></button>
           </li>
