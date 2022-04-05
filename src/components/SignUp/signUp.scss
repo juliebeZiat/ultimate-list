@@ -1,0 +1,82 @@
+@use 'src/styles/vars';
+
+.sign {
+  margin: 2em auto;
+
+  &-header {
+
+    &-title {
+      text-align: center;
+      color: vars.$lightColor;
+      font-size: 2em;
+      padding: 1em;
+      margin-bottom: 1em;
+      line-height: 1em;
+
+      &-bold {
+        font-weight: 600;
+      }
+    }
+
+    &-buttons {
+      display: flex;
+      justify-content: center;
+      margin: 3em auto;
+      width: min-content;
+      border-radius: 2em;
+      background-color: grey;
+      &-switch {
+        border-radius: 2em;
+        padding: 1em 1.5em;
+        border: none;
+        background-color: grey;
+        color: vars.$secondaryColor;
+
+        &.active {
+          background-color: vars.$appColor;
+        }
+      }
+    }
+  }
+
+  &-form {
+    @media screen and (min-width: 768px) {
+      width: 30%;
+    }
+    width: 90%;
+    margin: auto;
+
+    &-input {
+      margin-bottom: 2em;
+    }
+
+    label {
+      color: vars.$lightColor;
+    }
+
+    input {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      padding: .8em;
+      border-radius: .8em;
+      border: none;
+      margin: .7em 0;
+    }
+
+    &-submit {
+      border: none;
+      background-color: vars.$infoColor;
+      padding: 1em 1.5em;
+      border-radius: 2em;
+      font-size: 1.1em;
+      margin: auto;
+      display: block;
+
+      &:hover {
+        background-color: lighten(vars.$infoColor, 10%);
+        transition: 0.3s;
+      }
+    }
+  }
+}
