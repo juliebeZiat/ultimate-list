@@ -1,8 +1,11 @@
 // == Import style
 import './list.scss';
+import './add.scss';
 import {
   Grid, Icon, Label, Menu, Image,
 } from 'semantic-ui-react';
+
+// == Import Component
 import { Link } from 'react-router-dom';
 
 const List = () => (
