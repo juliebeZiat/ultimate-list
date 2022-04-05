@@ -1,1 +1,16 @@
+@use 'src/styles/vars';
 
+.connexion {
+  width: 600px;
+  margin: auto;
+
+  &-header {
+
+    &-title {
+      text-align: center;
+      color: vars.$lightColor;
+      font-size: 2em;
+      padding: 1em;
+    }
+  }
+}
