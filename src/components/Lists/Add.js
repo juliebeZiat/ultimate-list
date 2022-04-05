@@ -2,7 +2,6 @@
 import {
   Search,
   Icon,
-  Grid,
 } from 'semantic-ui-react';
 import Lists from '.';
 
