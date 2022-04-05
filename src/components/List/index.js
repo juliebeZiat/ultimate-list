@@ -1,5 +1,5 @@
 // == Import style
-import './liste.scss';
+import './list.scss';
 import { Button } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
