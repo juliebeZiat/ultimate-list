@@ -63,11 +63,20 @@
 
       &-videogame {
         background-color: vars.$modeColor;
+
+        &-text {
+          opacity: 0;
+        }
       }
 
       &-podcast {
         background-color: #FFA47A;
       }
     }
+    .home-logout-mode-videogame:hover .home-logout-mode-videogame-text {
+      opacity: 1;
+      transition: 0.3s;
+    }
   }
+
 }
