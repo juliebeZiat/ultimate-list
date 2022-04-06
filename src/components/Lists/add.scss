@@ -1,7 +1,13 @@
 @use 'src/styles/vars';
+@use 'src/styles/mixins';
 
 .input-search {
-  
+  @include mixins.searchBar;
+}
+
+.card-tag {
+  @include mixins.label;
+  background-color: vars.$infoColor;
 }
 
 .add {
