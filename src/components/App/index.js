@@ -8,6 +8,7 @@ import Login from 'src/components/Login';
 import SignUp from 'src/components/SignUp';
 import List from 'src/components/Lists/List';
 import Error404 from 'src/components/Error404';
+import Home from 'src/components/Home';
 import Add from 'src/components/Lists/Add';
 
 // == Import style
@@ -19,7 +20,7 @@ const App = () => (
   <div className="app">
     <Header />
     <Routes>
-      <Route path="/" element={<div>Bienvenue sur la page d'accueil</div>} />
+      <Route path="/" element={<Home />} />
       <Route path="/connexion" element={<Login />} />
       <Route path="/inscription" element={<SignUp />} />
       <Route path="/jeuxvideo/liste" element={<List />} />

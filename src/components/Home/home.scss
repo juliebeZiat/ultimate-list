@@ -1,0 +1,82 @@
+@use 'src/styles/vars';
+
+.home {
+  margin: 5em 0;
+  text-align: center;
+  color: vars.$lightColor;
+
+  &-title {
+    font-size: 2em;
+    margin-bottom: 1em;
+    font-weight: bold;
+  }
+
+  &-tagline {
+    width: 30%;
+    margin: 2em auto;
+    color: #989898;
+    font-size: 1.2em;
+  }
+
+  &-login {
+    &-buttons {
+      margin-bottom: 2em;
+      button {
+        padding: 1em;
+        border: none;
+        border-radius: 2em;
+        background-color: vars.$appColor;
+        color: vars.$lightColor;
+        font-size: 1.3em;
+        width: 10em;
+        margin-right: 1em;
+
+        &:hover {
+          background-color: lighten(vars.$appColor, 10%);
+          transition: 0.3s;
+        }
+      }
+    }
+  }
+
+  &-logout {
+    &-title {
+      font-size: 1.6em;
+      margin-bottom: 2em;
+
+      span {
+        color: vars.$appColor;
+        font-weight: bold;
+      }
+    }
+
+    &-mode {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+
+      &-videogame, &-podcast {
+        margin-right: 2em;
+        padding: 4em;
+        border-radius: 8em;
+      }
+
+      &-videogame {
+        background-color: vars.$modeColor;
+
+        &-text {
+          opacity: 0;
+        }
+      }
+
+      &-podcast {
+        background-color: #FFA47A;
+      }
+    }
+    .home-logout-mode-videogame:hover .home-logout-mode-videogame-text {
+      opacity: 1;
+      transition: 0.3s;
+    }
+  }
+
+}
