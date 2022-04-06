@@ -1,0 +1,84 @@
+@use 'src/styles/vars';
+
+.list {
+  margin-bottom: 5em;
+
+  &-header {
+    text-align: center;
+    padding: 1em;
+    margin: auto;
+    max-width: 500px;
+
+    &-menu {
+      display: flex;
+      
+      @media screen and (min-width: 1024px) {
+        margin-top: 1em;
+        position: fixed;
+        top: 5rem;
+        left: 3.5rem;
+        flex-direction: column;
+        height: 100vh;
+      }
+      @media screen and (max-width: 768px) {
+        justify-content: center;
+        margin-right: .5em;
+      }
+
+      &-mode {
+        color: vars.$lightColor;
+        padding: .8em 1em;
+        margin-bottom: 3em;
+        border-radius: .8em;
+        transition: 0.3s;
+        background-color: lighten(vars.$backgroundColor, 5%);
+
+        &-icon {
+          width: 35px;
+          filter: invert(100%);
+        }
+
+        @media screen and (max-width: 768px) {
+          margin-left: .5em;
+        }
+
+        &:hover {
+          background-color: lighten(vars.$backgroundColor, 20%);
+        }
+
+        &.active {
+          background-color: vars.$iconVideogameBackgroundColor;
+
+          &:hover {
+            background-color: lighten(vars.$iconVideogameBackgroundColor, 10%);
+          }
+        }
+      }
+    }
+
+    &-title {
+      display: flex;
+      justify-content: center;
+      
+      &-label {
+        background-color: vars.$modeColor;
+        position: absolute;
+        top: -.5em;
+        right: -2.5em;
+        font-size: .3em;
+        font-weight: 400;
+        padding: 0 .5em;
+        border-radius: 1em;
+      }
+
+      &-mode {
+        position: relative;
+        font-size: 2em;
+        font-weight: bold;
+        margin-right: 1em;
+        color: vars.$lightColor;
+      }
+
+    }
+  }
+}

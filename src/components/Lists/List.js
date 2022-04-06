@@ -1,5 +1,6 @@
 // == Import style
 import Toggle from 'src/assets/icons/toggle-on.svg';
+import './list.scss';
 
 // == Import Component
 import { Link } from 'react-router-dom';
@@ -39,7 +40,7 @@ const List = () => (
         </div>
         <div className="list-items-content-details">
           <div className="list-items-content-details-title">Stardew Valley</div>
-          <div className="">En cours</div>
+          <div className="list-items-content-details-status">En cours</div>
         </div>
       </div>
     </div>

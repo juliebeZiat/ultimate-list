@@ -1,5 +1,5 @@
 // == Import style
-import './list.scss';
+import './lists.scss';
 import './add.scss';
 import Videogame from 'src/assets/icons/videogame.svg';
 import Podcast from 'src/assets/icons/podcast.svg';
