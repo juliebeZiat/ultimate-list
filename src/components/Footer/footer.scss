@@ -8,10 +8,7 @@
   position: absolute;
   height: 100px;
   left: 20%;
-
-  @media screen and (min-width: 768px) {
-    bottom: 0;
-  }
+  bottom: 0;
   
   @media screen and (max-width: 768px) {
     &-columns {
