@@ -7,10 +7,19 @@
   &-header {
     text-align: center;
     padding: 1em;
+    margin: auto;
+    max-width: 500px;
 
     &-menu {
       display: flex;
-      flex-wrap: wrap;
+      
+      @media screen and (min-width: 1024px) {
+        position: fixed;
+        top: 5rem;
+        left: 3.5rem;
+        flex-direction: column;
+        height: 100vh;
+      }
       @media screen and (max-width: 768px) {
         justify-content: center;
         margin-right: .5em;
@@ -19,7 +28,7 @@
       &-mode {
         color: vars.$lightColor;
         padding: 1em;
-        margin-bottom: 1em;
+        margin-bottom: 3em;
         border-radius: .8em;
         transition: 0.3s;
 
@@ -28,15 +37,14 @@
         }
 
         &:hover {
-          background-color: rgba(128, 128, 128, 0.151);
+          background-color: lighten(vars.$backgroundColor, 5%);
         }
 
         &.active {
-          background-color: blueviolet;
+          background-color: vars.$iconVideogameBackgroundColor;
 
           &:hover {
-            color: vars.$darkColor;
-            background-color: vars.$secondaryColor;
+            background-color: lighten(vars.$iconVideogameBackgroundColor, 10%);
           }
         }
       }
@@ -45,7 +53,6 @@
     &-title {
       display: flex;
       justify-content: center;
-      margin-bottom: 1em;
       
       &-label {
         background-color: vars.$modeColor;
@@ -112,7 +119,11 @@
 
     @media screen and (min-width: 768px) {
       width: 800px;
-      margin: 2em 0 2em 22em;
+      margin: 2em auto;
+    }
+
+    @media screen and (max-width: 768px) {
+      margin-top: 2em;
     }
     
     &-button {
@@ -135,12 +146,8 @@
     margin: auto;
     @media screen and (min-width: 768px) {
       width: 800px;
-      margin: 2em 0 2em 22em;
+      margin: 2em auto;
     }
-    
-    // @media screen and (min-width: 768px) {
-    //   padding: 3em 5em 3em 15em;
-    // }
     
     &-date {
       color: vars.$lightColor;
@@ -164,61 +171,6 @@
           text-transform: uppercase;
           background-color: #E3E1FF;
           font-weight: 500;
-        }
-      }
-    }
-  }
-}
-
-
-// scss Page Ajouter un item
-.add {
-  margin-bottom: vars.$marginBottom;
-
-  &-modTitle {
-    font-weight: bold;
-    margin-bottom: vars.$marginBottom;
-  }
-
-  &-modSubtitle {
-    font-size: 1.3rem;
-    font-weight: normal;
-    margin-bottom: vars.$marginBottom;
-  }
-  
-  &-search {
-    margin-bottom: 5rem;
-
-    &-bar {
-      .ui.input>input {
-        background-color: vars.$secondaryColor;
-      }
-    }
-  }
-
-  &-reco {
-    &-cardGroup {
-      background-color: vars.$secondaryColor;
-      border-radius: vars.$borderRadius;
-      padding: 2rem;
-
-      &-card {
-        position: relative;
-
-        &-button {
-          position: absolute;
-          top: -0.5rem;
-          left: -0.5rem;
-          z-index: 1;
-
-          width: 2rem!important;
-          padding: 0.5rem!important;
-        }
-
-        .card-content {
-          .card-tag {
-            margin-top: .5rem;
-          }
         }
       }
     }
