@@ -1,0 +1,26 @@
+@use 'src/styles/vars';
+
+.footer {
+  width: 60%;
+  margin: auto;
+  color: vars.$lightColor;
+
+  &-column3 {
+      .title3 {
+          margin-bottom: 1em;
+      }
+  }
+
+  &-columns {
+    display: flex;
+    justify-content: space-around;
+
+    a {
+      color: vars.$lightColor;
+
+        &:hover {
+          color: darken(vars.$lightColor, 30%);
+        }
+    }
+  }
+}
