@@ -104,6 +104,11 @@
         background-color: vars.$iconVideogameBackgroundColor;
         position: relative;
 
+        &-icon {
+          filter: invert(100%);
+          width: 80px;
+        }
+
         &:hover .mode-title {
           opacity: 1;
           transition: 0.3s;
@@ -124,6 +129,11 @@
       &-podcast {
         background-color: vars.$iconPodcastBackgroundColor;
         position: relative;
+
+        &-icon {
+          filter: invert(100%);
+          width: 80px;
+        }
 
         &:hover .mode-title{
           opacity: 1;
