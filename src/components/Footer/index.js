@@ -18,7 +18,7 @@ const Footer = () => (
         </Link>
       </div>
       {/* Column3 */}
-      <div className="footer-column3">
+      <div className="footer-columns-column3">
         <Link to="/">
           <h3 className="title3">Ultimate List</h3>
         </Link>

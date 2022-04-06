@@ -1,7 +1,8 @@
 // == Import style
 import './list.scss';
 import './add.scss';
-import { Icon } from 'semantic-ui-react';
+import Videogame from 'src/assets/icons/videogame.svg';
+import Podcast from 'src/assets/icons/podcast.svg';
 
 // == Import Component
 import { Link } from 'react-router-dom';
@@ -11,10 +12,12 @@ const Lists = () => (
     <div className="list-header-menu">
       <Link to="/jeuxvideo/liste">
         <div className="list-header-menu-mode active">
-          <Icon size="big" name="gamepad" />
+          <img className="list-header-menu-mode-icon" src={Videogame} alt="icone jeu-video" />
         </div>
       </Link>
-      <div className="list-header-menu-mode"><Icon size="big" name="video play" /></div>
+      <div className="list-header-menu-mode">
+        <img className="list-header-menu-mode-icon" src={Podcast} alt="icone podcast" />
+      </div>
     </div>
 
     <div className="list-header-title">
