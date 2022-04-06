@@ -8,11 +8,11 @@ const HomeLogin = () => (
     <div className="home-login-mode">
       <div className="home-login-mode-videogame">
         <Icon className="home-login-mode-videogame-icon" size="huge" name="gamepad" />
-        <p className="home-login-mode-videogame-title">Jeux vidéo</p>
+        <p className="mode-title">Jeux vidéo</p>
       </div>
       <div className="home-login-mode-podcast">
         <Icon className="home-login-mode-podcast-icon" size="huge" name="podcast" />
-        <p className="home-login-mode-podcast-title">Podcasts</p>
+        <p className="mode-title">Podcasts</p>
       </div>
     </div>
   </div>
