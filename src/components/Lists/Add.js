@@ -1,7 +1,4 @@
 // == Import Component
-import {
-  Icon,
-} from 'semantic-ui-react';
 import Lists from '.';
 
 const Add = () => (
@@ -30,7 +27,7 @@ const Add = () => (
               <p>Description</p>
               <span className="card-tag">TAG</span>
             </div>
-            <button className="add-reco-cards-card-button" type="button" aria-label="icon plus"><Icon name="plus" /></button>
+            <button className="add-reco-cards-card-button" type="button" aria-label="icon plus" />
           </li>
 
           <li className="add-reco-cards-card">
@@ -40,7 +37,7 @@ const Add = () => (
               <p>Description</p>
               <span className="card-tag">TAG</span>
             </div>
-            <button className="add-reco-cards-card-button" type="button" aria-label="icon plus"><Icon name="plus" /></button>
+            <button className="add-reco-cards-card-button" type="button" aria-label="icon plus" />
           </li>
 
           <li className="add-reco-cards-card">
@@ -50,7 +47,7 @@ const Add = () => (
               <p>Description</p>
               <span className="card-tag">TAG</span>
             </div>
-            <button className="add-reco-cards-card-button" type="button" aria-label="icon plus"><Icon name="plus" /></button>
+            <button className="add-reco-cards-card-button" type="button" aria-label="icon plus" />
           </li>
 
           <li className="add-reco-cards-card">
@@ -60,7 +57,7 @@ const Add = () => (
               <p>Description</p>
               <span className="card-tag">TAG</span>
             </div>
-            <button className="add-reco-cards-card-button" type="button" aria-label="icon plus"><Icon name="plus" /></button>
+            <button className="add-reco-cards-card-button" type="button" aria-label="icon plus" />
           </li>
         </ul>
 

@@ -33,3 +33,26 @@
     box-shadow: 0 0 4px lighten(vars.$secondaryColor, 5%);
   }
 }
+
+@mixin addButton {
+  border-radius: 50px;
+  border: none;
+  width: 22px;
+  height: 22px;
+  padding: 0 0 0 0.2rem;
+  color: vars.$backgroundColor;
+  background-image: url('src/assets/icons/add-white.png');
+  background-repeat: no-repeat;
+  background-size: 18px;
+  background-position-y: 2px;
+  background-position-x: 2px;
+  background-color: lighten(vars.$backgroundColor, 15%);
+
+  position: absolute;
+  top: -10px;
+  left: -10px;
+
+  &:hover {
+    background-color: lighten(vars.$backgroundColor, 30%);
+  }
+}
