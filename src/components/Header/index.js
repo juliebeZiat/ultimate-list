@@ -1,9 +1,24 @@
 // == Import style
 import './header.scss';
+import { Link } from 'react-router-dom';
+import Logo from './logoUL.png';
+import ProfilIcon from '../../assets/ProfilIcon.png';
 
-const Header = () => (
-  <div>Le header component !!!</div>
-);
+// eslint-disable-next-line arrow-body-style
+const Header = () => {
+  return (
+    <div className="header">
+      <div className="header-image">
+        <Link to="/">
+          <img className="header-image-img" src={Logo} alt="" />
+        </Link>
+      </div>
+      <div className="header-profil">
+        <img className="header-profil-icon" src={ProfilIcon} alt="" />
+      </div>
+    </div>
+  );
+};
 
 // == Export
 export default Header;
