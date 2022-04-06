@@ -13,13 +13,3 @@ $appColor: #223FFF;
 $secondaryColor: #2e2e2e;
 $marginBottom: 2rem;
 $borderRadius: .6rem;
-
-//Mixins
-@mixin label {
-  text-transform: uppercase;
-  background-color: vars.$lightColor;
-  font-size: .7em;
-  width: fit-content;
-  padding: .2em .5em;
-  border-radius: .5em;
-}

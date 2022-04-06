@@ -1,7 +1,4 @@
 // == Import style
-import {
-  Label,
-} from 'semantic-ui-react';
 import Toggle from 'src/assets/icons/toggle-on.svg';
 
 // == Import Component
@@ -42,7 +39,7 @@ const List = () => (
         </div>
         <div className="list-items-content-details">
           <div className="list-items-content-details-title">Stardew Valley</div>
-          <div className="list-items-content-details-status">En cours</div>
+          <div className="">En cours</div>
         </div>
       </div>
     </div>
