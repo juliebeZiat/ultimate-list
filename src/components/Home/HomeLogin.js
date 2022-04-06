@@ -2,19 +2,21 @@
 import { Icon } from 'semantic-ui-react';
 import './home.scss';
 
-const HomeLogout = () => (
-  <div className="home-logout">
-    <div className="home-logout-title">Choisissez le type de <span>liste</span> que vous souhaitez créer ou modifier</div>
-    <div className="home-logout-mode">
-      <div className="home-logout-mode-videogame">
-        <Icon size="huge" name="gamepad" />
+const HomeLogin = () => (
+  <div className="home-login">
+    <h3 className="home-login-title">Choisissez le type de <span>liste</span> que vous souhaitez créer ou modifier</h3>
+    <div className="home-login-mode">
+      <div className="home-login-mode-videogame">
+        <Icon className="home-login-mode-videogame-icon" size="huge" name="gamepad" />
+        <p className="home-login-mode-videogame-title">Jeux vidéo</p>
       </div>
-      <div className="home-logout-mode-podcast">
-        <Icon size="huge" name="podcast" />
+      <div className="home-login-mode-podcast">
+        <Icon className="home-login-mode-podcast-icon" size="huge" name="podcast" />
+        <p className="home-login-mode-podcast-title">Podcasts</p>
       </div>
     </div>
   </div>
 );
 
 // == Export
-export default HomeLogout;
+export default HomeLogin;

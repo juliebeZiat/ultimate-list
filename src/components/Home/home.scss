@@ -19,13 +19,22 @@
   }
 
   &-tagline {
-    width: 30%;
     margin: 2em auto;
     color: #989898;
     font-size: 1.2em;
+
+    @media screen and (min-width: 1024px) {
+      width: 30%;
+    }
+    @media screen and (max-width: 1024px) {
+      width: 45%;
+    }
+    @media screen and (max-width: 425px) {
+      width: 80%;
+    }
   }
 
-  &-login {
+  &-logout {
     &-buttons {
       margin-bottom: 2em;
       button {
@@ -46,10 +55,11 @@
     }
   }
 
-  &-logout {
+  &-login {
     &-title {
       font-size: 1.6em;
       margin-bottom: 2em;
+      font-weight: normal;
 
       span {
         color: vars.$appColor;
@@ -66,29 +76,65 @@
         display: flex;
         justify-content: center;
         align-items: center;
+
         margin-right: 2em;
         width: 180px;
         height: 180px;
+
+        @media screen and (max-width: 425px) {
+          width: 100px;
+          height: 100px;
+          margin: auto;
+        }
+
         border-radius: 50%;
         box-shadow: 5px 5px 5px darken(vars.$backgroundColor, 5%);
-
       }
 
       &-videogame {
         background-color: vars.$modeColor;
+        position: relative;
 
-        &-text {
+        &-title {
           opacity: 0;
+          position: absolute;
+          font-size: 2rem;
         }
       }
 
       &-podcast {
         background-color: #FFA47A;
+        position: relative;
+
+        &-title {
+          opacity: 0;
+          position: absolute;
+          font-size: 2rem;
+        }
       }
     }
-    .home-logout-mode-videogame:hover .home-logout-mode-videogame-text {
+    .home-login-mode-videogame:hover .home-login-mode-videogame-title {
       opacity: 1;
       transition: 0.3s;
+    }
+
+    .home-login-mode-videogame:hover .home-login-mode-videogame-icon {
+      opacity: 0;
+      transition: 0.3s;
+    }
+
+    .home-login-mode-podcast:hover .home-login-mode-podcast-title {
+      opacity: 1;
+      transition: 0.3s;
+    }
+
+    .home-login-mode-podcast:hover .home-login-mode-podcast-icon {
+      opacity: 0;
+      transition: 0.3s;
+    }
+
+    .home-login-mode-videogame:hover, .home-login-mode-podcast:hover {
+      cursor: pointer;
     }
   }
 
