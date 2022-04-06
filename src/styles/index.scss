@@ -2,12 +2,13 @@
 @use 'vars';
 
 html body {
-  font-family: sans-serif;
   background-color: vars.$backgroundColor;
-
   background-image: url('src/assets/wave_1.svg');
   background-repeat: no-repeat;
   background-position: bottom center;
+
+  background-color: vars.$backgroundColor;
+  font-family: 'Inter', sans-serif;
 }
 
 /* 
