@@ -20,6 +20,9 @@ const Add = () => (
             iconPosition: 'left',
           }}
         />
+
+        <input className="input-search" type="search" id="item-search" />
+
       </div>
 
       <div className="add-reco">

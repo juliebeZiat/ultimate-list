@@ -1,7 +1,7 @@
 // == Import style
 import './home.scss';
 import HomeLogin from './HomeLogin';
-import HomeLogout from './HomeLogout';
+// import HomeLogout from './HomeLogout';
 
 const Home = () => (
   <div className="home">
