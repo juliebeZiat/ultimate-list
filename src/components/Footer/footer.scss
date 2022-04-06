@@ -4,8 +4,24 @@
   width: 60%;
   margin: auto;
   color: vars.$lightColor;
+  text-align: center;
+  
+  @media screen and (max-width: 768px) {
+    &-columns {
+      display: flex;
+      flex-wrap: wrap;
+      margin: auto;
+      width: 75%;
+      font-size: .8em;
 
-  &-column3 {
+      &-column3 {
+        margin: 1em 0;
+        order: 6;
+      }
+    }
+  }
+
+  &-columns-column3 {
       .title3 {
           margin-bottom: 1em;
       }
