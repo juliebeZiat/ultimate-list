@@ -46,6 +46,7 @@
         font-size: 1.3em;
         width: 10em;
         margin-right: 1em;
+        margin-bottom: 1em;
 
         &:hover {
           background-color: lighten(vars.$appColor, 10%);
@@ -92,7 +93,7 @@
       }
 
       &-videogame {
-        background-color: vars.$modeColor;
+        background-color: vars.$iconVideogameBackgroundColor;
         position: relative;
 
         &:hover .mode-title {
@@ -107,11 +108,13 @@
 
         &:hover {
           cursor: pointer;
+          box-shadow: 0px 0px 15px lighten(vars.$backgroundColor, 15%);
+          transition: 0.3s;
         }
       }
 
       &-podcast {
-        background-color: #FFA47A;
+        background-color: vars.$iconPodcastBackgroundColor;
         position: relative;
 
         &:hover .mode-title{
@@ -126,6 +129,8 @@
 
         &:hover {
           cursor: pointer;
+          box-shadow: 0px 0px 15px lighten(vars.$backgroundColor, 15%);
+          transition: 0.3s;
         }
       }
 
