@@ -1,8 +1,6 @@
 // == Import style
-import {
-  Label,
-} from 'semantic-ui-react';
 import Toggle from 'src/assets/icons/toggle-on.svg';
+import './list.scss';
 
 // == Import Component
 import { Link } from 'react-router-dom';

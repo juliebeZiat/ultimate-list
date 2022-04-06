@@ -1,108 +1,29 @@
 @use 'src/styles/vars';
+@use 'src/styles/mixins';
 
 // Page Liste
 .list {
-  margin-bottom: 5em;
-
-  &-header {
-    text-align: center;
+  &-header-toggle {
+    display: flex;
+    justify-content: center;
     padding: 1em;
-    margin: auto;
-    max-width: 500px;
+    color: vars.$lightColor;
+
+    &-icon {
+      filter: invert(100%);
+    }
 
     &-menu {
-      display: flex;
-      
-      @media screen and (min-width: 1024px) {
-        margin-top: 1em;
-        position: fixed;
-        top: 5rem;
-        left: 3.5rem;
-        flex-direction: column;
-        height: 100vh;
-      }
-      @media screen and (max-width: 768px) {
-        justify-content: center;
-        margin-right: .5em;
-      }
+      padding: 0 1em;
+      padding-top: .1em;
 
-      &-mode {
-        color: vars.$lightColor;
-        padding: .8em 1em;
-        margin-bottom: 3em;
-        border-radius: .8em;
-        transition: 0.3s;
-        background-color: lighten(vars.$backgroundColor, 5%);
-
-        &-icon {
-          width: 35px;
-          filter: invert(100%);
-        }
-
-        @media screen and (max-width: 768px) {
-          margin-left: .5em;
-        }
-
-        &:hover {
-          background-color: lighten(vars.$backgroundColor, 20%);
-        }
-
-        &.active {
-          background-color: vars.$iconVideogameBackgroundColor;
-
-          &:hover {
-            background-color: lighten(vars.$iconVideogameBackgroundColor, 10%);
-          }
-        }
+      &.active {
+        font-weight: 800;
       }
     }
+  }
 
-    &-title {
-      display: flex;
-      justify-content: center;
-      
-      &-label {
-        background-color: vars.$modeColor;
-        position: absolute;
-        top: -.5em;
-        right: -2.5em;
-        font-size: .3em;
-        font-weight: 400;
-        padding: 0 .5em;
-        border-radius: 1em;
-      }
-
-      &-mode {
-        position: relative;
-        font-size: 2em;
-        font-weight: bold;
-        margin-right: 1em;
-        color: vars.$lightColor;
-      }
-
-    }
-
-    &-toggle {
-      display: flex;
-      justify-content: center;
-      padding: 1em;
-      color: vars.$lightColor;
-
-      &-icon {
-        filter: invert(100%);
-      }
-
-      &-menu {
-        padding: 0 1em;
-        padding-top: .1em;
-
-        &.active {
-          font-weight: 800;
-        }
-      }
-    }
-
-    &-progress {
+    &-header-progress {
       display: flex;
       justify-content: center;
       
@@ -129,68 +50,68 @@
 
       }
     }
+}
+  
+.list-add {
+  margin-bottom: 2em;
+  width: 90%;
+  margin: auto 1em;
+  padding-bottom: 1em;
+
+  @media screen and (min-width: 768px) {
+    width: 800px;
+    margin: 2em auto;
+  }
+
+  @media screen and (max-width: 768px) {
+    margin-top: 2em;
   }
   
-  .list-add {
-    margin-bottom: 2em;
-    width: 90%;
-    margin: auto 1em;
-    padding-bottom: 1em;
+  &-button {
+    background-color: vars.$infoColor;
+    padding: .8em;
+    border-radius: 1.2em;
+    border: none;
+    transition: 0.3s;
 
-    @media screen and (min-width: 768px) {
-      width: 800px;
-      margin: 2em auto;
-    }
-
-    @media screen and (max-width: 768px) {
-      margin-top: 2em;
-    }
-    
-    &-button {
-      background-color: vars.$infoColor;
-      padding: .8em;
-      border-radius: 1.2em;
-      border: none;
-      transition: 0.3s;
-
-      &:hover {
-        background-color: vars.$infoHoverColor;
-        color: vars.$lightColor;
-      }
-    }
-  }
-  
-  .list-items {
-    overflow-y: scroll;
-    height: 300px;
-    margin: auto;
-    width: 90%;
-    @media screen and (min-width: 768px) {
-      width: 800px;
-      margin: 2em auto;
-    }
-    
-    &-date {
+    &:hover {
+      background-color: vars.$infoHoverColor;
       color: vars.$lightColor;
     }
-    
-    &-content {
-      margin-top: 2em;
-      display: flex;
+  }
+}
+  
+.list-items {
+  overflow-y: scroll;
+  height: 300px;
+  margin: auto;
+  width: 90%;
+  @media screen and (min-width: 768px) {
+    width: 800px;
+    margin: 2em auto;
+  }
+  
+  &-date {
+    color: vars.$lightColor;
+  }
+  
+  &-content {
+    margin-top: 2em;
+    display: flex;
 
-      &-details {
-        background-color: vars.$darkColor;
-        padding: .5em 1em;
-        width: 80%;
+    &-details {
+      background-color: vars.$darkColor;
+      padding: .5em 1em;
+      width: 80%;
 
-        &-title {
-          color: vars.$lightColor;
-          margin-bottom: 1em;
-        }
+      &-title {
+        color: vars.$lightColor;
+        margin-bottom: 1em;
+      }
 
-        // &-status {
-        //   @include label;
-        // }
+      &-status {
+        @include mixins.label;
+        background-color: vars.$modeColor;
       }
     }
   }
