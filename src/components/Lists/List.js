@@ -1,7 +1,8 @@
 // == Import style
 import {
-  Icon, Label, Menu, Image,
+  Label,
 } from 'semantic-ui-react';
+import Toggle from 'src/assets/icons/toggle-on.svg';
 
 // == Import Component
 import { Link } from 'react-router-dom';
@@ -11,18 +12,9 @@ const List = () => (
   <div className="list">
     <Lists />
     <div className="list-header-toggle">
-      <Menu text inverted>
-        <Menu.Item
-          name="Ma liste"
-          active
-        />
-        <Menu.Item>
-          <Icon name="toggle off" className="list-header-toggle-icon" />
-        </Menu.Item>
-        <Menu.Item
-          name="Recommandations"
-        />
-      </Menu>
+      <div className="list-header-toggle-menu active">Ma liste</div>
+      <img className="list-header-toggle-icon" src={Toggle} alt="toggle-icon" />
+      <div className="list-header-toggle-menu">Recommandations</div>
     </div>
 
     <div className="list-header-progress">
@@ -46,11 +38,11 @@ const List = () => (
       <div className="list-items-date">Mars 2022</div>
       <div className="list-items-content">
         <div className="list-items-content-image">
-          <Image size="tiny" src="https://i.picsum.photos/id/361/100/100.jpg?hmac=XkcZtgG_QqVwd_xSW0st9Gfwg2srT7czclvuW_lGtwA" />
+          <img src="https://i.picsum.photos/id/361/100/100.jpg?hmac=XkcZtgG_QqVwd_xSW0st9Gfwg2srT7czclvuW_lGtwA" alt="miniature-jeu-video" />
         </div>
         <div className="list-items-content-details">
           <div className="list-items-content-details-title">Stardew Valley</div>
-          <Label size="mini" className="list-items-content-details-status">En cours</Label>
+          <div className="list-items-content-details-status">En cours</div>
         </div>
       </div>
     </div>
