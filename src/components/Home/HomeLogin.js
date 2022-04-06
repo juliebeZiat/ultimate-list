@@ -1,15 +1,20 @@
 // == Import style
-import { Link } from 'react-router-dom';
+import { Icon } from 'semantic-ui-react';
 import './home.scss';
 
-const HomeLogin = () => (
-  <div className="home-login">
-    <div className="home-login-buttons">
-      <Link to="/connexion"><button type="button">Connexion</button></Link>
-      <Link to="/inscription"><button type="button">Inscription</button></Link>
+const HomeLogout = () => (
+  <div className="home-logout">
+    <div className="home-logout-title">Choisissez le type de <span>liste</span> que vous souhaitez créer ou modifier</div>
+    <div className="home-logout-mode">
+      <div className="home-logout-mode-videogame">
+        <Icon size="huge" name="gamepad" />
+      </div>
+      <div className="home-logout-mode-podcast">
+        <Icon size="huge" name="podcast" />
+      </div>
     </div>
   </div>
 );
 
 // == Export
-export default HomeLogin;
+export default HomeLogout;

@@ -1,11 +1,18 @@
 @use 'src/styles/vars';
 
 .home {
-  margin: 5em 0;
+  margin: auto;
   text-align: center;
   color: vars.$lightColor;
+  // à retirer quand le footer sera fixé
+  height: 83vh;
 
   &-title {
+    font-size: 3rem;
+    margin-top: 2rem!important;
+  }
+
+  &-subtitle {
     font-size: 2em;
     margin-bottom: 1em;
     font-weight: bold;
@@ -56,9 +63,15 @@
       justify-content: center;
 
       &-videogame, &-podcast {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         margin-right: 2em;
-        padding: 4em;
-        border-radius: 8em;
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        box-shadow: 5px 5px 5px darken(vars.$backgroundColor, 5%);
+
       }
 
       &-videogame {
