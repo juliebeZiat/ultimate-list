@@ -7,6 +7,14 @@
   // à retirer quand le footer sera fixé
   height: 83vh;
 
+  a {
+    color: vars.$lightColor;
+  }
+
+  a:hover {
+    color: vars.$lightColor;
+  }
+
   &-title {
     font-size: 3rem;
     margin-top: 2rem!important;

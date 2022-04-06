@@ -1,5 +1,7 @@
-// == Import style
+// == Import component
 import { Link } from 'react-router-dom';
+
+// == Import style
 import './home.scss';
 
 const HomeLogout = () => (
