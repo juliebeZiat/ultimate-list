@@ -1,8 +1,13 @@
 @use 'reset';
 @use 'vars';
 
-body {
+html body {
   font-family: sans-serif;
+  background-color: vars.$backgroundColor;
+
+  background-image: url('src/assets/wave_1.svg');
+  background-repeat: no-repeat;
+  background-position: bottom center;
 }
 
 /* 
