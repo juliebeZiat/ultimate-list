@@ -7,13 +7,18 @@
   &-header {
     text-align: center;
     padding: 1em;
+    margin: auto;
+    max-width: 500px;
 
     &-menu {
       display: flex;
-      flex-wrap: wrap;
-      @media screen and (min-width: 768px) {
-        width: 50px;
+      
+      @media screen and (min-width: 1024px) {
         position: fixed;
+        top: 5rem;
+        left: 3.5rem;
+        flex-direction: column;
+        height: 100vh;
       }
       @media screen and (max-width: 768px) {
         justify-content: center;
@@ -23,7 +28,7 @@
       &-mode {
         color: vars.$lightColor;
         padding: 1em;
-        margin-bottom: 1em;
+        margin-bottom: 3em;
         border-radius: .8em;
         transition: 0.3s;
 

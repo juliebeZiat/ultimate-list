@@ -22,6 +22,8 @@
   
   &-search {
     margin-bottom: 5rem;
+    margin: auto;
+    max-width: 50rem;
 
     &-bar {
       .ui.input>input {
@@ -31,6 +33,12 @@
   }
 
   &-reco {
+    margin: auto;
+
+    @media screen and (max-width: 1024px) {
+      max-width: 700px;
+    }
+
     &-cards {
       display: flex;
       flex-wrap: wrap;
