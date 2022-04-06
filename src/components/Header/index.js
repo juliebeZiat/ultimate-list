@@ -1,7 +1,7 @@
 // == Import style
 import './header.scss';
 import { Link } from 'react-router-dom';
-import Logo from './logoUL.png';
+import Logo from 'src/assets/logoUl_mini.png';
 import ProfilIcon from '../../assets/ProfilIcon.png';
 
 // eslint-disable-next-line arrow-body-style
