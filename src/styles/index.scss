@@ -6,8 +6,11 @@ html body {
   background-image: url('src/assets/wave_1.svg');
   background-repeat: no-repeat;
   background-position: bottom center;
-
   background-color: vars.$backgroundColor;
+  background-attachment: fixed;
+
+  @media screen and (max-width: 768px) {
+  }
   font-family: 'Inter', sans-serif;
 }
 
