@@ -65,11 +65,15 @@
         position: absolute;
         top: -.5em;
         right: -2.5em;
-        @include mixins.label;
         background-color: vars.$modeColor;
-        font-size: .3em;
+        font-size: .4em;
         font-family: 'Inter';
-
+        width: 2em;
+        height: 2em;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
 
       &-mode {
