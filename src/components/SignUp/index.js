@@ -7,7 +7,7 @@ const SignUp = () => (
   <div className="sign">
 
     <div className="sign-header">
-      <div className="sign-header-title">Bienvenue sur <span className="sign-header-title-bold">Ultimate List</span></div>
+      <h1 className="sign-header-title">Bienvenue sur <span className="sign-header-title-bold">Ultimate List</span></h1>
       <div className="sign-header-buttons">
         <Link to="/connexion">
           <button type="button" className="sign-header-buttons-switch">Connexion</button>
