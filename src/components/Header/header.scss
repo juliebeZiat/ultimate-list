@@ -1,13 +1,15 @@
 @use 'src/styles/vars';
 
 .header {
-  position: relative;
+  position: fixed;
+  top: 0;
   display: flex;
   justify-content: space-between;
   background-color: #242323;
   padding: 0.7em;
   width: 100%;
   margin-bottom: 2em;
+  z-index: 1;
 
   &-image {
     
