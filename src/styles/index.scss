@@ -1,6 +1,14 @@
 @use 'reset';
 @use 'vars';
+
+// Inter
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+// Quicksand
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+
+// Rubik
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
 
 html body {
   background-color: vars.$backgroundColor;
@@ -12,3 +20,12 @@ html body {
   font-family: 'Inter', sans-serif;
 }
 
+h1 {
+  font-family: 'Quicksand', sans-serif;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+
+p {
+  font-family: 'Rubik';
+}
