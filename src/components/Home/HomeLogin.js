@@ -2,8 +2,9 @@
 import { Link } from 'react-router-dom';
 
 // == Import style
-import { Icon } from 'semantic-ui-react';
 import './home.scss';
+import Videogame from 'src/assets/icons/videogame.svg';
+import Podcast from 'src/assets/icons/podcast.svg';
 
 const HomeLogin = () => (
   <div className="home-login">
@@ -11,14 +12,14 @@ const HomeLogin = () => (
     <div className="home-login-mode">
       <Link to="/jeuxvideo/liste">
         <div className="home-login-mode-videogame">
-          <Icon className="home-login-mode-videogame-icon" size="huge" name="gamepad" />
+          <img className="home-login-mode-videogame-icon" src={Videogame} alt="icone jeux video" />
           <p className="mode-title">Jeux vidéo</p>
         </div>
       </Link>
 
       <Link to="/podcasts/liste">
         <div className="home-login-mode-podcast">
-          <Icon className="home-login-mode-podcast-icon" size="huge" name="podcast" />
+          <img className="home-login-mode-podcast-icon" src={Podcast} alt="icone podcast" />
           <p className="mode-title">Podcasts</p>
         </div>
       </Link>

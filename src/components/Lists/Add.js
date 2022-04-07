@@ -1,9 +1,4 @@
 // == Import Component
-import {
-  Search,
-  Icon,
-  Label,
-} from 'semantic-ui-react';
 import Lists from '.';
 
 const Add = () => (
@@ -12,16 +7,12 @@ const Add = () => (
     <div className="add">
       <div className="add-search">
         <h2 className="add-modSubtitle">Ajouter un jeu vidéo</h2>
-        <Search
-          className="add-search-bar"
-          placeholder="Assassin's Creed, Elden Ring, God of War..."
-          input={{
-            fluid: true,
-            iconPosition: 'left',
-          }}
+        <input
+          className="input-search"
+          // eslint-disable-next-line react/jsx-max-props-per-line
+          placeholder="Assassin's Creed, Elden Ring, God of War..." type="search"
+          id="item-search"
         />
-
-        <input className="input-search" type="search" id="item-search" />
 
       </div>
 
@@ -34,14 +25,9 @@ const Add = () => (
             <div className="add-reco-cards-card-content">
               <h3>Card</h3>
               <p>Description</p>
-              <Label
-                className="card-tag"
-                color="teal"
-              >
-                TAG
-              </Label>
+              <span className="card-tag">TAG</span>
             </div>
-            <button className="add-reco-cards-card-button" type="button" aria-label="icon plus"><Icon name="plus" /></button>
+            <button className="add-reco-cards-card-button" type="button" aria-label="icon plus" />
           </li>
 
           <li className="add-reco-cards-card">
@@ -49,14 +35,9 @@ const Add = () => (
             <div className="add-reco-cards-card-content">
               <h3>Card</h3>
               <p>Description</p>
-              <Label
-                className="card-tag"
-                color="teal"
-              >
-                TAG
-              </Label>
+              <span className="card-tag">TAG</span>
             </div>
-            <button className="add-reco-cards-card-button" type="button" aria-label="icon plus"><Icon name="plus" /></button>
+            <button className="add-reco-cards-card-button" type="button" aria-label="icon plus" />
           </li>
 
           <li className="add-reco-cards-card">
@@ -64,14 +45,9 @@ const Add = () => (
             <div className="add-reco-cards-card-content">
               <h3>Card</h3>
               <p>Description</p>
-              <Label
-                className="card-tag"
-                color="teal"
-              >
-                TAG
-              </Label>
+              <span className="card-tag">TAG</span>
             </div>
-            <button className="add-reco-cards-card-button" type="button" aria-label="icon plus"><Icon name="plus" /></button>
+            <button className="add-reco-cards-card-button" type="button" aria-label="icon plus" />
           </li>
 
           <li className="add-reco-cards-card">
@@ -79,14 +55,9 @@ const Add = () => (
             <div className="add-reco-cards-card-content">
               <h3>Card</h3>
               <p>Description</p>
-              <Label
-                className="card-tag"
-                color="teal"
-              >
-                TAG
-              </Label>
+              <span className="card-tag">TAG</span>
             </div>
-            <button className="add-reco-cards-card-button" type="button" aria-label="icon plus"><Icon name="plus" /></button>
+            <button className="add-reco-cards-card-button" type="button" aria-label="icon plus" />
           </li>
         </ul>
 

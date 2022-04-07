@@ -1,7 +1,13 @@
 @use 'src/styles/vars';
+@use 'src/styles/mixins';
 
 .input-search {
-  
+  @include mixins.searchBar;
+}
+
+.card-tag {
+  @include mixins.label;
+  background-color: vars.$infoColor;
 }
 
 .add {
@@ -79,20 +85,7 @@
         }
 
         &-button {
-          border-radius: 50px;
-          border: none;
-          width: 22px;
-          height: 22px;
-          padding: 0 0 0 0.2rem;
-          color: vars.$backgroundColor;
-
-          position: absolute;
-          top: -10px;
-          left: -10px;
-        }
-
-        &-button:hover {
-          background-color: lighten(vars.$backgroundColor, 60%);
+          @include mixins.addButton;
         }
       }
     }
