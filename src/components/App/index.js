@@ -10,6 +10,7 @@ import List from 'src/components/Lists/List';
 import Error404 from 'src/components/Error404';
 import Home from 'src/components/Home';
 import Add from 'src/components/Lists/Add';
+import User from 'src/components/User';
 
 // == Import style
 import './styles.scss';
@@ -19,6 +20,7 @@ const App = () => (
   <div className="container-app">
     <div className="app">
       <Header />
+      <User />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/connexion" element={<Login />} />
