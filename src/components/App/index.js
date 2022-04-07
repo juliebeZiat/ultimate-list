@@ -13,7 +13,6 @@ import Add from 'src/components/Lists/Add';
 
 // == Import style
 import './styles.scss';
-import 'semantic-ui-css/semantic.min.css';
 
 // == Composant
 const App = () => (
