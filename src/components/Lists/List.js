@@ -43,6 +43,7 @@ const List = () => (
           <div className="list-items-content-details-status">En cours</div>
         </div>
       </div>
+
     </div>
   </div>
 );
