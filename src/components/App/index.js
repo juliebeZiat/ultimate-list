@@ -17,18 +17,20 @@ import 'semantic-ui-css/semantic.min.css';
 
 // == Composant
 const App = () => (
-  <div className="app">
-    <Header />
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/connexion" element={<Login />} />
-      <Route path="/inscription" element={<SignUp />} />
-      <Route path="/jeuxvideo/liste" element={<List />} />
-      <Route path="/jeuxvideo/ajouter" element={<Add />} />
+  <div className="container-app">
+    <div className="app">
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/connexion" element={<Login />} />
+        <Route path="/inscription" element={<SignUp />} />
+        <Route path="/jeuxvideo/liste" element={<List />} />
+        <Route path="/jeuxvideo/ajouter" element={<Add />} />
 
-      <Route path="/*" element={<Error404 />} />
-    </Routes>
+        <Route path="/*" element={<Error404 />} />
+      </Routes>
 
+    </div>
     <Footer />
   </div>
 );
