@@ -1,6 +1,6 @@
 // == Import
 import { useSelector } from 'react-redux';
-import { findItemsByMode } from 'src/functions/items';
+import { findItemsByMode, convertDate } from 'src/functions/items';
 
 // == Import style
 import Toggle from 'src/assets/icons/toggle-on.svg';
@@ -15,12 +15,6 @@ const List = () => {
 
   // Filter items according to the slug videoGames
   const itemsFiltered = findItemsByMode(userItems, 'videoGames');
-
-  const convertDate = (dateObject) => {
-    const date = new Date(dateObject).toLocaleString('default', { month: 'long', year: 'numeric' });
-    const dateUppercase = date.charAt(0).toUpperCase() + date.slice(1);
-    return dateUppercase;
-  };
 
   return (
     <div className="list">
