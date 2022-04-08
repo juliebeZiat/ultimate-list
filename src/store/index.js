@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 
-import itemsReducer from 'src/reducers/items';
+import reducers from 'src/reducers';
 import itemsApiMiddleware from 'src/middlewares/itemsApiMiddleware';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -12,7 +12,7 @@ const enhancers = composeEnhancers(
 );
 
 const store = createStore(
-  itemsReducer,
+  reducers,
   enhancers,
 );
 

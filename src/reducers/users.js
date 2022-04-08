@@ -1,17 +1,11 @@
-import { SHOW_ITEMS } from '../actions/items';
-
 export const initialState = {
-  list: [],
+  list: [
+    'toto',
+  ],
 };
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case SHOW_ITEMS:
-      return {
-        ...state,
-        list: action.items,
-      };
-
     default:
       return state;
   }
