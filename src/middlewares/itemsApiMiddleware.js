@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import axios from 'axios';
 import { GET_ITEMS_FROM_API, showItems } from '../actions/items';
 

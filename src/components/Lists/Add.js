@@ -29,10 +29,12 @@ const Add = () => {
                 <img className="card-image" src={item.image} alt="" />
                 <div className="card-content">
                   <h3 className="card-title">{item.name}</h3>
-                  <p className="card-description">{item.description}</p>
-                  {item.tags.map((tag) => (
-                    <span className="card-tag" key={tag.id}>{tag.id}</span>
-                  ))}
+                  <p className="card-description">{item.developer}</p>
+                  <div className="card-tags">
+                    {item.tags.map((tag) => (
+                      <span className="card-tag" key={tag.id}>{tag.id}</span>
+                    ))}
+                  </div>
                 </div>
                 <button className="card-button" type="button" aria-label="icon plus" />
               </li>
