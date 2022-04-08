@@ -24,7 +24,7 @@ const Add = () => (
             <img className="card-image" src="https://picsum.photos/500/500" alt="" />
             <div className="card-content">
               <h3 className="card-title">Card</h3>
-              <p className="card-description">Description</p>
+              <p className="card-description">qzserilg uhdrtikjubh bhnj ljksrbnh jlubrtshli jbrstklhijb nilrjthn lirjthbn erttb hkujilrtbh lukjrsthb jhrtb jlrtbh liejrbr hljuhrtbg kjhsertb kjrths  vku rsht bserhjlb jlsrhb klrtsuhjb kjrsthb khbt</p>
               <span className="card-tag">TAG</span>
             </div>
             <button className="card-button" type="button" aria-label="icon plus" />

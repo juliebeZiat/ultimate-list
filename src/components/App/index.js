@@ -18,8 +18,8 @@ import './styles.scss';
 // == Composant
 const App = () => (
   <div className="container-app">
+    <Header />
     <div className="app">
-      <Header />
       <User />
       <Routes>
         <Route path="/" element={<Home />} />
