@@ -7,7 +7,7 @@ const Login = () => (
   <div className="connexion">
 
     <div className="connexion-header">
-      <div className="connexion-header-title">Bienvenue sur <span className="connexion-header-title-bold">Ultimate List</span></div>
+      <h1 className="connexion-header-title">Bienvenue sur <span className="connexion-header-title-bold">Ultimate List</span></h1>
       <div className="connexion-header-buttons">
         <button type="button" className="connexion-header-buttons-switch active">Connexion</button>
         <Link to="/inscription">

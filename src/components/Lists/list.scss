@@ -83,7 +83,7 @@
   
 .list-items {
   overflow-y: scroll;
-  height: 300px;
+  height: 500px;
   margin: auto;
   width: 90%;
   @media screen and (min-width: 768px) {
@@ -98,21 +98,36 @@
   &-content {
     margin-top: 2em;
     display: flex;
-
+    
     &-details {
       background-color: vars.$darkColor;
       padding: .5em 1em;
       width: 80%;
-
+      
       &-title {
         color: vars.$lightColor;
         margin-bottom: 1em;
       }
-
+      
       &-status {
         @include mixins.label;
         background-color: vars.$modeColor;
       }
     }
   }
+}
+
+// Scrollbar style
+.list-items::-webkit-scrollbar {
+  width: 8px;
+}
+
+.list-items::-webkit-scrollbar-track {
+  // background-color: rgba(vars.$lightColor, .3);
+  border-radius: 25px;
+}
+
+.list-items::-webkit-scrollbar-thumb {
+  border-radius: 25px;
+  background-color: vars.$modeColor;
 }

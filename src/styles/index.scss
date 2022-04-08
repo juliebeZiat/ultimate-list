@@ -17,7 +17,7 @@ html body {
   background-position: bottom center;
   background-color: vars.$backgroundColor;
   background-attachment: fixed;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Rubik', sans-serif;
 }
 
 h1 {
@@ -26,6 +26,14 @@ h1 {
   margin-bottom: 2rem;
 }
 
-p {
-  font-family: 'Rubik';
+h2 {
+  font-family: 'Inter', sans-serif;
+}
+
+h3, h4 {
+  font-family: 'Quicksand', sans-serif;
+}
+
+button {
+  font-family: 'Rubik', sans-serif;
 }

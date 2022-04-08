@@ -1,0 +1,21 @@
+@use 'src/styles/vars';
+
+.user-toggle {
+  background-color: vars.$lightColor;
+  padding: 1em;
+  width: 180px;
+  border-radius: 1em 0 0 1em;
+  text-align: right;
+  position: fixed;
+  right:0;
+
+  &-hello {
+    margin-bottom: 1em;
+  }
+
+  &-disconnect, &-delete {
+    font-size: .8em;
+    margin-bottom: 1em;
+    text-decoration: underline;
+  }
+}

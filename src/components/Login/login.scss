@@ -12,6 +12,7 @@
       padding: 1em;
       margin-bottom: 1em;
       line-height: 1em;
+      text-transform: initial;
 
       &-bold {
         font-weight: 600;
@@ -30,7 +31,7 @@
         padding: 1em 1.5em;
         border: none;
         background-color: grey;
-        color: vars.$secondaryColor;
+        color: vars.$lightColor;
 
         &.active {
           background-color: vars.$appColor;
