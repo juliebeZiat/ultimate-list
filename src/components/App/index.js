@@ -11,6 +11,8 @@ import Error404 from 'src/components/Error404';
 import Home from 'src/components/Home';
 import Add from 'src/components/Lists/Add';
 import User from 'src/components/User';
+import Contact from '../Annex/Contact';
+import Team from '../Annex/Team';
 
 // == Import style
 import './styles.scss';
@@ -29,6 +31,8 @@ const App = () => (
         <Route path="/jeuxvideo/ajouter" element={<Add />} />
 
         <Route path="/*" element={<Error404 />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/a-propos" element={<Team />} />
       </Routes>
 
     </div>
