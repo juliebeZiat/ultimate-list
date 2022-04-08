@@ -16,6 +16,7 @@ import User from 'src/components/User';
 
 // == Import actions
 import { getItemsFromApi } from '../../actions/items';
+import { getUserItemsFromApi } from '../../actions/userItems';
 
 // == Import style
 import './styles.scss';
@@ -25,6 +26,10 @@ const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getItemsFromApi());
+  }, []);
+
+  useEffect(() => {
+    dispatch(getUserItemsFromApi());
   }, []);
 
   return (
