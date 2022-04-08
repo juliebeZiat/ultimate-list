@@ -46,15 +46,15 @@ const List = () => {
 
       <div className="list-items">
         {userItems.map((userItem) => (
-          <div className="list-items-content" key={userItem.id}>
-            <div className="list-items-content-date">{convertDate(userItem.item_added_at)}</div>
+          <div className="item" key={userItem.id}>
+            <div className="item-date">{convertDate(userItem.item_added_at)}</div>
             {userItem.items.map((item) => (
-              <div className="list-items-content-details" key={item.id}>
-                <div className="list-items-content-details-image">
-                  <img src={item.image} alt="miniature-jeu-video" />
+              <div className="item-content" key={item.id}>
+                <img className="item-content-image" src={item.image} alt="miniature-jeu-video" />
+                <div className="item-content-detail">
+                  <div className="item-content-detail-title">{item.name}</div>
+                  <div className="item-content-detail-status">{userItem.item_status}</div>
                 </div>
-                <div className="list-items-content-details-title">{item.name}</div>
-                <div className="list-items-content-details-status">{userItem.item_status}</div>
               </div>
             ))}
           </div>
