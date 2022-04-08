@@ -37,7 +37,7 @@ const App = () => {
           <Route path="/connexion" element={<Login />} />
           <Route path="/inscription" element={<SignUp />} />
           <Route path="/jeuxvideo/liste" element={<List />} />
-          <Route path="/jeuxvideo/ajouter" element={<Add />} />
+          <Route path="/:slug/ajouter" element={<Add />} />
 
           <Route path="/*" element={<Error404 />} />
         </Routes>
