@@ -15,7 +15,7 @@
 @mixin searchBar {
   border: none;
   border-radius: 500rem;
-  box-shadow: 0 0 4px vars.$secondaryColor;
+  box-shadow: 0 0 4px lighten(vars.$secondaryColor, 10%);
   width: 100%;
   height: 35px;
   padding: 0 2.5rem;
@@ -24,13 +24,13 @@
   background-image: url('src/assets/icons/search.svg');
   background-repeat: no-repeat;
   background-size: 20px;
-  background-color: vars.$secondaryColor;
+  background-color: lighten(vars.$secondaryColor, 10%);
   background-position-x: 7px;
   background-position-y: 7px;
 
   &:focus {
-    background-color: lighten(vars.$secondaryColor, 5%);
-    box-shadow: 0 0 4px lighten(vars.$secondaryColor, 5%);
+    background-color: lighten(vars.$secondaryColor, 20%);
+    box-shadow: 0 0 4px lighten(vars.$secondaryColor, 20%);
   }
 }
 

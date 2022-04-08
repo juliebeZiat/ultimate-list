@@ -26,19 +26,14 @@
     display: inline-block;
     font-size: 1.3rem;
     font-weight: normal;
-    margin-top: 2rem!important;
+    margin-top: 2rem;
+    margin-bottom: 1rem;;
   }
   
   &-search {
     margin-bottom: 5rem;
     margin: auto;
     max-width: 50rem;
-
-    &-bar {
-      .ui.input>input {
-        background-color: vars.$secondaryColor;
-      }
-    }
   }
 
   &-reco {
