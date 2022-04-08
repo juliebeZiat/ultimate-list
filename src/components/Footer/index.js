@@ -7,13 +7,13 @@ const Footer = () => (
     <div className="footer-columns">
       {/* Column1 */}
       <div className="footer-column1">
-        <Link to="/">
+        <Link to="/a-propos">
           <h6 className="title1">Qui sommes-nous ?</h6>
         </Link>
       </div>
       {/* Column2 */}
       <div className="footer-column2">
-        <Link to="/">
+        <Link to="/contact">
           <h6 className="title2">Contactez-nous</h6>
         </Link>
       </div>

@@ -44,6 +44,71 @@ const List = () => (
         </div>
       </div>
 
+      <div className="list-items-content">
+        <div className="list-items-content-image">
+          <img src="https://i.picsum.photos/id/361/100/100.jpg?hmac=XkcZtgG_QqVwd_xSW0st9Gfwg2srT7czclvuW_lGtwA" alt="miniature-jeu-video" />
+        </div>
+        <div className="list-items-content-details">
+          <div className="list-items-content-details-title">Stardew Valley</div>
+          <div className="list-items-content-details-status">En cours</div>
+        </div>
+      </div>
+
+      <div className="list-items-content">
+        <div className="list-items-content-image">
+          <img src="https://i.picsum.photos/id/361/100/100.jpg?hmac=XkcZtgG_QqVwd_xSW0st9Gfwg2srT7czclvuW_lGtwA" alt="miniature-jeu-video" />
+        </div>
+        <div className="list-items-content-details">
+          <div className="list-items-content-details-title">Stardew Valley</div>
+          <div className="list-items-content-details-status">En cours</div>
+        </div>
+      </div>
+      <div className="list-items-content">
+        <div className="list-items-content-image">
+          <img src="https://i.picsum.photos/id/361/100/100.jpg?hmac=XkcZtgG_QqVwd_xSW0st9Gfwg2srT7czclvuW_lGtwA" alt="miniature-jeu-video" />
+        </div>
+        <div className="list-items-content-details">
+          <div className="list-items-content-details-title">Stardew Valley</div>
+          <div className="list-items-content-details-status">En cours</div>
+        </div>
+      </div>
+      <div className="list-items-content">
+        <div className="list-items-content-image">
+          <img src="https://i.picsum.photos/id/361/100/100.jpg?hmac=XkcZtgG_QqVwd_xSW0st9Gfwg2srT7czclvuW_lGtwA" alt="miniature-jeu-video" />
+        </div>
+        <div className="list-items-content-details">
+          <div className="list-items-content-details-title">Stardew Valley</div>
+          <div className="list-items-content-details-status">En cours</div>
+        </div>
+      </div>
+      <div className="list-items-content">
+        <div className="list-items-content-image">
+          <img src="https://i.picsum.photos/id/361/100/100.jpg?hmac=XkcZtgG_QqVwd_xSW0st9Gfwg2srT7czclvuW_lGtwA" alt="miniature-jeu-video" />
+        </div>
+        <div className="list-items-content-details">
+          <div className="list-items-content-details-title">Stardew Valley</div>
+          <div className="list-items-content-details-status">En cours</div>
+        </div>
+      </div>
+      <div className="list-items-content">
+        <div className="list-items-content-image">
+          <img src="https://i.picsum.photos/id/361/100/100.jpg?hmac=XkcZtgG_QqVwd_xSW0st9Gfwg2srT7czclvuW_lGtwA" alt="miniature-jeu-video" />
+        </div>
+        <div className="list-items-content-details">
+          <div className="list-items-content-details-title">Stardew Valley</div>
+          <div className="list-items-content-details-status">En cours</div>
+        </div>
+      </div>
+      <div className="list-items-content">
+        <div className="list-items-content-image">
+          <img src="https://i.picsum.photos/id/361/100/100.jpg?hmac=XkcZtgG_QqVwd_xSW0st9Gfwg2srT7czclvuW_lGtwA" alt="miniature-jeu-video" />
+        </div>
+        <div className="list-items-content-details">
+          <div className="list-items-content-details-title">Stardew Valley</div>
+          <div className="list-items-content-details-status">En cours</div>
+        </div>
+      </div>
+
     </div>
   </div>
 );
