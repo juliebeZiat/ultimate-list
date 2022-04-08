@@ -1,4 +1,5 @@
 export const initialState = {
+  items: [],
 };
 
 const reducer = (state = initialState, action = {}) => {
