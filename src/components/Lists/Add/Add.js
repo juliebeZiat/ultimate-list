@@ -1,17 +1,21 @@
 // == Import
-import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 // Import action
-import { hideAddRecommendation } from 'src/actions/items';
+import {
+  hideAddRecommendation,
+  changeInputSearchValue,
+} from 'src/actions/items';
 
 // == Import Components
 import Lists from '../index';
 import RecoAdd from './RecoAdd';
+import SearchResults from './SearchResults';
 
 const Add = () => {
   // var used for input search
-  const [inputValue, setInputValue] = useState('');
+  const inputValue = useSelector((state) => state.items.inputSearchValue);
+  console.log(inputValue);
   const isRecoAddShowing = useSelector((state) => state.items.displayAddReco);
   const dispatch = useDispatch();
 
@@ -30,23 +34,23 @@ const Add = () => {
               dispatch(hideAddRecommendation());
 
               // cleaning the input value for next search
-              setInputValue('');
+              dispatch(changeInputSearchValue(''));
             }}
           >
             <input
               className="input-search"
-              // eslint-disable-next-line react/jsx-max-props-per-line
               placeholder="Assassin's Creed, Elden Ring, God of War..."
               type="search"
               id="item-search"
               value={inputValue}
               onChange={(event) => {
-                setInputValue(event.target.value);
+                dispatch(changeInputSearchValue(event.target.value));
               }}
             />
           </form>
         </div>
 
+        {!isRecoAddShowing && <SearchResults />}
         {isRecoAddShowing && <RecoAdd />}
       </div>
     </>
