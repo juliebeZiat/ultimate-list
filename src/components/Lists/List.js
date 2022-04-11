@@ -44,6 +44,15 @@ const List = () => {
     }
   };
 
+  // Variables for button add
+  const addName = () => {
+    switch (slug) {
+      case 'jeuxvideo': return 'jeu vidéo';
+      case 'podcasts': return 'podcast';
+      default: return '';
+    }
+  };
+
   const dispatch = useDispatch();
 
   // const changeStatus = (status) => {
@@ -82,7 +91,7 @@ const List = () => {
       <div className="list-add">
         <Link className="list-add-button-link" to={`/${slug}/ajouter`}>
           <button type="button" className="list-add-button">
-            + Ajouter un {slug}
+            + Ajouter un {addName()}
           </button>
         </Link>
       </div>
