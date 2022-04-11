@@ -1,12 +1,15 @@
 // == Import
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+
+// == Import functions
 import { findItemsByMode } from 'src/functions/items';
 
-// == Import Component
+// == Import Components
 import Lists from '.';
 
 const Add = () => {
+  // var used to display the recommendation
   const items = useSelector((state) => state.items.list);
   const { slug } = useParams();
   const itemsFiltered = findItemsByMode(items, slug);
