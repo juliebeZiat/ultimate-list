@@ -1,14 +1,9 @@
 @use 'src/styles/vars';
 
-
-// Rubik
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
-
 .notfound {
 
   &-page {
     text-align: center;
-    font-family: 'Rubik', sans-serif;
     color: vars.$lightColor;
     margin-bottom: 2rem;
     margin-top: 2rem;
@@ -29,12 +24,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
-    &-travolta {
-      /*position:absolute; 
-      left:50%; 
-      top:50%; */
-    }
   }
 
 }
