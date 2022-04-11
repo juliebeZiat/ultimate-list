@@ -1,0 +1,29 @@
+@use 'src/styles/vars';
+
+.notfound {
+
+  &-page {
+    text-align: center;
+    color: vars.$lightColor;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+
+    &-message {
+      font-weight: 800;
+    }
+
+    &-home {
+      text-decoration: underline;
+      :hover {
+        color: vars.$infoHoverColor;
+      }
+    }
+  }
+
+  &-gif {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+}
