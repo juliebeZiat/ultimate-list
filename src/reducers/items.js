@@ -1,6 +1,5 @@
 import {
   SHOW_ITEMS,
-  HIDE_ADD_RECOMMENDATION,
   CHANGE_INPUT_SEARCH_VALUE,
 } from '../actions/items';
 
@@ -8,6 +7,7 @@ export const initialState = {
   list: [],
   displayAddReco: true,
   inputSearchValue: '',
+  searchResults: [],
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -16,12 +16,6 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         list: action.items,
-      };
-
-    case HIDE_ADD_RECOMMENDATION:
-      return {
-        ...state,
-        displayAddReco: false,
       };
 
     case CHANGE_INPUT_SEARCH_VALUE:

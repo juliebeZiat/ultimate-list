@@ -1,24 +1,17 @@
 // == Import
-import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-// == Import functions
-import { findItemsByMode } from 'src/functions/items';
-
-const SearchResults = () => {
-  // var used to display the recommendation
-  const items = useSelector((state) => state.items.list);
-  const { slug } = useParams();
-  const itemsFiltered = findItemsByMode(items, slug);
-
-  const resultsSearch = itemsFiltered.filter((item) => item.name.toLowerCase().includes('st'));
-  console.log(resultsSearch);
+const SearchResults = ({ searchResults }) => {
+  let subtitle = `${searchResults.length} résultat`;
+  if (searchResults.length > 1) {
+    subtitle += 's';
+  }
 
   return (
     <div className="add-reco">
-      <h2 className="add-modSubtitle">3 jeux trouvés</h2>
+      <h2 className="add-modSubtitle">{subtitle}</h2>
       <ul className="add-reco-cards">
-        {itemsFiltered.map((item) => (
+        {searchResults.map((item) => (
           <li className="add-reco-cards-card" key={item.id}>
             <img className="card-image" src={item.image} alt="" />
             <div className="card-content">
@@ -36,6 +29,12 @@ const SearchResults = () => {
       </ul>
     </div>
   );
+};
+
+SearchResults.propTypes = {
+  searchResults: PropTypes.arrayOf(
+    PropTypes.shape().isRequired,
+  ).isRequired,
 };
 
 export default SearchResults;
