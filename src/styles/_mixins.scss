@@ -33,6 +33,10 @@
     background-color: lighten(vars.$secondaryColor, 20%);
     box-shadow: 0 0 4px lighten(vars.$secondaryColor, 20%);
   }
+
+  &::-webkit-search-cancel-button {
+    display: none;
+  }
 }
 
 @mixin addButton {
