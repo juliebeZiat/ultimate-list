@@ -1,6 +1,7 @@
 // == Import
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { useState } from 'react';
 
 // == Import functions
 import { findItemsByMode } from 'src/functions/items';
@@ -14,6 +15,9 @@ const Add = () => {
   const { slug } = useParams();
   const itemsFiltered = findItemsByMode(items, slug);
 
+  // var used for input search
+  const [inputValue, setInputValue] = useState('');
+
   return (
     <>
       <Lists />
@@ -23,8 +27,13 @@ const Add = () => {
           <input
             className="input-search"
             // eslint-disable-next-line react/jsx-max-props-per-line
-            placeholder="Assassin's Creed, Elden Ring, God of War..." type="search"
+            placeholder="Assassin's Creed, Elden Ring, God of War..."
+            type="search"
             id="item-search"
+            value={inputValue}
+            onChange={(event) => {
+              setInputValue(event.target.value);
+            }}
           />
         </div>
 
