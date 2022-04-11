@@ -14,7 +14,21 @@ const List = () => {
   const userItems = useSelector((state) => state.userItems.user_list);
 
   // Filter items according to the slug videoGames
-  const itemsFiltered = findItemsByMode(userItems, 'videoGames');
+  const itemsFiltered = findItemsByMode(userItems, 'jeuxvideo');
+
+  // Variables for status
+  const statusFromApi = userItems.map((userItem) => (userItem.item_status));
+  console.log(statusFromApi);
+
+  const statusName = (status) => {
+    switch (status) {
+      case 0: return 'A jouer';
+      case 1: return 'En cours';
+      case 2: return 'Fini';
+      default: '';
+    }
+    return statusName;
+  };
 
   return (
     <div className="list">
@@ -28,9 +42,9 @@ const List = () => {
       <div className="list-header-progress">
         <div className="list-header-progress-status">
           <button type="button" className="list-header-progress-status-button-active">Tous</button>
-          <button type="button" className="list-header-progress-status-button">À jouer</button>
-          <button type="button" className="list-header-progress-status-button">En cours</button>
-          <button type="button" className="list-header-progress-status-button">Fini</button>
+          <button type="button" className="list-header-progress-status-button">{statusName(0)}</button>
+          <button type="button" className="list-header-progress-status-button">{statusName(1)}</button>
+          <button type="button" className="list-header-progress-status-button">{statusName(2)}</button>
         </div>
       </div>
 
@@ -51,7 +65,7 @@ const List = () => {
                 <img className="item-content-image" src={item.image} alt="miniature-jeu-video" />
                 <div className="item-content-detail">
                   <div className="item-content-detail-title">{item.name}</div>
-                  <div className="item-content-detail-status">{userItem.item_status}</div>
+                  <div className="item-content-detail-status">{statusName(userItem.item_status)}</div>
                 </div>
               </div>
             ))}
