@@ -2,24 +2,27 @@ import './annex.scss';
 import LinkedIn from 'src/assets/icons/linkedin.svg';
 import Oriane from 'src/assets/team/oriane.jpeg';
 import Julie from 'src/assets/team/julie.jpg';
+import Vivien from 'src/assets/team/vivien.jpg';
+import Louise from 'src/assets/team/louise.jpg';
+import Timo from 'src/assets/team/timo.png';
 
 const Team = () => (
   <div className="team">
     <h1>L'équipe Ultimate</h1>
     <div className="team-list">
       <div className="team-member">
-        <img className="team-member-photo" src={Oriane} alt="" />
+        <img className="team-member-photo" src={Louise} alt="" />
         <h2 className="team-member-name">Louise</h2>
         <p className="team-member-job">Développeuse Front-End</p>
         <p className="team-member-role">Git Master</p>
-        <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/"> <img className="team-member-icon" src={LinkedIn} alt="" /></a>
+        <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/louiselaroche/"> <img className="team-member-icon" src={LinkedIn} alt="" /></a>
       </div>
       <div className="team-member">
-        <img className="team-member-photo" src={Oriane} alt="" />
+        <img className="team-member-photo" src={Vivien} alt="" />
         <h2 className="team-member-name">Vivien</h2>
         <p className="team-member-job">Développeur Front-End</p>
         <p className="team-member-role">Lead Dev Front</p>
-        <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/"> <img className="team-member-icon" src={LinkedIn} alt="" /></a>
+        <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/vivien-grzelka-6a4206216/"> <img className="team-member-icon" src={LinkedIn} alt="" /></a>
       </div>
       <div className="team-member">
         <img className="team-member-photo" src={Julie} alt="" />
@@ -36,7 +39,7 @@ const Team = () => (
         <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/oriane-berti/"> <img className="team-member-icon" src={LinkedIn} alt="" /></a>
       </div>
       <div className="team-member">
-        <img className="team-member-photo" src={Oriane} alt="" />
+        <img className="team-member-photo" src={Timo} alt="" />
         <h2 className="team-member-name">Timothé</h2>
         <p className="team-member-job">Développeur Back-End</p>
         <p className="team-member-role">Scrum Master</p>
