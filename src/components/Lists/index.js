@@ -5,37 +5,57 @@ import Videogame from 'src/assets/icons/videogame.svg';
 import Podcast from 'src/assets/icons/podcast.svg';
 
 // == Import Component
-import { NavLink } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 
-const Lists = () => (
-  <div className="list-header">
-    <div className="list-header-menu">
-      <NavLink
-        to="/jeuxvideo/liste"
-        className={({ isActive }) => (
-          isActive ? 'list-header-menu-mode active' : 'list-header-menu-mode'
-        )}
-      >
-        <img className="list-header-menu-mode-icon" src={Videogame} alt="icone jeu-video" />
-      </NavLink>
-      <NavLink
-        to="/podcasts/liste"
-        className={({ isActive }) => (
-          isActive ? 'list-header-menu-mode active' : 'list-header-menu-mode'
-        )}
-      >
-        <img className="list-header-menu-mode-icon" src={Podcast} alt="icone podcast" />
-      </NavLink>
-    </div>
+// == Import
+import { useSelector } from 'react-redux';
+import { findMode } from 'src/functions/modes';
+import { findItemsByMode } from 'src/functions/items';
 
-    <div className="list-header-title">
-      <h3 className="list-header-title-mode">
-        Jeux vidéo
-        {window.location.href === 'http://localhost:8080/jeuxvideo/liste' && <div className="list-header-title-label"><span className="list-header-title-label-span">15</span></div>}
-      </h3>
+const Lists = () => {
+  const modesToDisplay = useSelector((state) => state.modes.list);
+  const { slug } = useParams();
+  const modes = findMode(modesToDisplay, slug);
+  const userItems = useSelector((state) => state.userItems.user_list);
+  const itemsFiltered = findItemsByMode(userItems, slug);
+
+  return (
+    <div className="list-header">
+      <div className="list-header-menu">
+        <NavLink
+          to="/jeuxvideo/liste"
+          className={({ isActive }) => (
+            isActive ? 'list-header-menu-mode active' : 'list-header-menu-mode'
+          )}
+        >
+          <img className="list-header-menu-mode-icon" src={Videogame} alt="icone jeu-video" />
+        </NavLink>
+        <NavLink
+          to="/podcasts/liste"
+          className={({ isActive }) => (
+            isActive ? 'list-header-menu-mode active' : 'list-header-menu-mode'
+          )}
+        >
+          <img className="list-header-menu-mode-icon" src={Podcast} alt="icone podcast" />
+        </NavLink>
+      </div>
+
+      <div className="list-header-title">
+        {modes.map((mode) => (
+          <h3 className="list-header-title-mode" key={mode.id}>
+            {(mode.name).charAt(0).toUpperCase() + (mode.name).slice(1)}
+            {window.location.pathname === `/${slug}/liste`
+            && (
+              <div className="list-header-title-label">
+                <span className="list-header-title-label-span">{itemsFiltered.length}</span>
+              </div>
+            )}
+          </h3>
+        ))}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 // == Export
 export default Lists;

@@ -30,19 +30,28 @@ const List = () => {
         }
       }
       case 1: return 'En cours';
-      case 2: return 'Fini';
+      case 2:
+      {
+        switch (slug) {
+          case 'jeuxvideo':
+            return 'Fini';
+          case 'podcasts':
+            return 'Écouté';
+          default: return '';
+        }
+      }
       default: return '';
     }
   };
 
   const dispatch = useDispatch();
 
-  const changeStatus = (status) => {
-    const newArray = userItems.filter((item) => item.item_status === status);
-    return newArray;
-  };
+  // const changeStatus = (status) => {
+  //   const newArray = userItems.filter((item) => item.item_status === status);
+  //   return newArray;
+  // };
 
-  console.log(changeStatus(1));
+  // console.log(changeStatus(1));
 
   return (
     <div className="list">
@@ -71,9 +80,9 @@ const List = () => {
       </div>
 
       <div className="list-add">
-        <Link className="list-add-button-link" to="/jeuxvideo/ajouter">
+        <Link className="list-add-button-link" to={`/${slug}/ajouter`}>
           <button type="button" className="list-add-button">
-            + Ajouter un jeu vidéo
+            + Ajouter un {slug}
           </button>
         </Link>
       </div>
