@@ -15,9 +15,11 @@ const Lists = () => (
           <img className="list-header-menu-mode-icon" src={Videogame} alt="icone jeu-video" />
         </div>
       </Link>
-      <div className="list-header-menu-mode">
-        <img className="list-header-menu-mode-icon" src={Podcast} alt="icone podcast" />
-      </div>
+      <Link to="/podcast/liste">
+        <div className="list-header-menu-mode">
+          <img className="list-header-menu-mode-icon" src={Podcast} alt="icone podcast" />
+        </div>
+      </Link>
     </div>
 
     <div className="list-header-title">

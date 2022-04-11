@@ -5,17 +5,18 @@
   background-color: vars.$lightColor;
   font-size: .7em;
   width: fit-content;
-  padding: .2em .5em;
-  border-radius: .5em;
+  padding: .5em .5em;
+  border-radius: .7em;
   color: vars.$textSecondaryColor;
   display: block;
   font-weight: bold;
+  margin-top: 0.5rem;
 }
 
 @mixin searchBar {
   border: none;
   border-radius: 500rem;
-  box-shadow: 0 0 4px vars.$secondaryColor;
+  box-shadow: 0 0 4px lighten(vars.$secondaryColor, 10%);
   width: 100%;
   height: 35px;
   padding: 0 2.5rem;
@@ -24,13 +25,13 @@
   background-image: url('src/assets/icons/search.svg');
   background-repeat: no-repeat;
   background-size: 20px;
-  background-color: vars.$secondaryColor;
+  background-color: lighten(vars.$secondaryColor, 10%);
   background-position-x: 7px;
   background-position-y: 7px;
 
   &:focus {
-    background-color: lighten(vars.$secondaryColor, 5%);
-    box-shadow: 0 0 4px lighten(vars.$secondaryColor, 5%);
+    background-color: lighten(vars.$secondaryColor, 20%);
+    box-shadow: 0 0 4px lighten(vars.$secondaryColor, 20%);
   }
 }
 
@@ -54,5 +55,65 @@
 
   &:hover {
     background-color: lighten(vars.$backgroundColor, 30%);
+  }
+}
+
+@mixin cardItem {
+  min-width: 21%;
+
+  @media screen and (min-width: 1440px) {
+    max-width: 21%;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1440px) {
+    width: 24%;
+  }
+  @media screen and (max-width: 768px) {
+    max-width: 48%;
+  }
+
+  margin: 1rem;
+  height: 18rem;
+  background-color: vars.$secondaryColor;
+  border-radius: 5px;
+  box-shadow: 0px 0px 3px rgb(126, 126, 126);
+  position: relative;
+
+  .card-image {
+    display: block;
+    width: 100%;
+    height: 50%;
+    object-fit: cover;
+    border-radius: 5px 5px 0px 0px;
+  }
+
+  .card-content {
+    margin: 0.5rem 1rem;
+    
+    .card-title {
+      margin-bottom: 0.5rem;
+      font-size: 20px;
+      font-weight: bold;
+      font-family: 'Inter', sans-serif;
+    }
+    
+    .card-description {
+      margin-bottom: 1rem;
+      overflow: hidden;
+      max-height: 65px;
+      color: darken(vars.$lightColor, 40%);
+    }
+
+    .card-tags {
+      position: absolute;
+      bottom: 1rem;
+        .card-tag {
+          display: inline-block;
+          margin-left: 0.5rem;
+        }
+    }
+  }
+
+  .card-button {
+    @include addButton;
   }
 }

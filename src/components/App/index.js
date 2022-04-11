@@ -1,5 +1,7 @@
 // == Import
 import { Routes, Route } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 
 // == Import component
 import Header from 'src/components/Header';
@@ -14,31 +16,44 @@ import User from 'src/components/User';
 import Contact from '../Annex/Contact';
 import Team from '../Annex/Team';
 
+// == Import actions
+import { getItemsFromApi } from '../../actions/items';
+import { getUserItemsFromApi } from '../../actions/userItems';
+
 // == Import style
 import './styles.scss';
 
 // == Composant
-const App = () => (
-  <div className="container-app">
-    <div className="app">
+const App = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getItemsFromApi());
+  }, []);
+
+  useEffect(() => {
+    dispatch(getUserItemsFromApi());
+  }, []);
+
+  return (
+    <div className="container-app">
       <Header />
-      <User />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/connexion" element={<Login />} />
-        <Route path="/inscription" element={<SignUp />} />
-        <Route path="/jeuxvideo/liste" element={<List />} />
-        <Route path="/jeuxvideo/ajouter" element={<Add />} />
-
-        <Route path="/*" element={<Error404 />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/a-propos" element={<Team />} />
+      <div className="app">
+        <User />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/connexion" element={<Login />} />
+          <Route path="/inscription" element={<SignUp />} />
+          <Route path="/:slug/liste" element={<List />} />
+          <Route path="/:slug/ajouter" element={<Add />} />
+          <Route path="/*" element={<Error404 />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/a-propos" element={<Team />} />
       </Routes>
-
+      </div>
+      <Footer />
     </div>
-    <Footer />
-  </div>
-);
+  );
+};
 
 // == Export
 export default App;
