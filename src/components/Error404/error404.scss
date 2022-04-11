@@ -1,0 +1,40 @@
+@use 'src/styles/vars';
+
+
+// Rubik
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
+
+.notfound {
+
+  &-page {
+    text-align: center;
+    font-family: 'Rubik', sans-serif;
+    color: vars.$lightColor;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+
+    &-message {
+      font-weight: 800;
+    }
+
+    &-home {
+      text-decoration: underline;
+      :hover {
+        color: vars.$infoHoverColor;
+      }
+    }
+  }
+
+  &-gif {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &-travolta {
+      /*position:absolute; 
+      left:50%; 
+      top:50%; */
+    }
+  }
+
+}
