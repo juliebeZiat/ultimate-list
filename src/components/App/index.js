@@ -41,7 +41,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/connexion" element={<Login />} />
           <Route path="/inscription" element={<SignUp />} />
-          <Route path="/jeuxvideo/liste" element={<List />} />
+          <Route path="/:slug/liste" element={<List />} />
           <Route path="/:slug/ajouter" element={<Add />} />
 
           <Route path="/*" element={<Error404 />} />
