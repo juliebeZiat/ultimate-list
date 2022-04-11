@@ -1,6 +1,6 @@
 // == Import
 import { useSelector } from 'react-redux';
-// import { useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { findItemsByMode } from 'src/functions/items';
 
 // == Import Component
@@ -8,9 +8,8 @@ import Lists from '.';
 
 const Add = () => {
   const items = useSelector((state) => state.items.list);
-  // to use when items gets a "slug" property
-  // const { slug } = useParams();
-  const itemsFiltered = findItemsByMode(items, 'videoGames');
+  const { slug } = useParams();
+  const itemsFiltered = findItemsByMode(items, slug);
 
   return (
     <>

@@ -13,6 +13,8 @@ import Error404 from 'src/components/Error404';
 import Home from 'src/components/Home';
 import Add from 'src/components/Lists/Add';
 import User from 'src/components/User';
+import Contact from '../Annex/Contact';
+import Team from '../Annex/Team';
 
 // == Import actions
 import { getItemsFromApi } from '../../actions/items';
@@ -41,12 +43,12 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/connexion" element={<Login />} />
           <Route path="/inscription" element={<SignUp />} />
-          <Route path="/jeuxvideo/liste" element={<List />} />
+          <Route path="/:slug/liste" element={<List />} />
           <Route path="/:slug/ajouter" element={<Add />} />
-
           <Route path="/*" element={<Error404 />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/a-propos" element={<Team />} />
         </Routes>
-
       </div>
       <Footer />
     </div>
