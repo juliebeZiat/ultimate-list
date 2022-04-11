@@ -7,14 +7,58 @@ import Toggle from 'src/assets/icons/toggle-on.svg';
 import './list.scss';
 
 // == Import Component
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Lists from '.';
+// import { filterItemsStatus } from '../../actions/userItems';
 
 const List = () => {
   const userItems = useSelector((state) => state.userItems.user_list);
+  const { slug } = useParams();
+  const itemsFiltered = findItemsByMode(userItems, slug);
 
-  // Filter items according to the slug videoGames
-  const itemsFiltered = findItemsByMode(userItems, 'videoGames');
+  // Variables for status
+  const statusName = (status) => {
+    switch (status) {
+      case 0:
+      {
+        switch (slug) {
+          case 'jeuxvideo':
+            return 'À jouer';
+          case 'podcasts':
+            return 'À écouter';
+          default: return '';
+        }
+      }
+      case 1: return 'En cours';
+      case 2:
+      {
+        switch (slug) {
+          case 'jeuxvideo':
+            return 'Fini';
+          case 'podcasts':
+            return 'Écouté';
+          default: return '';
+        }
+      }
+      default: return '';
+    }
+  };
+
+  // Variables for button add
+  const addName = () => {
+    switch (slug) {
+      case 'jeuxvideo': return 'jeu vidéo';
+      case 'podcasts': return 'podcast';
+      default: return '';
+    }
+  };
+
+  // const dispatch = useDispatch();
+
+  const changeStatus = (status) => {
+    const newArray = itemsFiltered.filter((item) => item.item_status === status);
+    return newArray;
+  };
 
   return (
     <div className="list">
@@ -28,16 +72,22 @@ const List = () => {
       <div className="list-header-progress">
         <div className="list-header-progress-status">
           <button type="button" className="list-header-progress-status-button-active">Tous</button>
-          <button type="button" className="list-header-progress-status-button">À jouer</button>
-          <button type="button" className="list-header-progress-status-button">En cours</button>
-          <button type="button" className="list-header-progress-status-button">Fini</button>
+          <button
+            type="button"
+            className="list-header-progress-status-button"
+            onClick={() => changeStatus(1)}
+          >
+            {statusName(0)}
+          </button>
+          <button type="button" className="list-header-progress-status-button">{statusName(1)}</button>
+          <button type="button" className="list-header-progress-status-button">{statusName(2)}</button>
         </div>
       </div>
 
       <div className="list-add">
-        <Link className="list-add-button-link" to="/jeuxvideo/ajouter">
+        <Link className="list-add-button-link" to={`/${slug}/ajouter`}>
           <button type="button" className="list-add-button">
-            + Ajouter un jeu vidéo
+            + Ajouter un {addName()}
           </button>
         </Link>
       </div>
@@ -51,7 +101,7 @@ const List = () => {
                 <img className="item-content-image" src={item.image} alt="miniature-jeu-video" />
                 <div className="item-content-detail">
                   <div className="item-content-detail-title">{item.name}</div>
-                  <div className="item-content-detail-status">{userItem.item_status}</div>
+                  <div className="item-content-detail-status">{statusName(userItem.item_status)}</div>
                 </div>
               </div>
             ))}

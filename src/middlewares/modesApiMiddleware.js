@@ -1,12 +1,11 @@
-/* eslint-disable no-console */
 import axios from 'axios';
-import { GET_ITEMS_FROM_API, showItems } from '../actions/items';
+import { GET_MODE_FROM_API, showMode } from '../actions/modes';
 
 const apiMiddleware = (store) => (next) => (action) => {
-  if (action.type === GET_ITEMS_FROM_API) {
-    axios.get('http://orianeberti-server.eddi.cloud/projet-13-ultimatelist-back/public/api/items')
+  if (action.type === GET_MODE_FROM_API) {
+    axios.get('http://orianeberti-server.eddi.cloud/projet-13-ultimatelist-back/public/api/modes')
       .then((response) => {
-        const actionToDispatch = showItems(response.data);
+        const actionToDispatch = showMode(response.data);
         store.dispatch(actionToDispatch);
         // console.log('Api response :', response.data);
       })

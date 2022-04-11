@@ -22,6 +22,7 @@ import { getUserItemsFromApi } from '../../actions/userItems';
 
 // == Import style
 import './styles.scss';
+import { getModeFromApi } from '../../actions/modes';
 
 // == Composant
 const App = () => {
@@ -32,6 +33,7 @@ const App = () => {
 
   useEffect(() => {
     dispatch(getUserItemsFromApi());
+    dispatch(getModeFromApi());
   }, []);
 
   return (
