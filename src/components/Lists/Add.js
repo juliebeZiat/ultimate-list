@@ -28,7 +28,7 @@ const Add = () => {
         <div className="add-reco">
           <h2 className="add-modSubtitle">Nos recommandations pour toi</h2>
           <ul className="add-reco-cards">
-            {itemsFiltered.map((item) => (
+            {itemsFiltered.slice(0, 4).map((item) => (
               <li className="add-reco-cards-card" key={item.id}>
                 <img className="card-image" src={item.image} alt="" />
                 <div className="card-content">
