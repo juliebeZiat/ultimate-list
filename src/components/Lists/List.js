@@ -7,27 +7,31 @@ import Toggle from 'src/assets/icons/toggle-on.svg';
 import './list.scss';
 
 // == Import Component
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Lists from '.';
 
 const List = () => {
   const userItems = useSelector((state) => state.userItems.user_list);
-
-  // Filter items according to the slug videoGames
-  const itemsFiltered = findItemsByMode(userItems, 'jeuxvideo');
+  const { slug } = useParams();
+  const itemsFiltered = findItemsByMode(userItems, slug);
 
   // Variables for status
-  const statusFromApi = userItems.map((userItem) => (userItem.item_status));
-  console.log(statusFromApi);
-
   const statusName = (status) => {
     switch (status) {
-      case 0: return 'A jouer';
+      case 0:
+      {
+        switch (slug) {
+          case 'jeuxvideo':
+            return 'À jouer';
+          case 'podcasts':
+            return 'À écouter';
+          default: return '';
+        }
+      }
       case 1: return 'En cours';
       case 2: return 'Fini';
-      default: '';
+      default: return '';
     }
-    return statusName;
   };
 
   return (
