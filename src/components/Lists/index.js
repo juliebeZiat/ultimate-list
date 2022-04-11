@@ -5,21 +5,27 @@ import Videogame from 'src/assets/icons/videogame.svg';
 import Podcast from 'src/assets/icons/podcast.svg';
 
 // == Import Component
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const Lists = () => (
   <div className="list-header">
     <div className="list-header-menu">
-      <Link to="/jeuxvideo/liste">
-        <div className="list-header-menu-mode active">
-          <img className="list-header-menu-mode-icon" src={Videogame} alt="icone jeu-video" />
-        </div>
-      </Link>
-      <Link to="/podcasts/liste">
-        <div className="list-header-menu-mode">
-          <img className="list-header-menu-mode-icon" src={Podcast} alt="icone podcast" />
-        </div>
-      </Link>
+      <NavLink
+        to="/jeuxvideo/liste"
+        className={({ isActive }) => (
+          isActive ? 'list-header-menu-mode active' : 'list-header-menu-mode'
+        )}
+      >
+        <img className="list-header-menu-mode-icon" src={Videogame} alt="icone jeu-video" />
+      </NavLink>
+      <NavLink
+        to="/podcasts/liste"
+        className={({ isActive }) => (
+          isActive ? 'list-header-menu-mode active' : 'list-header-menu-mode'
+        )}
+      >
+        <img className="list-header-menu-mode-icon" src={Podcast} alt="icone podcast" />
+      </NavLink>
     </div>
 
     <div className="list-header-title">
