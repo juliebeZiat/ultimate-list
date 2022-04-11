@@ -1,7 +1,11 @@
-import { SHOW_ITEMS } from '../actions/items';
+import {
+  SHOW_ITEMS,
+  HIDE_ADD_RECOMMENDATION,
+} from '../actions/items';
 
 export const initialState = {
   list: [],
+  displayAddReco: true,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -10,6 +14,12 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         list: action.items,
+      };
+
+    case HIDE_ADD_RECOMMENDATION:
+      return {
+        ...state,
+        displayAddReco: false,
       };
 
     default:

@@ -1,23 +1,19 @@
 // == Import
-import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-// == Import functions
-import { findItemsByMode } from 'src/functions/items';
+// Import action
+import { hideAddRecommendation } from 'src/actions/items';
 
 // == Import Components
 import Lists from '../index';
+import RecoAdd from './RecoAdd';
 
 const Add = () => {
-  // var used to display the recommendation
-  const items = useSelector((state) => state.items.list);
-  const { slug } = useParams();
-  const itemsFiltered = findItemsByMode(items, slug);
-
   // var used for input search
   const [inputValue, setInputValue] = useState('');
-  let recoCssClass = 'add-reco';
+  const isRecoAddShowing = useSelector((state) => state.items.displayAddReco);
+  const dispatch = useDispatch();
 
   return (
     <>
@@ -29,7 +25,11 @@ const Add = () => {
             onSubmit={(event) => {
               event.preventDefault();
               console.log('je fais une recherche');
-              recoCssClass = 'add-reco--hidden';
+
+              // when a search is submitted, add's recommendation should disappear
+              dispatch(hideAddRecommendation());
+
+              // cleaning the input value for next search
               setInputValue('');
             }}
           >
@@ -47,27 +47,7 @@ const Add = () => {
           </form>
         </div>
 
-        <div className={recoCssClass}>
-          <h2 className="add-modSubtitle">Nos recommandations pour toi</h2>
-          <ul className="add-reco-cards">
-            {itemsFiltered.slice(0, 4).map((item) => (
-              <li className="add-reco-cards-card" key={item.id}>
-                <img className="card-image" src={item.image} alt="" />
-                <div className="card-content">
-                  <h3 className="card-title">{item.name}</h3>
-                  <p className="card-description">{item.developer}</p>
-                  <div className="card-tags">
-                    {item.tags.map((tag) => (
-                      <span className="card-tag" key={tag.id}>{tag.name}</span>
-                    ))}
-                  </div>
-                </div>
-                <button className="card-button" type="button" aria-label="icon plus" />
-              </li>
-            ))}
-          </ul>
-
-        </div>
+        {isRecoAddShowing && <RecoAdd />}
       </div>
     </>
   );
