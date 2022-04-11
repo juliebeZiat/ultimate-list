@@ -1,5 +1,5 @@
 // == Import
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { findItemsByMode, convertDate } from 'src/functions/items';
 
 // == Import style
@@ -9,7 +9,7 @@ import './list.scss';
 // == Import Component
 import { Link, useParams } from 'react-router-dom';
 import Lists from '.';
-import { filterItemsStatus } from '../../actions/userItems';
+// import { filterItemsStatus } from '../../actions/userItems';
 
 const List = () => {
   const userItems = useSelector((state) => state.userItems.user_list);
@@ -53,14 +53,12 @@ const List = () => {
     }
   };
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  // const changeStatus = (status) => {
-  //   const newArray = userItems.filter((item) => item.item_status === status);
-  //   return newArray;
-  // };
-
-  // console.log(changeStatus(1));
+  const changeStatus = (status) => {
+    const newArray = itemsFiltered.filter((item) => item.item_status === status);
+    return newArray;
+  };
 
   return (
     <div className="list">
@@ -77,9 +75,7 @@ const List = () => {
           <button
             type="button"
             className="list-header-progress-status-button"
-            onClick={() => {
-              dispatch(filterItemsStatus(1));
-            }}
+            onClick={() => changeStatus(1)}
           >
             {statusName(0)}
           </button>
