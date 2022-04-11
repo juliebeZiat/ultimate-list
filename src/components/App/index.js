@@ -11,7 +11,7 @@ import SignUp from 'src/components/SignUp';
 import List from 'src/components/Lists/List';
 import Error404 from 'src/components/Error404';
 import Home from 'src/components/Home';
-import Add from 'src/components/Lists/Add';
+import Add from 'src/components/Lists/Add/Add';
 import User from 'src/components/User';
 import Contact from '../Annex/Contact';
 import Team from '../Annex/Team';

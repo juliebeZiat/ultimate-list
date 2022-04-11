@@ -7,7 +7,7 @@ import { useState } from 'react';
 import { findItemsByMode } from 'src/functions/items';
 
 // == Import Components
-import Lists from '.';
+import Lists from '../index';
 
 const Add = () => {
   // var used to display the recommendation
@@ -17,6 +17,7 @@ const Add = () => {
 
   // var used for input search
   const [inputValue, setInputValue] = useState('');
+  let recoCssClass = 'add-reco';
 
   return (
     <>
@@ -24,20 +25,29 @@ const Add = () => {
       <div className="add">
         <div className="add-search">
           <h2 className="add-modSubtitle">Ajouter un jeu vidéo</h2>
-          <input
-            className="input-search"
-            // eslint-disable-next-line react/jsx-max-props-per-line
-            placeholder="Assassin's Creed, Elden Ring, God of War..."
-            type="search"
-            id="item-search"
-            value={inputValue}
-            onChange={(event) => {
-              setInputValue(event.target.value);
+          <form
+            onSubmit={(event) => {
+              event.preventDefault();
+              console.log('je fais une recherche');
+              recoCssClass = 'add-reco--hidden';
+              setInputValue('');
             }}
-          />
+          >
+            <input
+              className="input-search"
+              // eslint-disable-next-line react/jsx-max-props-per-line
+              placeholder="Assassin's Creed, Elden Ring, God of War..."
+              type="search"
+              id="item-search"
+              value={inputValue}
+              onChange={(event) => {
+                setInputValue(event.target.value);
+              }}
+            />
+          </form>
         </div>
 
-        <div className="add-reco">
+        <div className={recoCssClass}>
           <h2 className="add-modSubtitle">Nos recommandations pour toi</h2>
           <ul className="add-reco-cards">
             {itemsFiltered.slice(0, 4).map((item) => (
