@@ -1,3 +1,7 @@
+// == Import utils
+import { useSelector, useDispatch } from 'react-redux';
+import { toggleSettingsOpen } from '../../actions/login';
+
 // == Import style
 import './header.scss';
 import { Link } from 'react-router-dom';
@@ -6,6 +10,9 @@ import ProfilIcon from '../../assets/icons/ProfilIcon.png';
 
 // eslint-disable-next-line arrow-body-style
 const Header = () => {
+  const isOpen = useSelector((state) => state.isUserSettingsOpen);
+  const dispatch = useDispatch();
+
   return (
     <div className="header">
       <div className="header-image">
