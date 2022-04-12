@@ -1,6 +1,7 @@
 // == Import
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { findItemsByMode, convertDate } from 'src/functions/items';
+import { useEffect } from 'react';
 
 // == Import style
 import Toggle from 'src/assets/icons/toggle-on.svg';
@@ -9,12 +10,19 @@ import './list.scss';
 // == Import Component
 import { Link, useParams } from 'react-router-dom';
 import Lists from '.';
-// import { filterItemsStatus } from '../../actions/userItems';
+import { filterUserItemsByStatus, userItemsByMode } from '../../actions/userItems';
 
 const List = () => {
   const userItems = useSelector((state) => state.userItems.user_list);
   const { slug } = useParams();
   const itemsFiltered = findItemsByMode(userItems, slug);
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(userItemsByMode(slug));
+  }, []);
+  const userItemsByModeFromState = useSelector((state) => state.userItems.userListByMode);
+  console.log('user items by mode in state :', userItemsByModeFromState);
 
   // Variables for status
   const statusName = (status) => {
@@ -53,13 +61,6 @@ const List = () => {
     }
   };
 
-  // const dispatch = useDispatch();
-
-  const changeStatus = (status) => {
-    const newArray = itemsFiltered.filter((item) => item.item_status === status);
-    return newArray;
-  };
-
   return (
     <div className="list">
       <Lists />
@@ -75,7 +76,9 @@ const List = () => {
           <button
             type="button"
             className="list-header-progress-status-button"
-            onClick={() => changeStatus(1)}
+            onClick={() => {
+              dispatch(filterUserItemsByStatus(0));
+            }}
           >
             {statusName(0)}
           </button>

@@ -7,7 +7,7 @@
  * @return {Object} - items found
  */
 export function findItemsByMode(itemList, searchedMode) {
-  const items = itemList.filter((item) => item.mode.name === searchedMode);
+  const items = itemList.filter((item) => item.mode.slug === searchedMode);
   return items;
 }
 

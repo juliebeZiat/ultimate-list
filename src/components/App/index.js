@@ -27,11 +27,9 @@ import { getModeFromApi } from '../../actions/modes';
 // == Composant
 const App = () => {
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getItemsFromApi());
-  }, []);
 
   useEffect(() => {
+    dispatch(getItemsFromApi());
     dispatch(getUserItemsFromApi());
     dispatch(getModeFromApi());
   }, []);

@@ -1,6 +1,7 @@
 export const GET_USER_ITEMS_FROM_API = 'GET_USER_ITEMS_FROM_API';
 export const SHOW_USER_ITEMS = 'SHOW_USER_ITEMS';
-export const FILTER_ITEMS_STATUS = 'FILTER_ITEMS_STATUS';
+export const FILTER_USER_ITEMS_BY_STATUS = 'FILTER_USER_ITEMS_BY_STATUS';
+export const USER_ITEMS_BY_MODE = 'USER_ITEMS_BY_MODE';
 
 export const getUserItemsFromApi = () => ({
   type: GET_USER_ITEMS_FROM_API,
@@ -11,7 +12,13 @@ export const showUserItems = (userItems) => ({
   userItems: userItems,
 });
 
-export const filterItemsStatus = (status) => ({
-  type: FILTER_ITEMS_STATUS,
-  status: status,
+export const filterUserItemsByStatus = (userItemsArray, currentStatus) => ({
+  type: FILTER_USER_ITEMS_BY_STATUS,
+  list: userItemsArray,
+  status: currentStatus,
+});
+
+export const userItemsByMode = (currentMode) => ({
+  type: USER_ITEMS_BY_MODE,
+  mode: currentMode,
 });

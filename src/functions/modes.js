@@ -8,6 +8,6 @@
  */
 
 export function findMode(mode, searchedMode) {
-  const modes = mode.filter((item) => item.name === searchedMode);
+  const modes = mode.filter((item) => item.slug === searchedMode);
   return modes;
 }
