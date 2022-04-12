@@ -24,6 +24,7 @@ const userMiddleware = (store) => (next) => (action) => {
           // console.log(sessionStorage.getItem('token'));
           api.defaults.headers.common.Authorization = `bearer ${response.data.token}`;
           console.log(api.defaults.headers.common.Authorization);
+          console.log(response);
         })
         .catch((error) => {
           console.log(error);

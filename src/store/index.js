@@ -5,6 +5,7 @@ import itemsApiMiddleware from 'src/middlewares/itemsApiMiddleware';
 import userItemsApiMiddleware from 'src/middlewares/userItemsApiMiddleware';
 import modesApiMiddleware from 'src/middlewares/modesApiMiddleware';
 import loginMiddleware from 'src/middlewares/loginMiddleware';
+import userApiMiddleware from 'src/middlewares/userApiMiddleware';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -14,6 +15,7 @@ const enhancers = composeEnhancers(
     userItemsApiMiddleware,
     modesApiMiddleware,
     loginMiddleware,
+    userApiMiddleware,
   ),
 );
 
