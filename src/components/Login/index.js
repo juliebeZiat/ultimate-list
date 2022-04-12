@@ -3,7 +3,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './login.scss';
-import { changeLoginField } from '../../actions/login';
+import { changeLoginField, logIn } from '../../actions/login';
 import Field from '../Field';
 
 const Login = () => {
@@ -25,7 +25,13 @@ const Login = () => {
         </div>
       </div>
 
-      <form className="connexion-form">
+      <form
+        className="connexion-form"
+        onSubmit={(event) => {
+          event.preventDefault();
+          dispatch(logIn());
+        }}
+      >
         <div className="connexion-form-input username">
           <label htmlFor="username">E-mail ou nom d'utilisateur
             <Field

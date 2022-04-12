@@ -1,8 +1,10 @@
-import { CHANGE_LOGIN_FIELD } from '../actions/login';
+import { CHANGE_LOGIN_FIELD, SAVE_USER_DATA } from '../actions/login';
 
 export const initialState = {
   userLogin: '',
   password: '',
+  nickname: '',
+  token: null,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -18,6 +20,13 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         password: action.value,
+      };
+
+    case SAVE_USER_DATA:
+      return {
+        ...state,
+        nickname: action.nickname,
+        token: action.token,
       };
 
     default:
