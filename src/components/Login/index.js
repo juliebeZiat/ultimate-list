@@ -7,7 +7,7 @@ import { changeLoginField, logIn } from '../../actions/login';
 import Field from '../Field';
 
 const Login = () => {
-  const userLoginValue = useSelector((state) => state.login.userLogin);
+  const usernameValue = useSelector((state) => state.login.username);
   const passwordValue = useSelector((state) => state.login.password);
 
   const dispatch = useDispatch();
@@ -33,29 +33,25 @@ const Login = () => {
         }}
       >
         <div className="connexion-form-input username">
-          <label htmlFor="username">E-mail ou nom d'utilisateur
-            <Field
-              identifier="userLogin"
-              placeholder="louloutedu94@hotmail.fr"
-              label="Email"
-              value={userLoginValue}
-              changeField={(identifier, newValue) => {
-                dispatch(changeLoginField(identifier, newValue));
-                // console.log(`changeField, identifier=${identifier}, newValue=${newValue}`);
-              }}
-            />
-            <Field
-              identifier="password"
-              placeholder="coucou"
-              label="Mot de passe"
-              type="password"
-              value={passwordValue}
-              changeField={(identifier, newValue) => {
-                dispatch(changeLoginField(identifier, newValue));
-                // console.log(`changeField, identifier=${identifier}, newValue=${newValue}`);
-              }}
-            />
-          </label>
+          <Field
+            identifier="username"
+            label="Email"
+            value={usernameValue}
+            changeField={(identifier, newValue) => {
+              dispatch(changeLoginField(identifier, newValue));
+              // console.log(`changeField, identifier=${identifier}, newValue=${newValue}`);
+            }}
+          />
+          <Field
+            identifier="password"
+            label="Mot de passe"
+            type="password"
+            value={passwordValue}
+            changeField={(identifier, newValue) => {
+              dispatch(changeLoginField(identifier, newValue));
+              // console.log(`changeField, identifier=${identifier}, newValue=${newValue}`);
+            }}
+          />
         </div>
 
         <button className="connexion-form-submit" type="submit">Lets' go !</button>

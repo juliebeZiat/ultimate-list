@@ -7,7 +7,6 @@ import './field.scss';
  */
 const Field = ({
   identifier,
-  placeholder,
   label,
   type,
   value,
@@ -23,7 +22,6 @@ const Field = ({
       <input
         className="input"
         id={identifier}
-        placeholder={placeholder}
         name={identifier}
         type={type}
         value={value}
@@ -42,8 +40,6 @@ const Field = ({
 Field.propTypes = {
   /** identifier for the input : used both for name and id => must be unique */
   identifier: PropTypes.string.isRequired,
-  /** text used as placeholder */
-  placeholder: PropTypes.string.isRequired,
   /** text used as label */
   label: PropTypes.string.isRequired,
   /** type of the input */

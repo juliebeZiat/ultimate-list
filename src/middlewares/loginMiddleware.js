@@ -11,7 +11,7 @@ const userMiddleware = (store) => (next) => (action) => {
         // données
         {
           // ne pas oublier le nom du tiroir ;)
-          userLogin: store.getState().login.userLogin,
+          username: store.getState().login.username,
           password: store.getState().login.password,
         },
       )

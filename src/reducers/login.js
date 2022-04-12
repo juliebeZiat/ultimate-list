@@ -1,7 +1,7 @@
 import { CHANGE_LOGIN_FIELD, SAVE_USER_DATA } from '../actions/login';
 
 export const initialState = {
-  userLogin: '',
+  username: '',
   password: '',
   nickname: '',
   token: null,
@@ -10,10 +10,10 @@ export const initialState = {
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case CHANGE_LOGIN_FIELD:
-      if (action.name === 'userLogin') {
+      if (action.name === 'username') {
         return {
           ...state,
-          userLogin: action.value,
+          username: action.value,
         };
       }
       // else implicite
