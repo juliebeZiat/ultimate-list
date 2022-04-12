@@ -13,7 +13,13 @@ const RecoAdd = ({ recommendations }) => (
             <p className="card-description">{item.developer}</p>
             <div className="card-tags">
               {item.tags.map((tag) => (
-                <span className="card-tag" key={tag.id}>{tag.name}</span>
+                <span
+                  className="card-tag"
+                  key={tag.id}
+                  // style={{ backgroundColor: tag.color }}
+                >
+                  {tag.name}
+                </span>
               ))}
             </div>
           </div>
