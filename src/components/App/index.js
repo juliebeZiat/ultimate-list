@@ -20,10 +20,11 @@ import Team from '../Annex/Team';
 // == Import actions
 import { getItemsFromApi } from '../../actions/items';
 import { getUserItemsFromApi } from '../../actions/userItems';
+import { getModeFromApi } from '../../actions/modes';
+import { getUserFromApi } from '../../actions/user';
 
 // == Import style
 import './styles.scss';
-import { getModeFromApi } from '../../actions/modes';
 
 // == Composant
 const App = () => {
@@ -32,6 +33,7 @@ const App = () => {
     dispatch(getItemsFromApi());
     dispatch(getUserItemsFromApi());
     dispatch(getModeFromApi());
+    dispatch(getUserFromApi());
   }, []);
 
   const logged = useSelector((state) => state.login.logged);
