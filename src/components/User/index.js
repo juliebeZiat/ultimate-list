@@ -1,10 +1,11 @@
 // == Import style
 import './user.scss';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 // eslint-disable-next-line arrow-body-style
 const User = () => {
-  const isOpen = false;
+  const isOpen = useSelector((state) => state.login.isSettingsOpen);
   return (
     <div className="user">
       {isOpen && (
