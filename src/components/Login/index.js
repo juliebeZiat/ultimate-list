@@ -9,7 +9,6 @@ import Field from '../Field';
 const Login = () => {
   const usernameValue = useSelector((state) => state.login.username);
   const passwordValue = useSelector((state) => state.login.password);
-  // const token = useSelector((state) => state.login.token);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
