@@ -12,9 +12,8 @@ export const showUserItems = (userItems) => ({
   userItems: userItems,
 });
 
-export const filterUserItemsByStatus = (userItemsArray, currentStatus) => ({
+export const filterUserItemsByStatus = (currentStatus) => ({
   type: FILTER_USER_ITEMS_BY_STATUS,
-  list: userItemsArray,
   status: currentStatus,
 });
 

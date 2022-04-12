@@ -21,7 +21,7 @@ const reducer = (state = initialState, action = {}) => {
     case USER_ITEMS_BY_MODE:
       return {
         ...state,
-        userListByMode: state.user_list.filter((item) => item.mode.name === action.mode),
+        userListByMode: state.user_list.filter((item) => item.mode.slug === action.mode),
       };
 
     case FILTER_USER_ITEMS_BY_STATUS:
