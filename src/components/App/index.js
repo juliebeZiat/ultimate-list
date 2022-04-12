@@ -45,6 +45,11 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/connexion" element={<Login />} />
           <Route path="/inscription" element={<SignUp />} />
+
+          {/* delete those lines when token is store in a cookie */}
+          <Route path="/:slug/liste" element={<List />} />
+          <Route path="/:slug/ajouter" element={<Add />} />
+
           {logged && <Route path="/:slug/liste" element={<List />} />}
           {logged && <Route path="/:slug/ajouter" element={<Add />} />}
           {logged && <Route path="/*" element={<Error404 />} />}
