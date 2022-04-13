@@ -1,4 +1,4 @@
-// == Import
+// == Import dependencies
 import { Routes, Route } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -22,15 +22,16 @@ import { getItemsFromApi } from '../../actions/items';
 import { getUserItemsFromApi } from '../../actions/userItems';
 import { getModeFromApi } from '../../actions/modes';
 import { getUserFromApi } from '../../actions/user';
-import { verifyUsertokenInLocalstorage } from '../../actions/login';
+import { verifyUsertokenInLocalstorage, decodeTokenToSaveUsername } from '../../actions/login';
 
 // == Import style
 import './styles.scss';
 
 // == Composant
 const App = () => {
+  // to verify if a user is connected we need to get the localStorage 'user_token'
   const localStorageToken = localStorage.getItem('user_token');
-  console.log('localStorageToken :', localStorageToken);
+  // and then use it in action verifyUsertokenInLocalstorage and decodeTokenToSaveUsername
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -39,6 +40,7 @@ const App = () => {
     dispatch(getModeFromApi());
     dispatch(getUserFromApi());
     dispatch(verifyUsertokenInLocalstorage(localStorageToken));
+    dispatch(decodeTokenToSaveUsername(localStorageToken));
   }, []);
 
   const logged = useSelector((state) => state.login.logged);
