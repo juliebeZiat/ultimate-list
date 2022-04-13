@@ -3,7 +3,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import './login.scss';
-import { changeLoginField, logIn } from '../../actions/login';
+import { changeLoginField, loaderOn, logIn } from '../../actions/login';
 import Field from '../Field';
 
 const Login = () => {
@@ -30,6 +30,7 @@ const Login = () => {
         className="connexion-form"
         onSubmit={(event) => {
           event.preventDefault();
+          dispatch(loaderOn());
           dispatch(logIn());
           navigate('/');
         }}
@@ -56,7 +57,12 @@ const Login = () => {
           />
         </div>
 
-        <button className="connexion-form-submit" type="submit">Lets' go !</button>
+        <button
+          className="connexion-form-submit"
+          type="submit"
+        >
+          Lets' go !
+        </button>
       </form>
 
     </div>

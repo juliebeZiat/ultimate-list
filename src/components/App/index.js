@@ -26,6 +26,7 @@ import { verifyUsertokenInLocalstorage, decodeTokenToSaveUsername } from '../../
 
 // == Import style
 import './styles.scss';
+import Loader from '../Loader';
 
 // == Composant
 const App = () => {
@@ -48,6 +49,7 @@ const App = () => {
   return (
     <div className="container-app">
       <Header />
+      <Loader />
       <div className="app">
         <User />
         <Routes>
