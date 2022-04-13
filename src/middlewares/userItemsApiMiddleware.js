@@ -10,7 +10,7 @@ const apiMiddleware = (store) => (next) => (action) => {
         .then((response) => {
           const actionToDispatch = showUserItems(response.data);
           store.dispatch(actionToDispatch);
-          // console.log('Api response user list items:', response.data);
+          console.log('Api response user list items:', response.data);
         })
         .catch((error) => {
           console.log(error);
