@@ -19,7 +19,11 @@ const userMiddleware = (store) => (next) => (action) => {
         },
       )
         .then((response) => {
+          // we save token in localStorage in order to stay auth when page gets refresh
+          localStorage.setItem('user_token', response.data.token);
+
           store.dispatch(saveUserData(response.data.token));
+
           api.defaults.headers.common.Authorization = `bearer ${response.data.token}`;
         })
         .catch((error) => {

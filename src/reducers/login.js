@@ -1,4 +1,9 @@
-import { CHANGE_LOGIN_FIELD, SAVE_USER_DATA, TOGGLE_USER_SETTINGS_OPEN } from '../actions/login';
+import {
+  CHANGE_LOGIN_FIELD,
+  SAVE_USER_DATA,
+  TOGGLE_USER_SETTINGS_OPEN,
+  VERIFY_USERTOKEN_IN_LOCALSTORAGE,
+} from '../actions/login';
 
 export const initialState = {
   username: '',
@@ -34,6 +39,18 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         isSettingsOpen: !state.isSettingsOpen,
+      };
+
+    case VERIFY_USERTOKEN_IN_LOCALSTORAGE:
+      if (action.localStorageToken !== null) {
+        return {
+          ...state,
+          logged: true,
+        };
+      }
+      return {
+        ...state,
+        logged: false,
       };
 
     default:

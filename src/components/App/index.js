@@ -22,18 +22,23 @@ import { getItemsFromApi } from '../../actions/items';
 import { getUserItemsFromApi } from '../../actions/userItems';
 import { getModeFromApi } from '../../actions/modes';
 import { getUserFromApi } from '../../actions/user';
+import { verifyUsertokenInLocalstorage } from '../../actions/login';
 
 // == Import style
 import './styles.scss';
 
 // == Composant
 const App = () => {
+  const localStorageToken = localStorage.getItem('user_token');
+  console.log('localStorageToken :', localStorageToken);
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getItemsFromApi());
     dispatch(getUserItemsFromApi());
     dispatch(getModeFromApi());
     dispatch(getUserFromApi());
+    dispatch(verifyUsertokenInLocalstorage(localStorageToken));
   }, []);
 
   const logged = useSelector((state) => state.login.logged);
