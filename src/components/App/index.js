@@ -1,4 +1,4 @@
-// == Import
+// == Import dependencies
 import { Routes, Route } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -22,6 +22,7 @@ import { getItemsFromApi } from '../../actions/items';
 import { getUserItemsFromApi } from '../../actions/userItems';
 import { getModeFromApi } from '../../actions/modes';
 import { getUserFromApi } from '../../actions/user';
+import { verifyUsertokenInLocalstorage, decodeTokenToSaveUsername } from '../../actions/login';
 
 // == Import style
 import './styles.scss';
@@ -29,12 +30,18 @@ import Loader from '../Loader';
 
 // == Composant
 const App = () => {
+  // to verify if a user is connected we need to get the localStorage 'user_token'
+  const localStorageToken = localStorage.getItem('user_token');
+  // and then use it in action verifyUsertokenInLocalstorage and decodeTokenToSaveUsername
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getItemsFromApi());
     dispatch(getUserItemsFromApi());
     dispatch(getModeFromApi());
     dispatch(getUserFromApi());
+    dispatch(verifyUsertokenInLocalstorage(localStorageToken));
+    dispatch(decodeTokenToSaveUsername(localStorageToken));
   }, []);
 
   const logged = useSelector((state) => state.login.logged);
@@ -50,14 +57,11 @@ const App = () => {
           <Route path="/connexion" element={<Login />} />
           <Route path="/inscription" element={<SignUp />} />
 
-          {/* delete those lines when token is store in a cookie */}
-          <Route path="/:slug/liste" element={<List />} />
-          <Route path="/:slug/ajouter" element={<Add />} />
-
           {logged && <Route path="/:slug/liste" element={<List />} />}
           {logged && <Route path="/:slug/ajouter" element={<Add />} />}
           {logged && <Route path="/*" element={<Error404 />} />}
           {!logged && <Route path="/*" element={<Error401 />} />}
+
           <Route path="/contact" element={<Contact />} />
           <Route path="/a-propos" element={<Team />} />
         </Routes>
