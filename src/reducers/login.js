@@ -9,6 +9,7 @@ import {
   TOGGLE_USER_SETTINGS_OPEN,
   VERIFY_USERTOKEN_IN_LOCALSTORAGE,
   DECODE_TOKEN_TO_SAVE_USERNAME,
+  LOG_OUT,
 } from '../actions/login';
 
 export const initialState = {
@@ -70,6 +71,12 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         username: '',
+      };
+
+    case LOG_OUT:
+      return {
+        ...state,
+        logged: false,
       };
 
     default:
