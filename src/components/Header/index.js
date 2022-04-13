@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 // == Import style
 import './header.scss';
 import { Link } from 'react-router-dom';
@@ -11,7 +11,6 @@ import { toggleUserSettingsOpen } from '../../actions/login';
 // eslint-disable-next-line arrow-body-style
 const Header = () => {
   const dispatch = useDispatch();
-  const logged = useSelector((state) => state.login.logged);
 
   return (
     <div className="header">
@@ -20,7 +19,6 @@ const Header = () => {
           <img className="header-image-img" src={Logo} alt="" />
         </Link>
       </div>
-      {logged && (
       <button
         className="header-profil"
         type="button"
@@ -30,10 +28,6 @@ const Header = () => {
       >
         <img className="header-profil-icon" src={ProfilIcon} alt="" />
       </button>
-      )}
-      {!logged && (
-        <Link to="/inscription" className="header-profil-logout">Inscription</Link>
-      )}
     </div>
   );
 };
