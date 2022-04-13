@@ -2,6 +2,7 @@
 import './signUp.scss';
 
 import { Link } from 'react-router-dom';
+import Field from '../Field';
 
 const SignUp = () => (
   <div className="sign">
@@ -17,20 +18,35 @@ const SignUp = () => (
     </div>
 
     <form className="sign-form">
-      <div className="sign-form-input username">
-        <label htmlFor="username">Nom d'utilisateur
-          <input type="text" id="username" name="username" />
-        </label>
-      </div>
-      <div className="sign-form-input email">
-        <label htmlFor="username">E-mail
-          <input type="email" id="email" name="email" />
-        </label>
-      </div>
-      <div className="sign-form-input password">
-        <label htmlFor="password">Mot de passe
-          <input type="password" id="password" name="password" />
-        </label>
+      <div className="sign-form-input">
+        <Field
+          identifier="email"
+          label="Email"
+          value=""
+          // changeField={(identifier, newValue) => {
+          //   dispatch(changeLoginField(identifier, newValue));
+          //   // console.log(`changeField, identifier=${identifier}, newValue=${newValue}`);
+          // }}
+        />
+        <Field
+          identifier="username"
+          label="Nom d'utilisateur"
+          value=""
+          // changeField={(identifier, newValue) => {
+          //   dispatch(changeLoginField(identifier, newValue));
+          //   // console.log(`changeField, identifier=${identifier}, newValue=${newValue}`);
+          // }}
+        />
+        <Field
+          identifier="password"
+          label="Mot de passe"
+          type="password"
+          value=""
+          // changeField={(identifier, newValue) => {
+          //   dispatch(changeLoginField(identifier, newValue));
+          //   // console.log(`changeField, identifier=${identifier}, newValue=${newValue}`);
+          // }}
+        />
       </div>
 
       <button className="sign-form-submit" type="submit">Lets' go !</button>
