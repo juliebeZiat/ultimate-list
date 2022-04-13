@@ -7,7 +7,7 @@ const apiMiddleware = (store) => (next) => (action) => {
       .then((response) => {
         const actionToDispatch = showMode(response.data);
         store.dispatch(actionToDispatch);
-        console.log('Api response modes:', response.data);
+        // .log('Api response modes:', response.data);
       })
       .catch((error) => {
         console.log(error);

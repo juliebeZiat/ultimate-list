@@ -35,7 +35,7 @@ const Add = () => {
     (item) => item.name.toLowerCase().includes(stringToSearch),
   );
 
-  console.log('items filtered', itemsFiltered);
+  // console.log('items filtered', itemsFiltered);
 
   // function to dynamize mod's subtitle
   const modSubtitle = () => {
