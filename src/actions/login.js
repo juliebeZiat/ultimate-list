@@ -3,6 +3,7 @@ export const CHANGE_LOGIN_FIELD = 'CHANGE_LOGIN_FIELD';
 export const LOG_IN = 'LOG_IN';
 export const SAVE_USER_DATA = 'SAVE_USER_DATA';
 export const TOGGLE_USER_SETTINGS_OPEN = 'TOGGLE_USER_SETTINGS_OPEN';
+export const LOADER_ON = 'LOADER_ON';
 
 export const changeLoginField = (name, newValue) => ({
   type: CHANGE_LOGIN_FIELD,
@@ -21,4 +22,9 @@ export const saveUserData = (token) => ({
 
 export const toggleUserSettingsOpen = () => ({
   type: TOGGLE_USER_SETTINGS_OPEN,
+});
+
+export const loaderOn = (status) => ({
+  type: LOADER_ON,
+  status: status,
 });
