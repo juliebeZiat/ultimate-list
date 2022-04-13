@@ -25,7 +25,7 @@ const Lists = () => {
         <NavLink
           to="/jeuxvideo/liste"
           className={({ isActive }) => (
-            isActive ? 'list-header-menu-mode active' : 'list-header-menu-mode'
+            isActive ? 'list-header-menu-mode active-videogames' : 'list-header-menu-mode'
           )}
         >
           <img className="list-header-menu-mode-icon" src={Videogame} alt="icone jeu-video" />
@@ -33,7 +33,7 @@ const Lists = () => {
         <NavLink
           to="/podcasts/liste"
           className={({ isActive }) => (
-            isActive ? 'list-header-menu-mode active' : 'list-header-menu-mode'
+            isActive ? 'list-header-menu-mode active-podcasts' : 'list-header-menu-mode'
           )}
         >
           <img className="list-header-menu-mode-icon" src={Podcast} alt="icone podcast" />
@@ -46,7 +46,7 @@ const Lists = () => {
             {(mode.name).charAt(0).toUpperCase() + (mode.name).slice(1)}
             {window.location.pathname === `/${slug}/liste`
             && (
-              <div className="list-header-title-label">
+              <div className="list-header-title-label" style={{ backgroundColor: mode.color }}>
                 <span className="list-header-title-label-span">{itemsFiltered.length}</span>
               </div>
             )}
