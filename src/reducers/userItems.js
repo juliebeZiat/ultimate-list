@@ -1,22 +1,17 @@
-<<<<<<< HEAD
 import {
   SHOW_USER_ITEMS,
   FILTER_USER_ITEMS_BY_STATUS,
   USER_ITEMS_BY_MODE,
+  FILTER_ITEMS_STATUS,
+  ADD_ITEM,
 } from '../actions/userItems';
-=======
-import { SHOW_USER_ITEMS, FILTER_ITEMS_STATUS, ADD_ITEM } from '../actions/userItems';
->>>>>>> 645e229ee5c53863dee4dfe88955fc6f8603eae7
 
 export const initialState = {
   user_list: [],
   status: '',
-<<<<<<< HEAD
   userListByMode: [],
-=======
   newItem: [],
   item: '',
->>>>>>> 645e229ee5c53863dee4dfe88955fc6f8603eae7
 };
 
 const reducer = (state = initialState, action = {}) => {
