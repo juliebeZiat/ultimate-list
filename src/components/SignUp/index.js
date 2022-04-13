@@ -2,9 +2,9 @@
 import './signUp.scss';
 
 import { useSelector, useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Field from '../Field';
-import { changeSignupField } from '../../actions/signup';
+import { changeSignupField, register } from '../../actions/signup';
 
 const SignUp = () => {
   const emailValue = useSelector((state) => state.signup.email);
@@ -12,6 +12,7 @@ const SignUp = () => {
   const passwordValue = useSelector((state) => state.signup.password);
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   return (
     <div className="sign">
@@ -26,7 +27,14 @@ const SignUp = () => {
         </div>
       </div>
 
-      <form className="sign-form">
+      <form
+        className="sign-form"
+        onSubmit={(event) => {
+          event.preventDefault();
+          dispatch(register());
+          navigate('/');
+        }}
+      >
         <div className="sign-form-input">
           <Field
             identifier="email"

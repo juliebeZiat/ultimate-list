@@ -1,4 +1,4 @@
-import { CHANGE_SIGNUP_FIELD } from '../actions/signup';
+import { CHANGE_SIGNUP_FIELD, SAVE_NEW_USER_DATA } from '../actions/signup';
 
 export const initialState = {
   register: false,
@@ -25,6 +25,12 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         password: action.value,
+      };
+
+    case SAVE_NEW_USER_DATA:
+      return {
+        ...state,
+        register: true,
       };
 
     default:
