@@ -15,7 +15,7 @@ const User = () => {
   const currentUser = useSelector((state) => state.login.username);
   const user = users.find((username) => username.username === currentUser);
 
-  // to settup te deconnexion we need to dispatch the action logOut
+  // to settup the disconnection we need to dispatch the action logOut
   const dispatch = useDispatch();
 
   return (
