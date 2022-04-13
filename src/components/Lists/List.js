@@ -1,6 +1,6 @@
 // == Import
 import { useSelector } from 'react-redux';
-import { findItemsByMode, convertDate } from 'src/functions/items';
+import { findItemsByMode, findItemsByUser, convertDate } from 'src/functions/items';
 
 // == Import style
 import Toggle from 'src/assets/icons/toggle-on.svg';
@@ -15,6 +15,9 @@ const List = () => {
   const userItems = useSelector((state) => state.userItems.user_list);
   const { slug } = useParams();
   const itemsFiltered = findItemsByMode(userItems, slug);
+
+  const currentUser = useSelector((state) => state.login.username);
+  const itemsFilteredByUser = findItemsByUser(itemsFiltered, currentUser);
 
   // Variables for status
   const statusName = (status) => {
@@ -93,7 +96,7 @@ const List = () => {
       </div>
 
       <div className="list-items">
-        {itemsFiltered.map((userItem) => (
+        {itemsFilteredByUser.map((userItem) => (
           <div className="item" key={userItem.id}>
             {userItem.items.map((item) => (
               <div className="item-content" key={item.id}>
