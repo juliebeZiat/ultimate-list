@@ -13,7 +13,7 @@ export function findItemsByMode(itemList, searchedMode) {
 
 // Convert date from JSON timestamp to "Month YYYY"
 export function convertDate(dateObject) {
-  const date = new Date(dateObject).toLocaleString('default', { month: 'long', year: 'numeric' });
+  const date = new Date(dateObject).toLocaleString('default', { day: 'numeric', month: 'long', year: 'numeric' });
   const dateUppercase = date.charAt(0).toUpperCase() + date.slice(1);
   return dateUppercase;
 }

@@ -95,12 +95,12 @@ const List = () => {
       <div className="list-items">
         {itemsFiltered.map((userItem) => (
           <div className="item" key={userItem.id}>
-            <div className="item-date">{convertDate(userItem.item_added_at)}</div>
             {userItem.items.map((item) => (
               <div className="item-content" key={item.id}>
                 <img className="item-content-image" src={item.image} alt="miniature-jeu-video" />
                 <div className="item-content-detail">
                   <div className="item-content-detail-title">{item.name}</div>
+                  <div className="item-content-detail-date">Ajouté le {convertDate(userItem.item_added_at)}</div>
                   <div className="item-content-detail-status">{statusName(userItem.item_status)}</div>
                 </div>
               </div>
