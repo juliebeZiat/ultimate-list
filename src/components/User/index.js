@@ -1,7 +1,12 @@
 // == Import style
 import './user.scss';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+
+// == Import react hooks
+import { useSelector, useDispatch } from 'react-redux';
+
+// == Import actions
+import { logOut } from 'src/actions/login';
 
 // eslint-disable-next-line arrow-body-style
 const User = () => {
@@ -12,6 +17,10 @@ const User = () => {
 
   const logged = useSelector((state) => state.login.logged);
 
+  // to settup the disconnection we need to dispatch the action logOut
+  const dispatch = useDispatch();
+
+
   return (
     <div className="user">
       {isOpen && (
@@ -19,7 +28,18 @@ const User = () => {
         {logged && (
           <>
             <div className="user-toggle-hello"><h4>Coucou {user.username} </h4></div>
-            <div className="user-toggle-disconnect"><Link to="/">Se déconnecter</Link></div>
+            <div className="user-toggle-disconnect">
+            <Link
+              to="/"
+              onClick={() => {
+                // when the user logout, his token is removed from local storage
+                localStorage.removeItem('user_token');
+                // and the value of state "logged" change for false
+                dispatch(logOut);
+              }}
+            >
+            Se déconnecter
+          </Link></div>
             <div className="user-toggle-delete"><Link to="/">Supprimer définitivement mon profil</Link></div>
           </>
         )}
