@@ -35,12 +35,23 @@ const Add = () => {
     (item) => item.name.toLowerCase().includes(stringToSearch),
   );
 
+  // console.log('items filtered', itemsFiltered);
+
+  // function to dynamize mod's subtitle
+  const modSubtitle = () => {
+    switch (slug) {
+      case 'jeuxvideo': return 'jeu vidéo';
+      case 'podcasts': return 'podcast';
+      default: return '';
+    }
+  };
+
   return (
     <>
       <Lists />
       <div className="add">
         <div className="add-search">
-          <h2 className="add-modSubtitle">Ajouter un jeu vidéo</h2>
+          <h2 className="add-modSubtitle">Ajouter un {modSubtitle()}</h2>
           <input
             className="input-search"
             placeholder="Assassin's Creed, Elden Ring, God of War..."

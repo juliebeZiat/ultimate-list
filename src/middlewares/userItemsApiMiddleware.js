@@ -1,5 +1,7 @@
 import axios from 'axios';
-import { GET_USER_ITEMS_FROM_API, showUserItems } from '../actions/userItems';
+import {
+  GET_USER_ITEMS_FROM_API, showUserItems, ADD_ITEM, addItemToUserList,
+} from '../actions/userItems';
 
 const apiMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
@@ -8,7 +10,19 @@ const apiMiddleware = (store) => (next) => (action) => {
         .then((response) => {
           const actionToDispatch = showUserItems(response.data);
           store.dispatch(actionToDispatch);
+
           console.log('Api response list_items:', response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      break;
+    case ADD_ITEM:
+      axios.post('http://orianeberti-server.eddi.cloud/projet-13-ultimatelist-back/public/api/list_items/create/')
+        .then((response) => {
+          const actionToDispatch = addItemToUserList(response.data);
+          store.dispatch(actionToDispatch);
+          console.log('Api add:', response);
         })
         .catch((error) => {
           console.log(error);

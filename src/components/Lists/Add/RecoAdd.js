@@ -10,14 +10,25 @@ const RecoAdd = ({ recommendations }) => (
           <img className="card-image" src={item.image} alt="" />
           <div className="card-content">
             <h3 className="card-title">{item.name}</h3>
-            <p className="card-description">{item.developer}</p>
+            <p className="card-description">{item.developer}{item.host}</p>
             <div className="card-tags">
               {item.tags.map((tag) => (
-                <span className="card-tag" key={tag.id}>{tag.name}</span>
+                <span
+                  className="card-tag"
+                  key={tag.id}
+                  // style={{ backgroundColor: tag.color }}
+                >
+                  {tag.name}
+                </span>
               ))}
             </div>
           </div>
-          <button className="card-button" type="button" aria-label="icon plus" />
+          <button
+            className="card-button"
+            type="button"
+            aria-label="icon plus"
+            onClick={() => console.log('coucou le bouton', item.id)}
+          />
         </li>
       ))}
     </ul>

@@ -47,11 +47,19 @@
           background-color: lighten(vars.$backgroundColor, 20%);
         }
 
-        &.active {
+        &.active-videogames {
           background-color: vars.$iconVideogameBackgroundColor;
 
           &:hover {
             background-color: lighten(vars.$iconVideogameBackgroundColor, 10%);
+          }
+        }
+
+        &.active-podcasts {
+          background-color: vars.$iconPodcastBackgroundColor;
+
+          &:hover {
+            background-color: lighten(vars.$iconPodcastBackgroundColor, 10%);
           }
         }
       }

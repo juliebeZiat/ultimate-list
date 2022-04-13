@@ -7,6 +7,7 @@
   border-radius: 1em 0 0 1em;
   text-align: right;
   position: fixed;
+  top: 70px;
   right:0;
 
   &-hello {
@@ -17,5 +18,33 @@
     font-size: .8em;
     margin-bottom: 1em;
     text-decoration: underline;
+  }
+
+  &-welcome {
+    text-align: center;
+    margin-bottom: 1em;
+  }
+
+  &-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  button {
+    border: none;
+    display: block;
+    border-radius: 1.5em;
+    padding: 1em;
+    margin-bottom: 1em;
+    width: 120px;
+  }
+
+  &-connect {
+    background-color: vars.$logoColorOne;
+  }
+
+  &-signup {
+    background-color: vars.$logoColorThree;
   }
 }
