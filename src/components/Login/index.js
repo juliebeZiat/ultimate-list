@@ -34,7 +34,7 @@ const Login = () => {
           navigate('/');
         }}
       >
-        <div className="connexion-form-input username">
+        <div className="connexion-form-input">
           <Field
             identifier="username"
             label="Email"

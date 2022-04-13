@@ -1,43 +1,74 @@
 // == Import style
 import './signUp.scss';
 
-import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
+import Field from '../Field';
+import { changeSignupField, register } from '../../actions/signup';
 
-const SignUp = () => (
-  <div className="sign">
+const SignUp = () => {
+  const emailValue = useSelector((state) => state.signup.email);
+  const usernameValue = useSelector((state) => state.signup.username);
+  const passwordValue = useSelector((state) => state.signup.password);
 
-    <div className="sign-header">
-      <h1 className="sign-header-title">Bienvenue sur <span className="sign-header-title-bold">Ultimate List</span></h1>
-      <div className="sign-header-buttons">
-        <Link to="/connexion">
-          <button type="button" className="sign-header-buttons-switch">Connexion</button>
-        </Link>
-        <button type="button" className="sign-header-buttons-switch active">Inscription</button>
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  return (
+    <div className="sign">
+
+      <div className="sign-header">
+        <h1 className="sign-header-title">Bienvenue sur <span className="sign-header-title-bold">Ultimate List</span></h1>
+        <div className="sign-header-buttons">
+          <Link to="/connexion">
+            <button type="button" className="sign-header-buttons-switch">Connexion</button>
+          </Link>
+          <button type="button" className="sign-header-buttons-switch active">Inscription</button>
+        </div>
       </div>
+
+      <form
+        className="sign-form"
+        onSubmit={(event) => {
+          event.preventDefault();
+          dispatch(register());
+          navigate('/');
+        }}
+      >
+        <div className="sign-form-input">
+          <Field
+            identifier="email"
+            label="Email"
+            value={emailValue}
+            changeField={(identifier, newValue) => {
+              dispatch(changeSignupField(identifier, newValue));
+            }}
+          />
+          <Field
+            identifier="username"
+            label="Nom d'utilisateur"
+            value={usernameValue}
+            changeField={(identifier, newValue) => {
+              dispatch(changeSignupField(identifier, newValue));
+            }}
+          />
+          <Field
+            identifier="password"
+            label="Mot de passe"
+            type="password"
+            value={passwordValue}
+            changeField={(identifier, newValue) => {
+              dispatch(changeSignupField(identifier, newValue));
+            }}
+          />
+        </div>
+
+        <button className="sign-form-submit" type="submit">Lets' go !</button>
+      </form>
+
     </div>
-
-    <form className="sign-form">
-      <div className="sign-form-input username">
-        <label htmlFor="username">Nom d'utilisateur
-          <input type="text" id="username" name="username" />
-        </label>
-      </div>
-      <div className="sign-form-input email">
-        <label htmlFor="username">E-mail
-          <input type="email" id="email" name="email" />
-        </label>
-      </div>
-      <div className="sign-form-input password">
-        <label htmlFor="password">Mot de passe
-          <input type="password" id="password" name="password" />
-        </label>
-      </div>
-
-      <button className="sign-form-submit" type="submit">Lets' go !</button>
-    </form>
-
-  </div>
-);
+  );
+};
 
 // == Export
 export default SignUp;

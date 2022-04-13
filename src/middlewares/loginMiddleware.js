@@ -6,7 +6,7 @@ const api = axios.create({
   baseURL: 'http://orianeberti-server.eddi.cloud/projet-13-ultimatelist-back/public/api',
 });
 
-const userMiddleware = (store) => (next) => (action) => {
+const loginMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case LOG_IN:
       api.post(
@@ -38,4 +38,4 @@ const userMiddleware = (store) => (next) => (action) => {
   next(action);
 };
 
-export default userMiddleware;
+export default loginMiddleware;
