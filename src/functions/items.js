@@ -28,3 +28,8 @@ export function convertDate(dateObject) {
   const dateUppercase = date.charAt(0).toUpperCase() + date.slice(1);
   return dateUppercase;
 }
+
+export function findUserItemsByStatus(userItems, statusWanted) {
+  const userItemsByStatus = userItems.filter((item) => item.item_status === statusWanted);
+  return userItemsByStatus;
+}

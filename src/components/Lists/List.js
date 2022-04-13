@@ -1,9 +1,14 @@
 // == Import react hooks
 import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 
 // == Import functions
-import { findItemsByMode, convertDate, findItemsByUser } from 'src/functions/items';
+import {
+  findItemsByMode,
+  convertDate,
+  findItemsByUser,
+  // findUserItemsByStatus,
+} from 'src/functions/items';
 
 // == Import style
 import Toggle from 'src/assets/icons/toggle-on.svg';
@@ -12,19 +17,30 @@ import './list.scss';
 // == Import Component
 import { Link, useParams } from 'react-router-dom';
 import Lists from '.';
-import { filterUserItemsByStatus, userItemsByMode } from '../../actions/userItems';
+
+// == Import actions
+import {
+  filterUserItemsByStatus,
+  // getListsOfConnectedUserBymode,
+} from '../../actions/userItems';
 
 const List = () => {
   const userItems = useSelector((state) => state.userItems.user_list);
   const { slug } = useParams();
   const itemsFiltered = findItemsByMode(userItems, slug);
+  console.log('user_list :', userItems);
 
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(userItemsByMode(slug));
-  }, []);
-  const userItemsByModeFromState = useSelector((state) => state.userItems.userListByMode);
-  console.log('user items by mode in state :', userItemsByModeFromState);
+
+  // trying to store the user lists sorted by slug in state but it does infinite loop
+  // useEffect(() => {
+  //   dispatch(getListsOfConnectedUserBymode(slug));
+  // }, []);
+  // const userListsBymode = useSelector((state) => state.userItems.connectedUserListsByMode);
+  // console.log('liste de lutilisateur connecté par mode:', userListsBymode);
+
+  // const currentUserLists = useSelector((state) => state.userItems.connectedUserLists);
+  // console.log('current user lists :', currentUserLists);
 
   const currentUser = useSelector((state) => state.login.username);
   const itemsFilteredByUser = findItemsByUser(itemsFiltered, currentUser);

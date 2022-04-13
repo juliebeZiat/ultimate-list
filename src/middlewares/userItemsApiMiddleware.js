@@ -1,6 +1,10 @@
 import axios from 'axios';
 import {
-  GET_USER_ITEMS_FROM_API, showUserItems, ADD_ITEM, addItemToUserList,
+  GET_USER_ITEMS_FROM_API,
+  showUserItems,
+  ADD_ITEM,
+  addItemToUserList,
+  getListsOfConnectedUser,
 } from '../actions/userItems';
 
 const apiMiddleware = (store) => (next) => (action) => {
@@ -8,10 +12,16 @@ const apiMiddleware = (store) => (next) => (action) => {
     case GET_USER_ITEMS_FROM_API:
       axios.get('http://orianeberti-server.eddi.cloud/projet-13-ultimatelist-back/public/api/list_items')
         .then((response) => {
+          // console.log('Api response list_items:', response.data);
+
           const actionToDispatch = showUserItems(response.data);
           store.dispatch(actionToDispatch);
 
-          console.log('Api response list_items:', response.data);
+          const currentUserName = store.getState().login.username;
+          // console.log(currentUserName);
+
+          const actionToDispatchTwo = getListsOfConnectedUser(currentUserName);
+          store.dispatch(actionToDispatchTwo);
         })
         .catch((error) => {
           console.log(error);

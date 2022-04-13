@@ -1,17 +1,18 @@
 import {
   SHOW_USER_ITEMS,
   FILTER_USER_ITEMS_BY_STATUS,
-  USER_ITEMS_BY_MODE,
-  FILTER_ITEMS_STATUS,
   ADD_ITEM,
+  GET_LISTS_OF_CONNECTED_USER,
+  GET_LISTS_OF_CONNECTED_USER_BYMODE,
 } from '../actions/userItems';
 
 export const initialState = {
   user_list: [],
   status: '',
-  userListByMode: [],
   newItem: [],
   item: '',
+  connectedUserLists: [],
+  connectedUserListsByMode: [],
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -22,22 +23,33 @@ const reducer = (state = initialState, action = {}) => {
         user_list: action.userItems,
       };
 
-    case USER_ITEMS_BY_MODE:
-      return {
-        ...state,
-        userListByMode: state.user_list.filter((item) => item.mode.slug === action.mode),
-      };
-
     case FILTER_USER_ITEMS_BY_STATUS:
       return {
         ...state,
-        userListByMode: state.userListByMode.filter((item) => item.item_status === action.status),
+        // eslint-disable-next-line max-len
+        connectedUserListsByMode: state.connectedUserListsByMode.filter((item) => item.item_status === action.status),
       };
+
     case ADD_ITEM:
       return {
         ...state,
         newItem: [...state.newItem, action.user_list.item],
       };
+
+    case GET_LISTS_OF_CONNECTED_USER:
+      return {
+        ...state,
+        // eslint-disable-next-line max-len
+        connectedUserLists: state.user_list.filter((user) => user.user.username === action.currentUserName),
+      };
+
+    case GET_LISTS_OF_CONNECTED_USER_BYMODE:
+      return {
+        ...state,
+        // eslint-disable-next-line max-len
+        connectedUserListsByMode: state.connectedUserLists.filter((item) => item.mode.slug === action.currentMode),
+      };
+
     default:
       return state;
   }
