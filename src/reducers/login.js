@@ -1,4 +1,16 @@
-import { CHANGE_LOGIN_FIELD, SAVE_USER_DATA, TOGGLE_USER_SETTINGS_OPEN } from '../actions/login';
+// == Import dependencies
+// eslint-disable-next-line camelcase
+import jwt_decode from 'jwt-decode';
+
+// == Import actions
+import {
+  CHANGE_LOGIN_FIELD,
+  SAVE_USER_DATA,
+  TOGGLE_USER_SETTINGS_OPEN,
+  VERIFY_USERTOKEN_IN_LOCALSTORAGE,
+  DECODE_TOKEN_TO_SAVE_USERNAME,
+  LOG_OUT,
+} from '../actions/login';
 
 export const initialState = {
   username: '',
@@ -34,6 +46,37 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         isSettingsOpen: !state.isSettingsOpen,
+      };
+
+    case VERIFY_USERTOKEN_IN_LOCALSTORAGE:
+      if (action.localStorageToken !== null) {
+        return {
+          ...state,
+          logged: true,
+        };
+      }
+      return {
+        ...state,
+        logged: false,
+      };
+
+    case DECODE_TOKEN_TO_SAVE_USERNAME:
+    // decode user_token to get the associated username and store it in state
+      if (action.token !== null) {
+        return {
+          ...state,
+          username: jwt_decode(action.token).username,
+        };
+      }
+      return {
+        ...state,
+        username: '',
+      };
+
+    case LOG_OUT:
+      return {
+        ...state,
+        logged: false,
       };
 
     default:
