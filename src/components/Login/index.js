@@ -30,8 +30,8 @@ const Login = () => {
         className="connexion-form"
         onSubmit={(event) => {
           event.preventDefault();
-          dispatch(logIn());
           dispatch(loaderOn());
+          dispatch(logIn());
           navigate('/');
         }}
       >
