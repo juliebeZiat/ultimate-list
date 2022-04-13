@@ -23,7 +23,12 @@ const RecoAdd = ({ recommendations }) => (
               ))}
             </div>
           </div>
-          <button className="card-button" type="button" aria-label="icon plus" />
+          <button
+            className="card-button"
+            type="button"
+            aria-label="icon plus"
+            onClick={() => console.log('coucou le bouton', item.id)}
+          />
         </li>
       ))}
     </ul>
