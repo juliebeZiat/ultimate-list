@@ -10,7 +10,7 @@ import { NavLink, useParams } from 'react-router-dom';
 // == Import
 import { useSelector } from 'react-redux';
 import { findMode } from 'src/functions/modes';
-import { findItemsByMode } from 'src/functions/items';
+import { findItemsByMode, findItemsByUser } from 'src/functions/items';
 
 const Lists = () => {
   const modesToDisplay = useSelector((state) => state.modes.list);
@@ -18,6 +18,8 @@ const Lists = () => {
   const modes = findMode(modesToDisplay, slug);
   const userItems = useSelector((state) => state.userItems.user_list);
   const itemsFiltered = findItemsByMode(userItems, slug);
+  const currentUser = useSelector((state) => state.login.username);
+  const itemsFilteredByUser = findItemsByUser(itemsFiltered, currentUser);
 
   return (
     <div className="list-header">
@@ -47,7 +49,7 @@ const Lists = () => {
             {window.location.pathname === `/${slug}/liste`
             && (
               <div className="list-header-title-label" style={{ backgroundColor: mode.color }}>
-                <span className="list-header-title-label-span">{itemsFiltered.length}</span>
+                <span className="list-header-title-label-span">{itemsFilteredByUser.length}</span>
               </div>
             )}
           </h3>
