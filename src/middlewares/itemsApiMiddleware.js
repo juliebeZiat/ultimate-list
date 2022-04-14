@@ -8,7 +8,8 @@ const apiMiddleware = (store) => (next) => (action) => {
       .then((response) => {
         const actionToDispatch = showItems(response.data);
         store.dispatch(actionToDispatch);
-        // console.log('Api response items:', response.data);
+
+        console.log('Api response items:', response.data);
       })
       .catch((error) => {
         console.log(error);

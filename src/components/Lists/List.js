@@ -1,6 +1,13 @@
-// == Import
-import { useSelector } from 'react-redux';
-import { findItemsByMode, findItemsByUser, convertDate } from 'src/functions/items';
+// == Import react hooks
+import { useSelector, useDispatch } from 'react-redux';
+
+// == Import functions
+import {
+  findItemsByMode,
+  convertDate,
+  findItemsByUser,
+  findUserItemsByStatus,
+} from 'src/functions/items';
 
 // == Import style
 import Toggle from 'src/assets/icons/toggle-on.svg';
@@ -9,15 +16,16 @@ import './list.scss';
 // == Import Component
 import { Link, useParams } from 'react-router-dom';
 import Lists from '.';
-// import { filterItemsStatus } from '../../actions/userItems';
+
+// == Import actions
+import { changeStatusFilter } from '../../actions/items';
 
 const List = () => {
   const userItems = useSelector((state) => state.userItems.user_list);
   const { slug } = useParams();
   const itemsFiltered = findItemsByMode(userItems, slug);
 
-  const currentUser = useSelector((state) => state.login.username);
-  const itemsFilteredByUser = findItemsByUser(itemsFiltered, currentUser);
+  const dispatch = useDispatch();
 
   // Variables for status
   const statusName = (status) => {
@@ -56,12 +64,40 @@ const List = () => {
     }
   };
 
-  // const dispatch = useDispatch();
+  // to sort items by their status we need :
+  // 1. the username of the current connected user
+  const currentUser = useSelector((state) => state.login.username);
+  // 2. his items lists that we get with his username
+  const itemsFilteredByUser = findItemsByUser(itemsFiltered, currentUser);
+  // 3. retrieve the actual status filter store in state
+  const statusFilter = useSelector((state) => state.items.statusFilter);
+  // 4. prepare a list of user items sort by status for each current status
+  const UserItemsTodo = findUserItemsByStatus(itemsFilteredByUser, 0);
+  const UserItemsDoing = findUserItemsByStatus(itemsFilteredByUser, 1);
+  const UserItemsDone = findUserItemsByStatus(itemsFilteredByUser, 2);
+  // 5. a function which take the current status in state as a parameter and return a list sorted
+  const userListsFilteredByStatus = (status) => {
+    switch (status) {
+      case 'todo':
+        return UserItemsTodo;
 
-  const changeStatus = (status) => {
-    const newArray = itemsFiltered.filter((item) => item.item_status === status);
-    return newArray;
+      case 'doing':
+        return UserItemsDoing;
+
+      case 'done':
+        return UserItemsDone;
+
+      default:
+        return itemsFilteredByUser;
+    }
   };
+  // 6. then by clicking on the buttons, the current status in state will change
+  // by dispatching the action changeStatusFilter
+  // 7. and a .map is done on userListsFilteredByStatus to display the result
+
+  // var for status's button css
+  const cssStatusInactive = 'list-header-progress-status-button';
+  const cssStatusActive = `${cssStatusInactive}-active`;
 
   return (
     <div className="list">
@@ -74,16 +110,42 @@ const List = () => {
 
       <div className="list-header-progress">
         <div className="list-header-progress-status">
-          <button type="button" className="list-header-progress-status-button-active">Tous</button>
           <button
             type="button"
-            className="list-header-progress-status-button"
-            onClick={() => changeStatus(1)}
+            className={statusFilter === 'all' ? cssStatusActive : cssStatusInactive}
+            onClick={() => {
+              dispatch(changeStatusFilter('all'));
+            }}
+          >
+            Tous
+          </button>
+          <button
+            type="button"
+            className={statusFilter === 'todo' ? cssStatusActive : cssStatusInactive}
+            onClick={() => {
+              dispatch(changeStatusFilter('todo'));
+            }}
           >
             {statusName(0)}
           </button>
-          <button type="button" className="list-header-progress-status-button">{statusName(1)}</button>
-          <button type="button" className="list-header-progress-status-button">{statusName(2)}</button>
+          <button
+            type="button"
+            className={statusFilter === 'doing' ? cssStatusActive : cssStatusInactive}
+            onClick={() => {
+              dispatch(changeStatusFilter('doing'));
+            }}
+          >
+            {statusName(1)}
+          </button>
+          <button
+            type="button"
+            className={statusFilter === 'done' ? cssStatusActive : cssStatusInactive}
+            onClick={() => {
+              dispatch(changeStatusFilter('done'));
+            }}
+          >
+            {statusName(2)}
+          </button>
         </div>
       </div>
 
@@ -96,7 +158,7 @@ const List = () => {
       </div>
 
       <div className="list-items">
-        {itemsFilteredByUser.map((userItem) => (
+        {userListsFilteredByStatus(statusFilter).map((userItem) => (
           <div className="item" key={userItem.id}>
             {userItem.items.map((item) => (
               <div className="item-content" key={item.id}>
