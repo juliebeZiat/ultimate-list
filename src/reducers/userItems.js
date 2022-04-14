@@ -2,8 +2,6 @@ import {
   SHOW_USER_ITEMS,
   FILTER_USER_ITEMS_BY_STATUS,
   ADD_ITEM,
-  GET_LISTS_OF_CONNECTED_USER,
-  GET_LISTS_OF_CONNECTED_USER_BYMODE,
 } from '../actions/userItems';
 
 export const initialState = {
@@ -11,8 +9,6 @@ export const initialState = {
   status: '',
   newItem: [],
   item: '',
-  connectedUserLists: [],
-  connectedUserListsByMode: [],
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -34,20 +30,6 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         newItem: [...state.newItem, action.user_list.item],
-      };
-
-    case GET_LISTS_OF_CONNECTED_USER:
-      return {
-        ...state,
-        // eslint-disable-next-line max-len
-        connectedUserLists: state.user_list.filter((user) => user.user.username === action.currentUserName),
-      };
-
-    case GET_LISTS_OF_CONNECTED_USER_BYMODE:
-      return {
-        ...state,
-        // eslint-disable-next-line max-len
-        connectedUserListsByMode: state.connectedUserLists.filter((item) => item.mode.slug === action.currentMode),
       };
 
     default:

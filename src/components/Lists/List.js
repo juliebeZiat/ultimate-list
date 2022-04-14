@@ -1,6 +1,5 @@
 // == Import react hooks
 import { useSelector, useDispatch } from 'react-redux';
-// import { useEffect } from 'react';
 
 // == Import functions
 import {
@@ -19,10 +18,6 @@ import { Link, useParams } from 'react-router-dom';
 import Lists from '.';
 
 // == Import actions
-import {
-  filterUserItemsByStatus,
-  // getListsOfConnectedUserBymode,
-} from '../../actions/userItems';
 import { changeStatusFilter } from '../../actions/items';
 
 const List = () => {
@@ -31,16 +26,6 @@ const List = () => {
   const itemsFiltered = findItemsByMode(userItems, slug);
 
   const dispatch = useDispatch();
-
-  // trying to store the user lists sorted by slug in state but it does infinite loop
-  // useEffect(() => {
-  //   dispatch(getListsOfConnectedUserBymode(slug));
-  // }, []);
-  // const userListsBymode = useSelector((state) => state.userItems.connectedUserListsByMode);
-  // console.log('liste de lutilisateur connecté par mode:', userListsBymode);
-
-  // const currentUserLists = useSelector((state) => state.userItems.connectedUserLists);
-  // console.log('current user lists :', currentUserLists);
 
   // Variables for status
   const statusName = (status) => {

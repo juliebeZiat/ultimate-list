@@ -29,6 +29,12 @@ export function convertDate(dateObject) {
   return dateUppercase;
 }
 
+/**
+ *  create an object of items depending on their item_status
+ * @param {Object} userItems - every user items sorted by mode
+ * @param {Number} statusWanted - status we want
+ * @return {Object} - items where item_status is matching le status wanted
+ */
 export function findUserItemsByStatus(userItems, statusWanted) {
   const userItemsByStatus = userItems.filter((item) => item.item_status === statusWanted);
   return userItemsByStatus;

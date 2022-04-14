@@ -4,7 +4,6 @@ import {
   showUserItems,
   ADD_ITEM,
   addItemToUserList,
-  getListsOfConnectedUser,
 } from '../actions/userItems';
 
 const apiMiddleware = (store) => (next) => (action) => {
@@ -16,12 +15,6 @@ const apiMiddleware = (store) => (next) => (action) => {
 
           const actionToDispatch = showUserItems(response.data);
           store.dispatch(actionToDispatch);
-
-          const currentUserName = store.getState().login.username;
-          // console.log(currentUserName);
-
-          const actionToDispatchTwo = getListsOfConnectedUser(currentUserName);
-          store.dispatch(actionToDispatchTwo);
         })
         .catch((error) => {
           console.log(error);
