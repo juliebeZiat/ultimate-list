@@ -95,6 +95,10 @@ const List = () => {
   // by dispatching the action changeStatusFilter
   // 7. and a .map is done on userListsFilteredByStatus to display the result
 
+  // var for status's button css
+  const cssStatusInactive = 'list-header-progress-status-button';
+  const cssStatusActive = `${cssStatusInactive}-active`;
+
   return (
     <div className="list">
       <Lists />
@@ -108,7 +112,7 @@ const List = () => {
         <div className="list-header-progress-status">
           <button
             type="button"
-            className="list-header-progress-status-button-active"
+            className={statusFilter === 'all' ? cssStatusActive : cssStatusInactive}
             onClick={() => {
               dispatch(changeStatusFilter('all'));
             }}
@@ -117,7 +121,7 @@ const List = () => {
           </button>
           <button
             type="button"
-            className="list-header-progress-status-button"
+            className={statusFilter === 'todo' ? cssStatusActive : cssStatusInactive}
             onClick={() => {
               dispatch(changeStatusFilter('todo'));
             }}
@@ -126,7 +130,7 @@ const List = () => {
           </button>
           <button
             type="button"
-            className="list-header-progress-status-button"
+            className={statusFilter === 'doing' ? cssStatusActive : cssStatusInactive}
             onClick={() => {
               dispatch(changeStatusFilter('doing'));
             }}
@@ -135,7 +139,7 @@ const List = () => {
           </button>
           <button
             type="button"
-            className="list-header-progress-status-button"
+            className={statusFilter === 'done' ? cssStatusActive : cssStatusInactive}
             onClick={() => {
               dispatch(changeStatusFilter('done'));
             }}
