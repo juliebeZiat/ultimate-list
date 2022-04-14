@@ -3,8 +3,6 @@ import { SHOW_USER_ITEMS, FILTER_ITEMS_STATUS, ADD_ITEM } from '../actions/userI
 export const initialState = {
   user_list: [],
   status: '',
-  newItem: [],
-  item: '',
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -22,7 +20,7 @@ const reducer = (state = initialState, action = {}) => {
     case ADD_ITEM:
       return {
         ...state,
-        newItem: [...state.newItem, action.user_list.item],
+        user_list: [...state.user_list, action.items],
       };
     default:
       return state;
