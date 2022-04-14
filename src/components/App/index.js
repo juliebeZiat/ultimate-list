@@ -35,6 +35,7 @@ const App = () => {
   // and then use it in action verifyUsertokenInLocalstorage and decodeTokenToSaveUsername
 
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(getItemsFromApi());
     dispatch(getUserItemsFromApi());

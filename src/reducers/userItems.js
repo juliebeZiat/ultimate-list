@@ -1,10 +1,12 @@
-import { SHOW_USER_ITEMS, FILTER_ITEMS_STATUS, ADD_ITEM } from '../actions/userItems';
+import {
+  SHOW_USER_ITEMS,
+  FILTER_USER_ITEMS_BY_STATUS,
+  ADD_ITEM,
+} from '../actions/userItems';
 
 export const initialState = {
   user_list: [],
   status: '',
-  newItem: [],
-  item: '',
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -14,16 +16,20 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         user_list: action.userItems,
       };
-    case FILTER_ITEMS_STATUS:
+
+    case FILTER_USER_ITEMS_BY_STATUS:
       return {
         ...state,
-        status: action.status,
+        // eslint-disable-next-line max-len
+        connectedUserListsByMode: state.connectedUserListsByMode.filter((item) => item.item_status === action.status),
       };
+
     case ADD_ITEM:
       return {
         ...state,
-        newItem: [...state.newItem, action.user_list.item],
+        user_list: [...state.user_list, action.items],
       };
+
     default:
       return state;
   }

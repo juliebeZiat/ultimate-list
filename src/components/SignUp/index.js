@@ -69,7 +69,12 @@ const SignUp = () => {
           />
         </div>
 
-        <button className="sign-form-submit" type="submit">Lets' go !</button>
+        <button
+          className="sign-form-submit"
+          type="submit"
+        >
+          Lets' go !
+        </button>
       </form>
 
     </div>
