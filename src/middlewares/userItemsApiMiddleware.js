@@ -21,7 +21,14 @@ const apiMiddleware = (store) => (next) => (action) => {
         });
       break;
     case ADD_ITEM:
-      axios.post('http://orianeberti-server.eddi.cloud/projet-13-ultimatelist-back/public/api/list_items/create/')
+      axios.post(
+        'http://orianeberti-server.eddi.cloud/projet-13-ultimatelist-back/public/api/list_items/create/',
+        {
+          id_item: store.getState().items.list.id,
+          // id_user_list: store.getState().userItems.user_list.id,
+          // username: store.getState().login.username,
+        },
+      )
         .then((response) => {
           const actionToDispatch = addItemToUserList(response.data);
           store.dispatch(actionToDispatch);

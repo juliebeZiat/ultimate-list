@@ -17,7 +17,6 @@ export const filterUserItemsByStatus = (currentStatus) => ({
   status: currentStatus,
 });
 
-export const addItemToUserList = (item) => ({
+export const addItemToUserList = () => ({
   type: ADD_ITEM,
-  item: item,
 });

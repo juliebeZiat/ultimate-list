@@ -7,8 +7,6 @@ import {
 export const initialState = {
   user_list: [],
   status: '',
-  newItem: [],
-  item: '',
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -29,7 +27,7 @@ const reducer = (state = initialState, action = {}) => {
     case ADD_ITEM:
       return {
         ...state,
-        newItem: [...state.newItem, action.user_list.item],
+        user_list: [...state.user_list, action.items],
       };
 
     default:
