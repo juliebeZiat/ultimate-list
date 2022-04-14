@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { loaderOff } from '../actions/loader';
 
 import { REGISTER, saveNewUserData } from '../actions/signup';
 
@@ -25,6 +26,9 @@ const signupMiddleware = (store) => (next) => (action) => {
         })
         .catch((error) => {
           console.log(error);
+        })
+        .finally(() => {
+          store.dispatch(loaderOff());
         });
       break;
 
