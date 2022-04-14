@@ -9,6 +9,7 @@ import Field from '../Field';
 const Login = () => {
   const usernameValue = useSelector((state) => state.login.username);
   const passwordValue = useSelector((state) => state.login.password);
+  const loginFail = useSelector((state) => state.login.errorMessage);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -30,15 +31,15 @@ const Login = () => {
         className="connexion-form"
         onSubmit={(event) => {
           event.preventDefault();
-          dispatch(loaderOn());
+          // dispatch(loaderOn());
           dispatch(logIn());
-          navigate('/');
+          // navigate('/');
         }}
       >
         <div className="connexion-form-input">
           <Field
             identifier="username"
-            label="Email"
+            label="Nom d'utilisateur"
             value={usernameValue}
             changeField={(identifier, newValue) => {
               dispatch(changeLoginField(identifier, newValue));
@@ -56,6 +57,8 @@ const Login = () => {
             }}
           />
         </div>
+
+        {loginFail && <div className="errorMessage">Mot de passe ou username incorrect</div>}
 
         <button
           className="connexion-form-submit"

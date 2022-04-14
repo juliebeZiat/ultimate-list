@@ -11,6 +11,7 @@ import {
   VERIFY_USERTOKEN_IN_LOCALSTORAGE,
   DECODE_TOKEN_TO_SAVE_USERNAME,
   LOG_OUT,
+  LOG_IN_FAIL,
 } from '../actions/login';
 
 export const initialState = {
@@ -20,6 +21,7 @@ export const initialState = {
   logged: false,
   isSettingsOpen: false,
   loader: false,
+  errorMessage: false,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -55,7 +57,7 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         loader: !state.loader,
-     };
+      };
 
     case VERIFY_USERTOKEN_IN_LOCALSTORAGE:
       if (action.localStorageToken !== null) {
@@ -86,6 +88,13 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         logged: false,
+      };
+
+    case LOG_IN_FAIL:
+      return {
+        ...state,
+        logged: false,
+        errorMessage: true,
       };
 
     default:
