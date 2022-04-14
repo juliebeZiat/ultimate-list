@@ -81,3 +81,27 @@
     }
   }
 }
+
+.errorMessage-container {
+  color: vars.$lightColor;
+  background-color: #ffa47a83;
+  padding: 1em;
+  margin-bottom: 2em;
+  border-radius: .6em;
+  display: flex;
+  width: fit-content;
+
+  img {
+    filter: invert(100%);
+    margin-right: 2em;
+    margin-left: .5em;
+  }
+
+  .errorMessage-link {
+    text-decoration: underline;
+  }
+
+  .errorMessage {
+    margin-right: 1em;
+  }
+}
