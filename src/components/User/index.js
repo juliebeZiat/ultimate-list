@@ -13,7 +13,7 @@ const User = () => {
   const isOpen = useSelector((state) => state.login.isSettingsOpen);
   const users = useSelector((state) => state.user.list);
   const currentUser = useSelector((state) => state.login.username);
-  const user = users.find((username) => username.username === currentUser);
+  const user = users.filter((username) => username.username === currentUser);
 
   const logged = useSelector((state) => state.login.logged);
 
@@ -26,7 +26,11 @@ const User = () => {
       <div className="user-toggle">
         {logged && (
           <>
-            <div className="user-toggle-hello"><h4>Coucou {user.username} </h4></div>
+            {user.map((userName) => (
+              <div className="user-toggle-hello" key={userName.id}>
+                <h4>Coucou {userName.username}</h4>
+              </div>
+            ))}
             <div className="user-toggle-disconnect">
               <Link
                 to="/"

@@ -29,7 +29,7 @@ export const toggleUserSettingsOpen = () => ({
 export const loaderOn = (status) => ({
   type: LOADER_ON,
   status: status,
- });
+});
 
 export const verifyUsertokenInLocalstorage = (localStorageToken) => ({
   type: VERIFY_USERTOKEN_IN_LOCALSTORAGE,
