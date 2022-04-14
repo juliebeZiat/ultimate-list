@@ -1,7 +1,7 @@
 // == Import
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { addItemToUserList } from '../../../actions/userItems';
+import { sendItemToApi } from '../../../actions/userItems';
 
 const RecoAdd = ({ recommendations }) => {
   const dispatch = useDispatch();
@@ -32,7 +32,7 @@ const RecoAdd = ({ recommendations }) => {
               className="card-button"
               type="button"
               aria-label="icon plus"
-              onClick={() => dispatch(addItemToUserList(item.id))}
+              onClick={() => dispatch(sendItemToApi(item.id))}
             />
           </li>
         ))}
