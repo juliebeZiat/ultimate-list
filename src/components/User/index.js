@@ -38,7 +38,7 @@ const User = () => {
                   // when the user logout, his token is removed from local storage
                   localStorage.removeItem('user_token');
                   // and the value of state "logged" change for false
-                  dispatch(logOut);
+                  dispatch(logOut());
                 }}
               >
                 Se déconnecter
