@@ -80,6 +80,24 @@
       }
     }
   }
+
+  &-register-success {
+    color: vars.$lightColor;
+    background-color: #ff64b459;
+    padding: 1em;
+    margin-bottom: 2em;
+    border-radius: .6em;
+    display: flex;
+    width: fit-content;
+    margin: 3em auto;
+
+    img {
+      filter: invert(100%);
+      margin-right: 2em;
+      margin-left: .5em;
+      height: 20%;
+    }
+  }
 }
 
 .errorMessage-container {

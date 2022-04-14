@@ -1,0 +1,10 @@
+export const LOADER_ON = 'LOADER_ON';
+export const LOADER_OFF = 'LOADER_OFF';
+
+export const loaderOn = () => ({
+  type: LOADER_ON,
+});
+
+export const loaderOff = () => ({
+  type: LOADER_OFF,
+});

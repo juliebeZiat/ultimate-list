@@ -5,14 +5,20 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import Field from '../Field';
 import { changeSignupField, register } from '../../actions/signup';
+import { loaderOn } from '../../actions/loader';
 
 const SignUp = () => {
   const emailValue = useSelector((state) => state.signup.email);
   const usernameValue = useSelector((state) => state.signup.username);
   const passwordValue = useSelector((state) => state.signup.password);
+  const registerSuccess = useSelector((state) => state.signup.register);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  if (registerSuccess) {
+    navigate('/connexion');
+  }
 
   return (
     <div className="sign">
@@ -31,8 +37,8 @@ const SignUp = () => {
         className="sign-form"
         onSubmit={(event) => {
           event.preventDefault();
+          dispatch(loaderOn());
           dispatch(register());
-          navigate('/');
         }}
       >
         <div className="sign-form-input">

@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { loaderOff } from '../actions/loader';
 
 import { logInFail, LOG_IN, saveUserData } from '../actions/login';
 
@@ -29,6 +30,9 @@ const loginMiddleware = (store) => (next) => (action) => {
         .catch((error) => {
           console.log(error);
           store.dispatch(logInFail());
+        })
+        .finally(() => {
+          store.dispatch(loaderOff());
         });
       break;
 
