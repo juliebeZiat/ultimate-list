@@ -55,7 +55,7 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         loader: !state.loader,
-     };
+      };
 
     case VERIFY_USERTOKEN_IN_LOCALSTORAGE:
       if (action.localStorageToken !== null) {
