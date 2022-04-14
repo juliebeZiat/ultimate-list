@@ -23,6 +23,7 @@ import {
   filterUserItemsByStatus,
   // getListsOfConnectedUserBymode,
 } from '../../actions/userItems';
+import { changeStatusFilter } from '../../actions/items';
 
 const List = () => {
   const userItems = useSelector((state) => state.userItems.user_list);
@@ -44,6 +45,9 @@ const List = () => {
 
   const currentUser = useSelector((state) => state.login.username);
   const itemsFilteredByUser = findItemsByUser(itemsFiltered, currentUser);
+
+  const statusFilter = useSelector((state) => state.items.statusFilter);
+  console.log(statusFilter);
 
   // Variables for status
   const statusName = (status) => {
@@ -98,7 +102,7 @@ const List = () => {
             type="button"
             className="list-header-progress-status-button"
             onClick={() => {
-              dispatch(filterUserItemsByStatus(0));
+              dispatch(changeStatusFilter('todo'));
             }}
           >
             {statusName(0)}
