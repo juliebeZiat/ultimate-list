@@ -46,6 +46,9 @@ const App = () => {
 
   const logged = useSelector((state) => state.login.logged);
 
+  const usernameToken = useSelector((state) => state.login.username);
+  console.log(usernameToken);
+
   return (
     <div className="container-app">
       <Header />
