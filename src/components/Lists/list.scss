@@ -143,10 +143,25 @@
         }
         
         &-status {
-          @include mixins.label;
-          background-color: vars.$modeColor;
+          select {
+            background-color: vars.$modeColor;
+            border: none;
+            font-family: inherit;
+            text-transform: uppercase;
+            padding: .5em;
+            border-radius: .8em;
+            font-weight: bold;
+            width: min-content;
+          }
+          select:focus {
+            min-width: fit-content;
+            width: auto;
+          }
           @media screen and (max-width: 768px) {
             font-size: .6em;
+          }
+          option {
+            background-color: vars.$lightColor;
           }
         }
       }

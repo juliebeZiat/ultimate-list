@@ -47,6 +47,12 @@ const List = () => {
     }
   };
 
+  const optionsStatus = [
+    { label: statusName(0), value: statusName(0) },
+    { label: statusName(1), value: statusName(1) },
+    { label: statusName(2), value: statusName(2) },
+  ];
+
   // Variables for button add
   const addName = () => {
     switch (slug) {
@@ -104,7 +110,18 @@ const List = () => {
                 <div className="item-content-detail">
                   <div className="item-content-detail-title">{item.name}</div>
                   <div className="item-content-detail-date">Ajouté le {convertDate(userItem.item_added_at)}</div>
-                  <div className="item-content-detail-status">{statusName(userItem.item_status)}</div>
+                  <div className="item-content-detail-status">
+                    <select
+                      value={statusName(userItem.item_status)}
+                      onChange={(event) => {
+                        console.log(event.target.value, userItem.item_status, userItem.id);
+                      }}
+                    >
+                      {optionsStatus.map((option) => (
+                        <option key={option.label} value={option.value}>{option.label}</option>
+                      ))}
+                    </select>
+                  </div>
                 </div>
               </div>
             ))}
