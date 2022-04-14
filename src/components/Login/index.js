@@ -10,9 +10,14 @@ const Login = () => {
   const usernameValue = useSelector((state) => state.login.username);
   const passwordValue = useSelector((state) => state.login.password);
   const loginFail = useSelector((state) => state.login.errorMessage);
+  const logged = useSelector((state) => state.login.logged);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  if (logged) {
+    navigate('/');
+  }
 
   return (
     <div className="connexion">
@@ -31,9 +36,8 @@ const Login = () => {
         className="connexion-form"
         onSubmit={(event) => {
           event.preventDefault();
-          // dispatch(loaderOn());
+          dispatch(loaderOn());
           dispatch(logIn());
-          // navigate('/');
         }}
       >
         <div className="connexion-form-input">

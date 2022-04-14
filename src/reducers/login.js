@@ -93,8 +93,8 @@ const reducer = (state = initialState, action = {}) => {
     case LOG_IN_FAIL:
       return {
         ...state,
-        logged: false,
         errorMessage: true,
+        loader: false,
       };
 
     default:
