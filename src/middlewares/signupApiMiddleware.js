@@ -17,7 +17,7 @@ const signupMiddleware = (store) => (next) => (action) => {
         {
           email: store.getState().signup.email,
           username: store.getState().signup.username,
-          password: store.getState().signup.password,
+          plainPassword: store.getState().signup.password,
         },
       )
         .then((response) => {

@@ -75,6 +75,8 @@ const List = () => {
   const currentUser = useSelector((state) => state.login.username);
   // 2. his items lists that we get with his username
   const itemsFilteredByUser = findItemsByUser(itemsFiltered, currentUser);
+
+  console.log('itemsFilteredByUser :', itemsFilteredByUser);
   // 3. retrieve the actual status filter store in state
   const statusFilter = useSelector((state) => state.items.statusFilter);
   // 4. prepare a list of user items sort by status for each current status
@@ -104,6 +106,23 @@ const List = () => {
   // var for status's button css
   const cssStatusInactive = 'list-header-progress-status-button';
   const cssStatusActive = `${cssStatusInactive}-active`;
+
+  // let cssProgressHeader = {};
+  // const cssProgressHeaderBySlug = (currentSlug) => {
+  //   switch (currentSlug) {
+  //     case 'jeuxvideo':
+  //       cssProgressHeader = {
+  //         backgroundColor: 'blue',
+  //       };
+  //       return cssProgressHeader;
+
+  //     default:
+  //       cssProgressHeader = {
+  //         backgroundColor: 'green',
+  //       };
+  //       return cssProgressHeader;
+  //   }
+  // };
 
   return (
     <div className="list">
@@ -166,27 +185,25 @@ const List = () => {
       <div className="list-items">
         {userListsFilteredByStatus(statusFilter).map((userItem) => (
           <div className="item" key={userItem.id}>
-            {userItem.items.map((item) => (
-              <div className="item-content" key={item.id}>
-                <img className="item-content-image" src={item.image} alt="miniature-jeu-video" />
-                <div className="item-content-detail">
-                  <div className="item-content-detail-title">{item.name}</div>
-                  <div className="item-content-detail-date">Ajouté le {convertDate(userItem.item_added_at)}</div>
-                  <div className="item-content-detail-status">
-                    <select
-                      value={statusName(userItem.item_status)}
-                      onChange={(event) => {
-                        console.log(event.target.value, userItem.item_status, userItem.id);
-                      }}
-                    >
-                      {optionsStatus.map((option) => (
-                        <option key={option.label} value={option.value}>{option.label}</option>
-                      ))}
-                    </select>
-                  </div>
+            <div className="item-content" key={userItem.id}>
+              <img className="item-content-image" src={userItem.item.image} alt="miniature-jeu-video" />
+              <div className="item-content-detail">
+                <div className="item-content-detail-title">{userItem.item.name}</div>
+                <div className="item-content-detail-date">Ajouté le {convertDate(userItem.item_added_at)}</div>
+                <div className="item-content-detail-status">
+                  <select
+                    value={statusName(userItem.item_status)}
+                    onChange={(event) => {
+                      console.log(event.target.value, userItem.item_status, userItem.id);
+                    }}
+                  >
+                    {optionsStatus.map((option) => (
+                      <option key={option.label} value={option.value}>{option.label}</option>
+                    ))}
+                  </select>
                 </div>
               </div>
-            ))}
+            </div>
           </div>
         ))}
       </div>
