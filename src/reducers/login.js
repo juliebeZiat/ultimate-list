@@ -7,10 +7,10 @@ import {
   CHANGE_LOGIN_FIELD,
   SAVE_USER_DATA,
   TOGGLE_USER_SETTINGS_OPEN,
-  LOADER_ON,
   VERIFY_USERTOKEN_IN_LOCALSTORAGE,
   DECODE_TOKEN_TO_SAVE_USERNAME,
   LOG_OUT,
+  LOG_IN_FAIL,
 } from '../actions/login';
 
 export const initialState = {
@@ -19,7 +19,7 @@ export const initialState = {
   token: null,
   logged: false,
   isSettingsOpen: false,
-  loader: false,
+  errorMessage: false,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -42,19 +42,12 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         token: action.token,
         logged: true,
-        loader: false,
       };
 
     case TOGGLE_USER_SETTINGS_OPEN:
       return {
         ...state,
         isSettingsOpen: !state.isSettingsOpen,
-      };
-
-    case LOADER_ON:
-      return {
-        ...state,
-        loader: !state.loader,
       };
 
     case VERIFY_USERTOKEN_IN_LOCALSTORAGE:
@@ -86,6 +79,12 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         logged: false,
+      };
+
+    case LOG_IN_FAIL:
+      return {
+        ...state,
+        errorMessage: true,
       };
 
     default:

@@ -1,6 +1,7 @@
 import axios from 'axios';
+import { loaderOff } from '../actions/loader';
 
-import { LOG_IN, saveUserData } from '../actions/login';
+import { logInFail, LOG_IN, saveUserData } from '../actions/login';
 
 const api = axios.create({
   baseURL: 'http://orianeberti-server.eddi.cloud/projet-13-ultimatelist-back/public/api',
@@ -28,6 +29,10 @@ const loginMiddleware = (store) => (next) => (action) => {
         })
         .catch((error) => {
           console.log(error);
+          store.dispatch(logInFail());
+        })
+        .finally(() => {
+          store.dispatch(loaderOff());
         });
       break;
 

@@ -4,7 +4,7 @@ import './loader.scss';
 
 // == Composant
 const Loader = () => {
-  const loader = useSelector((state) => state.login.loader);
+  const loader = useSelector((state) => state.loader.loader);
 
   return (
     <div className="overlay">

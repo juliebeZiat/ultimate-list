@@ -5,6 +5,7 @@ export const initialState = {
   email: '',
   username: '',
   password: '',
+  loader: false,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -31,6 +32,7 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         register: true,
+        loader: false,
       };
 
     default:

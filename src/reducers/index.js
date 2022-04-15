@@ -6,6 +6,7 @@ import modesReducer from './modes';
 import loginReducer from './login';
 import userReducer from './user';
 import signupReducer from './signup';
+import loaderReducer from './loader';
 
 const rootReducer = combineReducers({
   items: itemsReducer,
@@ -14,6 +15,7 @@ const rootReducer = combineReducers({
   login: loginReducer,
   user: userReducer,
   signup: signupReducer,
+  loader: loaderReducer,
 });
 
 export default rootReducer;
