@@ -76,7 +76,6 @@ const List = () => {
   // 2. his items lists that we get with his username
   const itemsFilteredByUser = findItemsByUser(itemsFiltered, currentUser);
 
-  console.log('itemsFilteredByUser :', itemsFilteredByUser);
   // 3. retrieve the actual status filter store in state
   const statusFilter = useSelector((state) => state.items.statusFilter);
   // 4. prepare a list of user items sort by status for each current status
@@ -106,23 +105,29 @@ const List = () => {
   // var for status's button css
   const cssStatusInactive = 'list-header-progress-status-button';
   const cssStatusActive = `${cssStatusInactive}-active`;
+  // var for progress status bar css
+  let cssProgressHeader = {};
+  const cssProgressHeaderBySlug = (currentSlug) => {
+    switch (currentSlug) {
+      case 'jeuxvideo':
+        cssProgressHeader = {
+          backgroundColor: '#7068F4',
+        };
+        return cssProgressHeader;
 
-  // let cssProgressHeader = {};
-  // const cssProgressHeaderBySlug = (currentSlug) => {
-  //   switch (currentSlug) {
-  //     case 'jeuxvideo':
-  //       cssProgressHeader = {
-  //         backgroundColor: 'blue',
-  //       };
-  //       return cssProgressHeader;
+      case 'podcasts':
+        cssProgressHeader = {
+          backgroundColor: '#FFA47A',
+        };
+        return cssProgressHeader;
 
-  //     default:
-  //       cssProgressHeader = {
-  //         backgroundColor: 'green',
-  //       };
-  //       return cssProgressHeader;
-  //   }
-  // };
+      default:
+        cssProgressHeader = {
+          backgroundColor: '#FFA47A',
+        };
+        return cssProgressHeader;
+    }
+  };
 
   return (
     <div className="list">
@@ -134,7 +139,7 @@ const List = () => {
       </div>
 
       <div className="list-header-progress">
-        <div className="list-header-progress-status">
+        <div className="list-header-progress-status" style={cssProgressHeaderBySlug(slug)}>
           <button
             type="button"
             className={statusFilter === 'all' ? cssStatusActive : cssStatusInactive}
@@ -192,6 +197,7 @@ const List = () => {
                 <div className="item-content-detail-date">Ajouté le {convertDate(userItem.item_added_at)}</div>
                 <div className="item-content-detail-status">
                   <select
+                    style={cssProgressHeaderBySlug(slug)}
                     value={statusName(userItem.item_status)}
                     onChange={(event) => {
                       console.log(event.target.value, userItem.item_status, userItem.id);
