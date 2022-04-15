@@ -21,7 +21,7 @@ const RecoAdd = ({ recommendations }) => {
                   <span
                     className="card-tag"
                     key={tag.id}
-                    // style={{ backgroundColor: tag.color }}
+                    style={{ backgroundColor: tag.color }}
                   >
                     {tag.name}
                   </span>
