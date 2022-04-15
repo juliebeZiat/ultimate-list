@@ -2,8 +2,8 @@ import axios from 'axios';
 import {
   GET_USER_ITEMS_FROM_API,
   showUserItems,
-  ADD_ITEM,
   addItemToUserList,
+  SEND_ITEM_TO_API,
 } from '../actions/userItems';
 
 const apiMiddleware = (store) => (next) => (action) => {
@@ -20,13 +20,13 @@ const apiMiddleware = (store) => (next) => (action) => {
           console.log(error);
         });
       break;
-    case ADD_ITEM:
+    case SEND_ITEM_TO_API:
       axios.post(
-        'http://orianeberti-server.eddi.cloud/projet-13-ultimatelist-back/public/api/list_items/create/',
+        'http://orianeberti-server.eddi.cloud/projet-13-ultimatelist-back/public/api/list_items/create',
         {
-          id_item: store.getState().items.list.id,
-          // id_user_list: store.getState().userItems.user_list.id,
-          // username: store.getState().login.username,
+          newItem: store.getState().items.list.id,
+          // mode: store.getState().modes.id,
+          // user: store.getState().user.id,
         },
       )
         .then((response) => {
