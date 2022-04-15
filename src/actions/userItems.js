@@ -2,6 +2,7 @@ export const GET_USER_ITEMS_FROM_API = 'GET_USER_ITEMS_FROM_API';
 export const SHOW_USER_ITEMS = 'SHOW_USER_ITEMS';
 export const FILTER_USER_ITEMS_BY_STATUS = 'FILTER_USER_ITEMS_BY_STATUS';
 export const ADD_ITEM = 'ADD_ITEM';
+export const SEND_ITEM_TO_API = 'SEND_ITEM_TO_API';
 
 export const getUserItemsFromApi = () => ({
   type: GET_USER_ITEMS_FROM_API,
@@ -17,6 +18,11 @@ export const filterUserItemsByStatus = (currentStatus) => ({
   status: currentStatus,
 });
 
-export const addItemToUserList = () => ({
+export const addItemToUserList = (item) => ({
   type: ADD_ITEM,
+  item: item,
+});
+
+export const sendItemToApi = () => ({
+  type: SEND_ITEM_TO_API,
 });
