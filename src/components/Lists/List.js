@@ -19,6 +19,7 @@ import Lists from '.';
 
 // == Import actions
 import { changeStatusFilter } from '../../actions/items';
+import { buildError } from 'css-minimizer-webpack-plugin';
 
 const List = () => {
   const userItems = useSelector((state) => state.userItems.user_list);
@@ -104,6 +105,23 @@ const List = () => {
   // var for status's button css
   const cssStatusInactive = 'list-header-progress-status-button';
   const cssStatusActive = `${cssStatusInactive}-active`;
+
+  let cssProgressHeader = {};
+  const cssProgressHeaderBySlug = (currentSlug) => {
+    switch (currentSlug) {
+      case 'jeuxvideo':
+        cssProgressHeader = {
+          backgroundColor: 'blue',
+        };
+        return cssProgressHeader;
+
+      default:
+        cssProgressHeader = {
+          backgroundColor: 'green',
+        };
+        return cssProgressHeader;
+    }
+  };
 
   return (
     <div className="list">
