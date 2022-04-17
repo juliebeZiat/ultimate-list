@@ -1,11 +1,14 @@
 import {
   SHOW_USER_ITEMS,
   FILTER_USER_ITEMS_BY_STATUS,
+  CHANGE_USER_ITEM_STATUS,
 } from '../actions/userItems';
 
 export const initialState = {
   user_list: [],
   newItem: [],
+  item_status: '',
+  item: '',
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -21,6 +24,12 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         // eslint-disable-next-line max-len
         connectedUserListsByMode: state.connectedUserListsByMode.filter((item) => item.item_status === action.status),
+      };
+
+    case CHANGE_USER_ITEM_STATUS:
+      return {
+        ...state,
+        item: action.item,
       };
 
     default:

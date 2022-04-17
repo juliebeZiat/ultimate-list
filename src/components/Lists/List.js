@@ -19,6 +19,7 @@ import Lists from '.';
 
 // == Import actions
 import { changeStatusFilter } from '../../actions/items';
+import { changeUserItemStatus } from '../../actions/userItems';
 
 const List = () => {
   const userItems = useSelector((state) => state.userItems.user_list);
@@ -56,9 +57,9 @@ const List = () => {
   };
 
   const optionsStatus = [
-    { label: statusName(0), value: statusName(0) },
-    { label: statusName(1), value: statusName(1) },
-    { label: statusName(2), value: statusName(2) },
+    { label: statusName(0), value: 0 },
+    { label: statusName(1), value: 1 },
+    { label: statusName(2), value: 2 },
   ];
 
   // Variables for button add
@@ -191,10 +192,13 @@ const List = () => {
                 <div className="item-content-detail-title">{userItem.item.name}</div>
                 <div className="item-content-detail-date">Ajouté le {convertDate(userItem.item_added_at)}</div>
                 <div className="item-content-detail-status">
+                  {statusName(userItem.item_status)}
                   <select
-                    value={statusName(userItem.item_status)}
+                    defaultValue={userItem.item_status}
                     onChange={(event) => {
-                      console.log(event.target.value, userItem.item_status, userItem.id);
+                      console.log('le statut de item :', userItem.item_status);
+                      console.log('le statut sélectionné :', event.target.value);
+                      dispatch(changeUserItemStatus(userItem.id));
                     }}
                   >
                     {optionsStatus.map((option) => (
