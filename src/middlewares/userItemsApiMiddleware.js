@@ -3,6 +3,7 @@ import {
   GET_USER_ITEMS_FROM_API,
   showUserItems,
   SEND_ITEM_TO_API,
+  saveItemAdded,
 } from '../actions/userItems';
 
 const apiMiddleware = (store) => (next) => (action) => {
@@ -38,6 +39,10 @@ const apiMiddleware = (store) => (next) => (action) => {
           },
         },
       )
+        .then((response) => {
+          console.log(response);
+          store.dispatch(saveItemAdded(response.data));
+        })
         .catch((error) => {
           console.log(error);
         });
