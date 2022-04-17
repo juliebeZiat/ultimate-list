@@ -13,7 +13,7 @@ const signupMiddleware = (store) => (next) => (action) => {
       api.post(
         // URL
         '/create',
-        // données
+        // Data we need to send to the API
         {
           email: store.getState().signup.email,
           username: store.getState().signup.username,

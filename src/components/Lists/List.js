@@ -21,13 +21,15 @@ import Lists from '.';
 import { changeStatusFilter } from '../../actions/items';
 
 const List = () => {
+  // Fetch the userItems
   const userItems = useSelector((state) => state.userItems.user_list);
   const { slug } = useParams();
+  // Use this function to get userItems by slug/mode
   const itemsFiltered = findItemsByMode(userItems, slug);
 
   const dispatch = useDispatch();
 
-  // Variables for status
+  // Variables to convert item_status ids to a string according to the slug
   const statusName = (status) => {
     switch (status) {
       case 0:
@@ -55,6 +57,7 @@ const List = () => {
     }
   };
 
+  // Array used into the <select>
   const optionsStatus = [
     { label: statusName(0), value: statusName(0) },
     { label: statusName(1), value: statusName(1) },
