@@ -21,6 +21,7 @@ const Login = () => {
 
   if (logged) {
     navigate('/');
+    window.location.reload();
   }
 
   return (

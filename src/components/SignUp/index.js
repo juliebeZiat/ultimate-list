@@ -21,6 +21,7 @@ const SignUp = () => {
 
   if (registerSuccess) {
     navigate('/connexion');
+    window.location.reload();
   }
 
   return (
