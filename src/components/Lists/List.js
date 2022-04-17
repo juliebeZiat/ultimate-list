@@ -192,13 +192,10 @@ const List = () => {
                 <div className="item-content-detail-title">{userItem.item.name}</div>
                 <div className="item-content-detail-date">Ajouté le {convertDate(userItem.item_added_at)}</div>
                 <div className="item-content-detail-status">
-                  {statusName(userItem.item_status)}
                   <select
                     defaultValue={userItem.item_status}
                     onChange={(event) => {
-                      console.log('le statut de item :', userItem.item_status);
-                      console.log('le statut sélectionné :', event.target.value);
-                      dispatch(changeUserItemStatus(userItem.id));
+                      dispatch(changeUserItemStatus(userItem.id, Number(event.target.value)));
                     }}
                   >
                     {optionsStatus.map((option) => (

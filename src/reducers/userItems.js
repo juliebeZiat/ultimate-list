@@ -7,8 +7,8 @@ import {
 export const initialState = {
   user_list: [],
   newItem: [],
-  item_status: '',
   item: '',
+  item_status: '',
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -30,6 +30,7 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         item: action.item,
+        item_status: action.item_status,
       };
 
     default:

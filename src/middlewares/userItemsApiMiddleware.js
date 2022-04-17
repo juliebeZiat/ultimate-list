@@ -48,12 +48,9 @@ const apiMiddleware = (store) => (next) => (action) => {
       axios.patch(
         `http://orianeberti-server.eddi.cloud/projet-13-ultimatelist-back/public/api/list_items/${action.item}`,
         {
-          // id: action.item.id,
+          item_status: action.item_status,
         },
       )
-        .then((response) => {
-          console.log(response.data);
-        })
         .catch((error) => {
           console.log(error);
         });

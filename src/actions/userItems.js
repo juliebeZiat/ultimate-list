@@ -23,7 +23,8 @@ export const sendItemToApi = (item) => ({
   item: item,
 });
 
-export const changeUserItemStatus = (item) => ({
+export const changeUserItemStatus = (item, status) => ({
   type: CHANGE_USER_ITEM_STATUS,
   item: item,
+  item_status: status,
 });
