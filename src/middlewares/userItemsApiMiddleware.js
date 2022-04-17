@@ -4,6 +4,7 @@ import {
   showUserItems,
   SEND_ITEM_TO_API,
   CHANGE_USER_ITEM_STATUS,
+  saveChangeStatus,
 } from '../actions/userItems';
 
 const apiMiddleware = (store) => (next) => (action) => {
@@ -51,6 +52,10 @@ const apiMiddleware = (store) => (next) => (action) => {
           item_status: action.item_status,
         },
       )
+        .then((response) => {
+          console.log(response.data);
+          store.dispatch(saveChangeStatus(response.data.item_status));
+        })
         .catch((error) => {
           console.log(error);
         });

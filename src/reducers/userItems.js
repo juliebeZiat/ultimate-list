@@ -2,6 +2,7 @@ import {
   SHOW_USER_ITEMS,
   FILTER_USER_ITEMS_BY_STATUS,
   CHANGE_USER_ITEM_STATUS,
+  SAVE_CHANGE_STATUS,
 } from '../actions/userItems';
 
 export const initialState = {
@@ -9,6 +10,7 @@ export const initialState = {
   newItem: [],
   item: '',
   item_status: '',
+  newStatus: '',
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -30,7 +32,12 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         item: action.item,
-        item_status: action.item_status,
+      };
+
+    case SAVE_CHANGE_STATUS:
+      return {
+        ...state,
+        item_status: action.newStatus,
       };
 
     default:
