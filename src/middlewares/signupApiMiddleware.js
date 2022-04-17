@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { loaderOff } from '../actions/loader';
 
-import { REGISTER, saveNewUserData } from '../actions/signup';
+import { errorMessagesSignUpFail, REGISTER, saveNewUserData } from '../actions/signup';
 
 const api = axios.create({
   baseURL: 'http://orianeberti-server.eddi.cloud/projet-13-ultimatelist-back/public/api/users',
@@ -25,7 +25,8 @@ const signupMiddleware = (store) => (next) => (action) => {
           api.defaults.headers.common.Authorization = `bearer ${response.data.token}`;
         })
         .catch((error) => {
-          console.log(error);
+          store.dispatch(errorMessagesSignUpFail(error.response.data));
+          console.log(error.response.data);
         })
         .finally(() => {
           store.dispatch(loaderOff());

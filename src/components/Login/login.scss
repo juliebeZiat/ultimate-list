@@ -1,4 +1,5 @@
 @use 'src/styles/vars';
+@use 'src/styles/mixins';
 
 .connexion {
   margin: 2em auto;
@@ -101,13 +102,7 @@
 }
 
 .errorMessage-container {
-  color: vars.$lightColor;
-  background-color: #ffa47a83;
-  padding: 1em;
-  margin-bottom: 2em;
-  border-radius: .6em;
-  display: flex;
-  width: fit-content;
+  @include mixins.errorMessage;
 
   img {
     filter: invert(100%);

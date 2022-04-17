@@ -121,3 +121,13 @@
     @include addButton;
   }
 }
+
+@mixin errorMessage {
+  color: vars.$lightColor;
+  background-color: #ffa47a83;
+  padding: 1em;
+  margin-bottom: 2em;
+  border-radius: .6em;
+  display: flex;
+  width: fit-content;
+}

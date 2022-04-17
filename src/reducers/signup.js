@@ -1,4 +1,4 @@
-import { CHANGE_SIGNUP_FIELD, SAVE_NEW_USER_DATA } from '../actions/signup';
+import { CHANGE_SIGNUP_FIELD, ERROR_MESSAGES_SIGN_UP_FAIL, SAVE_NEW_USER_DATA } from '../actions/signup';
 
 export const initialState = {
   register: false,
@@ -6,6 +6,8 @@ export const initialState = {
   username: '',
   password: '',
   loader: false,
+  errorMessages: [],
+  fail: false,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -33,6 +35,13 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         register: true,
         loader: false,
+      };
+
+    case ERROR_MESSAGES_SIGN_UP_FAIL:
+      return {
+        ...state,
+        errorMessages: action.errorMessages,
+        fail: true,
       };
 
     default:
