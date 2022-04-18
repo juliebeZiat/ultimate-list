@@ -42,7 +42,6 @@ const ItemDetails = () => (
             name="Text1"
             cols="30"
             rows="8"
-            placeholder="Ecrire une note"
           />
         </div>
 

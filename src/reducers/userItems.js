@@ -4,6 +4,7 @@ import {
   CHANGE_USER_ITEM_STATUS,
   SAVE_CHANGE_STATUS,
   SAVE_ITEM_ADDED,
+  SHOW_ITEM_DETAILS,
 } from '../actions/userItems';
 
 export const initialState = {
@@ -12,6 +13,7 @@ export const initialState = {
   item: '',
   item_status: '',
   newStatus: '',
+  isItemModalOpen: false,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -45,6 +47,12 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         user_list: [...state.user_list, action.newItem],
+      };
+
+    case SHOW_ITEM_DETAILS:
+      return {
+        ...state,
+        isItemModalOpen: true,
       };
 
     default:
