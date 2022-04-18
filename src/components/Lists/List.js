@@ -19,6 +19,7 @@ import Lists from '.';
 
 // == Import actions
 import { changeStatusFilter } from '../../actions/items';
+import { changeUserItemStatus } from '../../actions/userItems';
 
 const List = () => {
   // Fetch the userItems
@@ -59,9 +60,9 @@ const List = () => {
 
   // Array used into the <select>
   const optionsStatus = [
-    { label: statusName(0), value: statusName(0) },
-    { label: statusName(1), value: statusName(1) },
-    { label: statusName(2), value: statusName(2) },
+    { label: statusName(0), value: 0 },
+    { label: statusName(1), value: 1 },
+    { label: statusName(2), value: 2 },
   ];
 
   // Variables for button add
@@ -200,10 +201,11 @@ const List = () => {
                 <div className="item-content-detail-date">Ajouté le {convertDate(userItem.item_added_at)}</div>
                 <div className="item-content-detail-status">
                   <select
+                    defaultValue={userItem.item_status}
                     style={cssProgressHeaderBySlug(slug)}
                     value={statusName(userItem.item_status)}
                     onChange={(event) => {
-                      console.log(event.target.value, userItem.item_status, userItem.id);
+                      dispatch(changeUserItemStatus(userItem.id, Number(event.target.value)));
                     }}
                   >
                     {optionsStatus.map((option) => (

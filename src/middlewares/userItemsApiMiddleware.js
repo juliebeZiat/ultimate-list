@@ -3,6 +3,8 @@ import {
   GET_USER_ITEMS_FROM_API,
   showUserItems,
   SEND_ITEM_TO_API,
+  CHANGE_USER_ITEM_STATUS,
+  saveChangeStatus,
   saveItemAdded,
 } from '../actions/userItems';
 
@@ -43,6 +45,22 @@ const apiMiddleware = (store) => (next) => (action) => {
         .then((response) => {
           console.log(response);
           store.dispatch(saveItemAdded(response.data));
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      break;
+
+    case CHANGE_USER_ITEM_STATUS:
+      axios.patch(
+        `http://orianeberti-server.eddi.cloud/projet-13-ultimatelist-back/public/api/list_items/${action.item}`,
+        {
+          item_status: action.item_status,
+        },
+      )
+        .then((response) => {
+          console.log(response.data);
+          store.dispatch(saveChangeStatus(response.data.item_status));
         })
         .catch((error) => {
           console.log(error);
