@@ -1,13 +1,13 @@
 /* eslint-disable import/prefer-default-export */
 
 /**
- *  create an array of items where slug correspond to item.mode
- * @param {Array} modes - every items
+ *  create an array of modes where slug correspond to slug
+ * @param {Array} modes - every modes
  * @param {string} searchedMode - mode's slug
  * @return {Object} - item found
  */
 
-export function findMode(mode, searchedMode) {
-  const modes = mode.filter((item) => item.slug === searchedMode);
-  return modes;
+export function findMode(modes, searchedMode) {
+  const modesToDisplay = modes.filter((mode) => mode.slug === searchedMode);
+  return modesToDisplay;
 }

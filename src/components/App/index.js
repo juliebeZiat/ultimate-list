@@ -34,8 +34,8 @@ const App = () => {
   const localStorageToken = localStorage.getItem('user_token');
   // and then use it in action verifyUsertokenInLocalstorage and decodeTokenToSaveUsername
 
+  // Dispatch all data we want when we visit the app
   const dispatch = useDispatch();
-
   useEffect(() => {
     dispatch(getItemsFromApi());
     dispatch(getUserItemsFromApi());
@@ -45,6 +45,7 @@ const App = () => {
     dispatch(decodeTokenToSaveUsername(localStorageToken));
   }, []);
 
+  // State logged true or false, to display different pages according to its state
   const logged = useSelector((state) => state.login.logged);
 
   return (

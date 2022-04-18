@@ -8,7 +8,6 @@ import ProfilIcon from '../../assets/icons/ProfilIcon.png';
 // == Import utils
 import { toggleUserSettingsOpen } from '../../actions/login';
 
-// eslint-disable-next-line arrow-body-style
 const Header = () => {
   const dispatch = useDispatch();
 
@@ -23,6 +22,7 @@ const Header = () => {
         className="header-profil"
         type="button"
         onClick={() => {
+          // On click on this button, toggle and close the component <User />
           dispatch(toggleUserSettingsOpen());
         }}
       >

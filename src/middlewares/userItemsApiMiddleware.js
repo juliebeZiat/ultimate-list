@@ -5,6 +5,7 @@ import {
   SEND_ITEM_TO_API,
   CHANGE_USER_ITEM_STATUS,
   saveChangeStatus,
+  saveItemAdded,
 } from '../actions/userItems';
 
 const apiMiddleware = (store) => (next) => (action) => {
@@ -18,7 +19,7 @@ const apiMiddleware = (store) => (next) => (action) => {
     case GET_USER_ITEMS_FROM_API:
       axios.get('http://orianeberti-server.eddi.cloud/projet-13-ultimatelist-back/public/api/list_items')
         .then((response) => {
-          console.log('Api response list_items:', response.data);
+          // console.log('Api response list_items:', response.data);
 
           const actionToDispatch = showUserItems(response.data);
           store.dispatch(actionToDispatch);
@@ -32,6 +33,7 @@ const apiMiddleware = (store) => (next) => (action) => {
       axios.post(
         'http://orianeberti-server.eddi.cloud/projet-13-ultimatelist-back/public/api/list_items/create',
         {
+          // Data we have to send to the API
           item: {
             id: action.item,
           },
@@ -40,6 +42,10 @@ const apiMiddleware = (store) => (next) => (action) => {
           },
         },
       )
+        .then((response) => {
+          console.log(response);
+          store.dispatch(saveItemAdded(response.data));
+        })
         .catch((error) => {
           console.log(error);
         });

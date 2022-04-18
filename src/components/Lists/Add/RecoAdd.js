@@ -32,6 +32,7 @@ const RecoAdd = ({ recommendations }) => {
               className="card-button"
               type="button"
               aria-label="icon plus"
+              // On click on the icon plus, add the item selected to the userList
               onClick={() => dispatch(sendItemToApi(item.id))}
             />
           </li>

@@ -38,8 +38,7 @@
         }
 
         &-button-active {
-          background-color: vars.$modeColor;
-          box-shadow: 0px 0 2px vars.$modeColor;
+          filter:  opacity(90%);
           transition: 0.5s;
         }
 
