@@ -8,7 +8,7 @@ import Header from 'src/components/Header';
 import Footer from 'src/components/Footer';
 import Login from 'src/components/Login';
 import SignUp from 'src/components/SignUp';
-import List from 'src/components/Lists/List';
+import StatusFilter from 'src/components/Lists/StatusFilter';
 import Error404 from 'src/components/Errors/Error404';
 import Error401 from 'src/components/Errors/Error401';
 import Home from 'src/components/Home';
@@ -59,7 +59,7 @@ const App = () => {
           <Route path="/connexion" element={<Login />} />
           <Route path="/inscription" element={<SignUp />} />
 
-          {logged && <Route path="/:slug/liste" element={<List />} />}
+          {logged && <Route path="/:slug/liste" element={<StatusFilter />} />}
           {logged && <Route path="/:slug/ajouter" element={<Add />} />}
           {logged && <Route path="/*" element={<Error404 />} />}
           {!logged && <Route path="/*" element={<Error401 />} />}

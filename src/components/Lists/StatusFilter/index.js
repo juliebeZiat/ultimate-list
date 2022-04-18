@@ -11,17 +11,17 @@ import {
 
 // == Import style
 import Toggle from 'src/assets/icons/toggle-on.svg';
-import './list.scss';
+import './statusFilter.scss';
+
+// == Import actions
+import { changeStatusFilter } from 'src/actions/items';
+import { changeUserItemStatus } from 'src/actions/userItems';
 
 // == Import Component
 import { Link, useParams } from 'react-router-dom';
-import Lists from '.';
+import Lists from '../index';
 
-// == Import actions
-import { changeStatusFilter } from '../../actions/items';
-import { changeUserItemStatus } from '../../actions/userItems';
-
-const List = () => {
+const StatusFilter = () => {
   // Fetch the userItems
   const userItems = useSelector((state) => state.userItems.user_list);
   const { slug } = useParams();
@@ -223,4 +223,4 @@ const List = () => {
 };
 
 // == Export
-export default List;
+export default StatusFilter;
