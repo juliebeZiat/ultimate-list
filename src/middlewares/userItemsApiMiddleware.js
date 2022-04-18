@@ -30,6 +30,7 @@ const apiMiddleware = (store) => (next) => (action) => {
       axios.post(
         'http://orianeberti-server.eddi.cloud/projet-13-ultimatelist-back/public/api/list_items/create',
         {
+          // Data we have to send to the API
           item: {
             id: action.item,
           },

@@ -10,9 +10,14 @@ import { logOut } from 'src/actions/login';
 
 // eslint-disable-next-line arrow-body-style
 const User = () => {
+  // Fetch state to create a conditionnal openning line 27
   const isOpen = useSelector((state) => state.login.isSettingsOpen);
+
+  // Fetch the users
   const users = useSelector((state) => state.user.list);
+  // Fetch the username of the current user
   const currentUser = useSelector((state) => state.login.username);
+  // Filter the username and the currentUser to display its name line 34
   const user = users.filter((username) => username.username === currentUser);
 
   const logged = useSelector((state) => state.login.logged);

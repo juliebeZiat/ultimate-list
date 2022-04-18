@@ -13,12 +13,23 @@ import { findMode } from 'src/functions/modes';
 import { findItemsByMode, findItemsByUser } from 'src/functions/items';
 
 const Lists = () => {
+  // Objective: display the modes into the list menu
+  // 1. fetch the modes list
   const modesToDisplay = useSelector((state) => state.modes.list);
+  // 2. generate the slug (jeuxvideos, podcast)
   const { slug } = useParams();
+  // 3. use the function 'findModes' to display items according to the slug (see .map line 58)
   const modes = findMode(modesToDisplay, slug);
+
+  // Objective : show items by mode AND user
+  // 1. fetch the items of a user
   const userItems = useSelector((state) => state.userItems.user_list);
+  // 2. use the function 'findItemsByMode' to display user items accroding to the slug
   const itemsFiltered = findItemsByMode(userItems, slug);
+  // 3. fetch the username of a user
   const currentUser = useSelector((state) => state.login.username);
+  // 4. get user items according to the slug (itemsFiltered) and the currentUser
+  // We want to get this to show the number of items per list (see line 63)
   const itemsFilteredByUser = findItemsByUser(itemsFiltered, currentUser);
 
   return (

@@ -16,6 +16,7 @@ const SignUp = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  // If user succeed the registration, redirect to page connexion to connect
   if (registerSuccess) {
     navigate('/connexion');
   }

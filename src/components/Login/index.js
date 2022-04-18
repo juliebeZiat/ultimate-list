@@ -10,15 +10,23 @@ import Heart from '../../assets/icons/heart.svg';
 import { loaderOn } from '../../actions/loader';
 
 const Login = () => {
+  // Fetch the username and the password input
   const usernameValue = useSelector((state) => state.login.username);
   const passwordValue = useSelector((state) => state.login.password);
+
+  // If user send wrong information, we want to show errorMessages
   const loginFail = useSelector((state) => state.login.errorMessage);
+
+  // Store the state of a user : logged true or false
   const logged = useSelector((state) => state.login.logged);
+
+  // If user registered with <SignUp />, we display a welcome message to indicate to connect
   const registerSuccess = useSelector((state) => state.signup.register);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  // If user get logged, navigate to the homepage
   if (logged) {
     navigate('/');
   }
