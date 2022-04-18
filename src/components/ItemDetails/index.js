@@ -1,27 +1,33 @@
 /* eslint-disable max-len */
 
 // == Import react hooks
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+
+// == Import functions
+import { convertDate } from 'src/functions/items';
+
+// == Import actions
+import { closeItemDetails } from 'src/actions/userItems';
 
 // == Import style
 import './itemDetails.scss';
 
 const ItemDetails = () => {
   const currentItemShowed = useSelector((state) => state.userItems.itemCliked);
-  console.log(currentItemShowed);
+  const dispatch = useDispatch();
 
   return (
     <>
       <div className="background-item-detail" />
       <div className="item-detail">
 
-        <img className="item-detail-image" src="https://picsum.photos/720/200" alt="" />
+        <img className="item-detail-image" src={currentItemShowed.item.image} alt="" />
 
         <div className="item-detail-content">
           <div className="item-detail-content-left">
 
-            <h1 className="item-detail-content-left-title">Pokemon Donjon Mystère</h1>
-            <p className="item-detail-content-left-date">Ajouté le 00 janvier 2022</p>
+            <h1 className="item-detail-content-left-title">{currentItemShowed.item.name}</h1>
+            <p className="item-detail-content-left-date">Ajouté le {convertDate(currentItemShowed.item_added_at)}</p>
 
             <div className="item-detail-content-left-statusButtons">
               <button
@@ -50,26 +56,40 @@ const ItemDetails = () => {
               name="Text1"
               cols="30"
               rows="8"
+              value={currentItemShowed.item_comment}
             />
           </div>
 
           <div className="item-detail-content-right">
             <h2 className="item-detail-subtitles">Genre(s)</h2>
             <div className="item-detail-content-right-tags">
-              <span className="item-detail-content-right-tags-tag">FPS</span>
-              <span className="item-detail-content-right-tags-tag">Horreur</span>
+              {currentItemShowed.item.tags.map((tag) => (
+                <span
+                  className="item-detail-content-right-tags-tag"
+                  key={tag.id}
+                >
+                  {tag.name}
+                </span>
+              ))}
             </div>
 
             <h2 className="item-detail-subtitles">Plateforme(s)</h2>
             <div className="item-detail-content-right-tags">
-              <span className="item-detail-content-right-tags-tag">PC</span>
+              {currentItemShowed.item.platforms.map((platform) => (
+                <span
+                  className="item-detail-content-right-tags-tag"
+                  key={platform.id}
+                >
+                  {platform.name}
+                </span>
+              ))}
             </div>
 
             <div className="item-detail-content-right-about">
               <h2 className="item-detail-subtitles">À propos...</h2>
-              <p className="item-detail-content-right-about-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac hendrerit mauris. Integer ac dignissim purus. Integer aliquet mollis est a lacinia. Integer porttitor orci ac lacus varius, id porttitor sapien ultricies. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vehicula nisi non sem sagittis, volutpat dictum nulla varius. Ut tempus a mi eget dapibus. Nulla sed arcu accumsan, efficitur mauris quis, ultricies urna.</p>
+              <p className="item-detail-content-right-about-description">{currentItemShowed.item.description}</p>
               <ul className="item-detail-content-right-about-infos">
-                <li className="item-detail-content-right-about-infos-info">Date de sortie : 00 janvier 1960</li>
+                <li className="item-detail-content-right-about-infos-info">Date de sortie : {convertDate(currentItemShowed.item.release_date)}</li>
                 <li className="item-detail-content-right-about-infos-info">Développeur : Loulou</li>
                 <li className="item-detail-content-right-about-infos-info">Editeur : Pareil</li>
                 <li className="item-detail-content-right-about-infos-info">Réalisateur : Pas moi</li>
@@ -92,6 +112,16 @@ const ItemDetails = () => {
             type="button"
           >
             Enregistrer les modifications
+          </button>
+
+          <button
+            className="item-detail-buttons-button"
+            type="button"
+            onClick={() => {
+              dispatch(closeItemDetails());
+            }}
+          >
+            Fermer
           </button>
         </div>
       </div>

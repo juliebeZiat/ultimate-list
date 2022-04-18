@@ -6,6 +6,7 @@ import {
   SAVE_ITEM_ADDED,
   CURRENT_ITEM_CLICKED,
   SHOW_ITEM_DETAILS,
+  CLOSE_ITEM_DETAILS,
 } from '../actions/userItems';
 
 export const initialState = {
@@ -61,6 +62,12 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         isItemModalOpen: true,
+      };
+
+    case CLOSE_ITEM_DETAILS:
+      return {
+        ...state,
+        isItemModalOpen: false,
       };
 
     default:
