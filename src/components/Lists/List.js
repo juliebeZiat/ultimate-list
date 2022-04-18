@@ -203,7 +203,6 @@ const List = () => {
                   <select
                     defaultValue={userItem.item_status}
                     style={cssProgressHeaderBySlug(slug)}
-                    value={statusName(userItem.item_status)}
                     onChange={(event) => {
                       dispatch(changeUserItemStatus(userItem.id, Number(event.target.value)));
                     }}
