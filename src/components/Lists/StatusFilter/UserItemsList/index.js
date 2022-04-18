@@ -14,7 +14,7 @@ import {
 import { cssProgressHeaderBySlug } from 'src/functions/lists';
 
 // == Import actions
-import { changeUserItemStatus, showItemDetails } from 'src/actions/userItems';
+import { changeUserItemStatus, showItemDetails, currentItemClicked } from 'src/actions/userItems';
 
 import ItemDetails from 'src/components/ItemDetails';
 
@@ -70,8 +70,8 @@ const UserItemsList = ({ optionsStatus }) => {
             className="item"
             key={userItem.id}
             onClick={() => {
-              console.log('ouvrir modale', userItem.id);
               dispatch(showItemDetails());
+              dispatch(currentItemClicked(userItem.id));
             }}
           >
             <div className="item-content" key={userItem.id}>

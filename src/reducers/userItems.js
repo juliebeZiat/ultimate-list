@@ -4,6 +4,7 @@ import {
   CHANGE_USER_ITEM_STATUS,
   SAVE_CHANGE_STATUS,
   SAVE_ITEM_ADDED,
+  CURRENT_ITEM_CLICKED,
   SHOW_ITEM_DETAILS,
 } from '../actions/userItems';
 
@@ -14,6 +15,7 @@ export const initialState = {
   item_status: '',
   newStatus: '',
   isItemModalOpen: false,
+  itemCliked: {},
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -47,6 +49,12 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         user_list: [...state.user_list, action.newItem],
+      };
+
+    case CURRENT_ITEM_CLICKED:
+      return {
+        ...state,
+        itemCliked: state.user_list.find((item) => item.id === action.itemClickedId),
       };
 
     case SHOW_ITEM_DETAILS:
