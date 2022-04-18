@@ -10,6 +10,7 @@
   left: 0;
   top: 0;
   z-index: 1;
+  backdrop-filter: blur(3px);
 }
 
 .item-detail {
@@ -50,7 +51,6 @@
       padding-right: 1rem;
 
       &-title {
-        margin-top: 1rem;
         margin-bottom: 0.3rem;
         font-weight: bold;
         font-size: 1.5rem;
@@ -64,11 +64,42 @@
       }
 
       &-statusButtons {
-        margin-bottom: 1rem;
+        margin-bottom: 2rem;
+        display: flex;
+        justify-content: center;
+        border-radius: 2em;
+        background-color: #E3E1FF;
+        width: fit-content;
+        padding: .3em;
+
+        &-button {
+          background-color: transparent;
+        }
+
+        &-button-active {
+          // un-comment when buttons are usable
+          // filter:  opacity(90%);
+          // transition: 0.5s;
+          background-color: vars.$modeColor;
+        }
+
+        &-button,
+        &-button-active {
+          border-radius: 1em;
+          border: none;
+          padding: .5em 1em;
+        }
       }
 
       &-comment {
         resize: none;
+        background-color: darken(vars.$backgroundColor, 2%);
+        border-radius: 0.5rem;
+        border: 0 0 1px vars.$backgroundColor;
+        color: darken(vars.$lightColor, 35%);
+        padding: .5rem;
+
+        @include mixins.scrollBar;
       }
     }
   
@@ -77,10 +108,15 @@
 
       &-tags {
         margin-bottom: 1rem;
+        display: flex;
+        flex-wrap: wrap;
 
         &-tag {
           @include mixins.label;
-          background-color: vars.$modeColor;
+          background-color: vars.$logoColorOne;
+          border-radius: 0;
+          margin-right: .5rem;
+          margin-top: 0;
         }
       }
 
@@ -92,6 +128,8 @@
           margin-bottom: 1rem;
           font-size: 0.8rem;
           line-height: 1.1rem;
+
+          @include mixins.scrollBar;
         }
 
         &-infos {
@@ -110,6 +148,13 @@
     display: flex;
     justify-content: space-between;
     padding: 0 1rem;
+
+    &-button {
+      border-radius: 1em;
+      border: none;
+      padding: .5em .5em;
+      background-color: vars.$modeColor;
+    }
   }
 
 }

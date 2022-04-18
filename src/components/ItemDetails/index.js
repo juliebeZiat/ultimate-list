@@ -18,9 +18,9 @@ const ItemDetails = () => (
           <div className="item-detail-content-left-statusButtons">
             <button
               type="button"
-              className="item-detail-content-left-statusButtons-button"
+              className="item-detail-content-left-statusButtons-button-active"
             >
-              A faire
+              À faire
             </button>
             <button
               type="button"
@@ -36,30 +36,30 @@ const ItemDetails = () => (
             </button>
           </div>
 
-          <h2 className="item-detail-subtitles">A retenir</h2>
+          <h2 className="item-detail-subtitles">Notes personnelles :</h2>
           <textarea
             className="item-detail-content-left-comment"
             name="Text1"
             cols="30"
             rows="8"
-            placeholder="Notes personnelles..."
-            readOnly
+            placeholder="Ecrire une note"
           />
         </div>
 
         <div className="item-detail-content-right">
+          <h2 className="item-detail-subtitles">Genre(s)</h2>
           <div className="item-detail-content-right-tags">
-            <h2 className="item-detail-subtitles">Genre(s)</h2>
-            <span className="item-detail-content-right-tags-tag">Genre</span>
+            <span className="item-detail-content-right-tags-tag">FPS</span>
+            <span className="item-detail-content-right-tags-tag">Horreur</span>
           </div>
 
+          <h2 className="item-detail-subtitles">Plateforme(s)</h2>
           <div className="item-detail-content-right-tags">
-            <h2 className="item-detail-subtitles">Plateforme(s)</h2>
             <span className="item-detail-content-right-tags-tag">PC</span>
           </div>
 
           <div className="item-detail-content-right-about">
-            <h2 className="item-detail-subtitles">A propos...</h2>
+            <h2 className="item-detail-subtitles">À propos...</h2>
             <p className="item-detail-content-right-about-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac hendrerit mauris. Integer ac dignissim purus. Integer aliquet mollis est a lacinia. Integer porttitor orci ac lacus varius, id porttitor sapien ultricies. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vehicula nisi non sem sagittis, volutpat dictum nulla varius. Ut tempus a mi eget dapibus. Nulla sed arcu accumsan, efficitur mauris quis, ultricies urna.</p>
             <ul className="item-detail-content-right-about-infos">
               <li className="item-detail-content-right-about-infos-info">Date de sortie : 00 janvier 1960</li>
@@ -74,13 +74,18 @@ const ItemDetails = () => (
 
       <div className="item-detail-buttons">
         <button
-          className="item-detail-buttons-delete"
+          className="item-detail-buttons-button"
           type="button"
         >
           Supprimer
         </button>
 
-        <button type="button">Enregistrer les modifications</button>
+        <button
+          className="item-detail-buttons-button"
+          type="button"
+        >
+          Enregistrer les modifications
+        </button>
       </div>
     </div>
   </>
