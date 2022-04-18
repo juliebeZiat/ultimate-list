@@ -16,6 +16,8 @@ import { cssProgressHeaderBySlug } from 'src/functions/lists';
 // == Import actions
 import { changeUserItemStatus } from 'src/actions/userItems';
 
+import ItemDetails from 'src/components/ItemDetails';
+
 const UserItemsList = ({ optionsStatus }) => {
   // get the user_items store in state
   const userItems = useSelector((state) => state.userItems.user_list);
@@ -59,32 +61,35 @@ const UserItemsList = ({ optionsStatus }) => {
   // 7. and a .map is done on userListsFilteredByStatus to display the result
 
   return (
-    <div className="list-items">
-      {userListsFilteredByStatus(statusFilter).map((userItem) => (
-        <div className="item" key={userItem.id}>
-          <div className="item-content" key={userItem.id}>
-            <img className="item-content-image" src={userItem.item.image} alt="miniature-jeu-video" />
-            <div className="item-content-detail">
-              <div className="item-content-detail-title">{userItem.item.name}</div>
-              <div className="item-content-detail-date">Ajouté le {convertDate(userItem.item_added_at)}</div>
-              <div className="item-content-detail-status">
-                <select
-                  defaultValue={userItem.item_status}
-                  style={cssProgressHeaderBySlug(slug)}
-                  onChange={(event) => {
-                    dispatch(changeUserItemStatus(userItem.id, Number(event.target.value)));
-                  }}
-                >
-                  {optionsStatus.map((option) => (
-                    <option key={option.label} value={option.value}>{option.label}</option>
-                  ))}
-                </select>
+    <>
+      <div className="list-items">
+        {userListsFilteredByStatus(statusFilter).map((userItem) => (
+          <div className="item" key={userItem.id}>
+            <div className="item-content" key={userItem.id}>
+              <img className="item-content-image" src={userItem.item.image} alt="miniature-jeu-video" />
+              <div className="item-content-detail">
+                <div className="item-content-detail-title">{userItem.item.name}</div>
+                <div className="item-content-detail-date">Ajouté le {convertDate(userItem.item_added_at)}</div>
+                <div className="item-content-detail-status">
+                  <select
+                    defaultValue={userItem.item_status}
+                    style={cssProgressHeaderBySlug(slug)}
+                    onChange={(event) => {
+                      dispatch(changeUserItemStatus(userItem.id, Number(event.target.value)));
+                    }}
+                  >
+                    {optionsStatus.map((option) => (
+                      <option key={option.label} value={option.value}>{option.label}</option>
+                    ))}
+                  </select>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      ))}
-    </div>
+        ))}
+      </div>
+      <ItemDetails />
+    </>
   );
 };
 
