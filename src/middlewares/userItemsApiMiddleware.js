@@ -80,7 +80,6 @@ const apiMiddleware = (store) => (next) => (action) => {
         },
       )
         .then((response) => {
-          console.log(response.data);
           store.dispatch(saveChangeStatus(response.data.item_status));
         })
         .catch((error) => {
