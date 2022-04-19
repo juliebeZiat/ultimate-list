@@ -1,7 +1,8 @@
-import { SHOW_USER } from '../actions/user';
+import { CREATE_NEW_USER, SHOW_USER } from '../actions/user';
 
 export const initialState = {
   list: [],
+  user: [],
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -10,6 +11,12 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         list: action.users,
+      };
+
+    case CREATE_NEW_USER:
+      return {
+        ...state,
+        list: [...state.list, action.user],
       };
 
     default:
