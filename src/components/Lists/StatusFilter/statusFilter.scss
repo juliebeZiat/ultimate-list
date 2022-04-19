@@ -82,7 +82,7 @@
   }
 }
   
-.list-items {
+.jeuxvideo-list-items, .podcasts-list-items {
   overflow-y: scroll;
   height: 500px;
   margin: auto;
@@ -91,6 +91,13 @@
     width: 800px;
     margin: 2em auto;
   }
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  &::-webkit-scrollbar {
+    border-radius: 25px;
+  }
+
   
   .item {
     margin-top: 2em;
@@ -154,16 +161,12 @@
 }
 
 // Scrollbar style
-.list-items::-webkit-scrollbar {
-  width: 8px;
-}
-
-.list-items::-webkit-scrollbar-track {
-  // background-color: rgba(vars.$lightColor, .3);
-  border-radius: 25px;
-}
-
-.list-items::-webkit-scrollbar-thumb {
+.jeuxvideo-list-items::-webkit-scrollbar-thumb {
   border-radius: 25px;
   background-color: vars.$modeColor;
+}
+
+.podcasts-list-items::-webkit-scrollbar-thumb {
+  border-radius: 25px;
+  background-color: vars.$iconPodcastBackgroundColor;
 }
