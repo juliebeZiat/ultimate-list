@@ -149,12 +149,17 @@
     justify-content: space-between;
     padding: 0 1rem;
 
+    
     &-button {
       border-radius: 1em;
       border: none;
       padding: .5em .5em;
       background-color: vars.$modeColor;
       box-shadow: 0 0 2px vars.$modeColor;
+
+      &:hover {
+        background-color: darken(vars.$modeColor, 5%);
+      }
     }
 
     &-close {
@@ -162,12 +167,22 @@
       border: none;
       width: 22px;
       height: 22px;
-      font-weight: bold;
-      color: vars.$backgroundColor;
+      box-shadow: 1px 1px 2px darken(vars.$lightColor, 40%);
+
+      background-image: url('src/assets/icons/x.svg');
+      background-repeat: no-repeat;
+      background-size: 20px;
+      background-position-y: 1px;
+      background-position-x: 1px;
+
 
       position: absolute;
       top: 10px;
       right: 10px;
+
+      &:hover {
+        background-color: darken(vars.$lightColor, 1%);
+      }
     }
   }
 

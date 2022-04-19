@@ -62,7 +62,10 @@ const ItemDetails = () => {
             <h1 className="item-detail-content-left-title">{currentItemShowed.item.name}</h1>
             <p className="item-detail-content-left-date">Ajouté le {convertDate(currentItemShowed.item_added_at)}</p>
 
-            <div className="item-detail-content-left-statusButtons">
+            <div
+              className="item-detail-content-left-statusButtons"
+              title="Cliquez pour changer le status"
+            >
               <button
                 type="button"
                 className={currentStatus === 0 ? cssStatusActive : cssStatusInactive}
@@ -169,14 +172,13 @@ const ItemDetails = () => {
 
         <button
           className="item-detail-buttons-close"
+          aria-label="close button"
           type="button"
           title="Fermer la fenêtre"
           onClick={() => {
             dispatch(closeItemDetails());
           }}
-        >
-          X
-        </button>
+        />
 
       </div>
     </>
