@@ -1,16 +1,22 @@
 // == Import react
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 // == Import style
 import './home.scss';
 import Videogame from 'src/assets/icons/videogame.svg';
 import Podcast from 'src/assets/icons/podcast.svg';
 
+// == Import actions
+import { loaderOn } from '../../actions/loader';
+import { getUserItemsFromApi } from '../../actions/userItems';
+
 const HomeLogin = () => {
   // var to dynamize the mod's background color according to the color of mode list store in state
   const modeList = useSelector((state) => state.modes.list);
   const modeColor = modeList.map((item) => item.color);
+
+  const dispatch = useDispatch();
 
   return (
     <div className="home-login">
@@ -21,6 +27,10 @@ const HomeLogin = () => {
           <div
             className="home-login-mode-videogame"
             style={{ backgroundColor: modeColor[1] }}
+            onClick={() => {
+              dispatch(getUserItemsFromApi());
+              dispatch(loaderOn());
+            }}
           >
             <img className="home-login-mode-videogame-icon" src={Videogame} alt="icone jeux video" />
             <p className="mode-title">Jeux vidéo</p>
@@ -31,6 +41,10 @@ const HomeLogin = () => {
           <div
             className="home-login-mode-podcast"
             style={{ backgroundColor: modeColor[0] }}
+            onClick={() => {
+              dispatch(getUserItemsFromApi());
+              dispatch(loaderOn());
+            }}
           >
             <img className="home-login-mode-podcast-icon" src={Podcast} alt="icone podcast" />
             <p className="mode-title">Podcasts</p>

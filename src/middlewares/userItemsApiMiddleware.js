@@ -7,6 +7,7 @@ import {
   saveChangeStatus,
   saveItemAdded,
 } from '../actions/userItems';
+import { loaderOff } from '../actions/loader';
 
 const apiMiddleware = (store) => (next) => (action) => {
   // to add an item we need current user connected id
@@ -26,6 +27,9 @@ const apiMiddleware = (store) => (next) => (action) => {
         })
         .catch((error) => {
           console.log(error);
+        })
+        .finally(() => {
+          store.dispatch(loaderOff());
         });
       break;
 

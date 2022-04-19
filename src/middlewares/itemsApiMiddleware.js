@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 import axios from 'axios';
 import { GET_ITEMS_FROM_API, showItems } from '../actions/items';
+import { loaderOff } from '../actions/loader';
 
 const apiMiddleware = (store) => (next) => (action) => {
   if (action.type === GET_ITEMS_FROM_API) {
@@ -13,6 +14,9 @@ const apiMiddleware = (store) => (next) => (action) => {
       })
       .catch((error) => {
         console.log(error);
+      })
+      .finally(() => {
+        store.dispatch(loaderOff());
       });
   }
 

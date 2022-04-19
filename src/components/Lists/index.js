@@ -12,6 +12,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { findMode } from 'src/functions/modes';
 import { findItemsByMode, findItemsByUser } from 'src/functions/items';
 import { clearSearchField } from '../../actions/items';
+import { getUserItemsFromApi } from '../../actions/userItems';
+import { loaderOn } from '../../actions/loader';
 
 const Lists = () => {
   // Objective: display the modes into the list menu
@@ -43,7 +45,11 @@ const Lists = () => {
           className={({ isActive }) => (
             isActive ? 'list-header-menu-mode active-videogames' : 'list-header-menu-mode'
           )}
-          onClick={() => dispatch(clearSearchField())}
+          onClick={() => {
+            dispatch(clearSearchField());
+            dispatch(getUserItemsFromApi());
+            dispatch(loaderOn());
+          }}
         >
           <img className="list-header-menu-mode-icon" src={Videogame} alt="icone jeu-video" />
         </NavLink>
@@ -52,7 +58,11 @@ const Lists = () => {
           className={({ isActive }) => (
             isActive ? 'list-header-menu-mode active-podcasts' : 'list-header-menu-mode'
           )}
-          onClick={() => dispatch(clearSearchField())}
+          onClick={() => {
+            dispatch(clearSearchField());
+            dispatch(getUserItemsFromApi());
+            dispatch(loaderOn());
+          }}
         >
           <img className="list-header-menu-mode-icon" src={Podcast} alt="icone podcast" />
         </NavLink>
