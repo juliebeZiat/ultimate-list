@@ -64,6 +64,14 @@ const UserItemsList = () => {
 
   const isItemModalOpen = useSelector((state) => state.userItems.isItemModalOpen);
 
+  // condition to block the scroll when modal is open
+  if (isItemModalOpen) {
+    document.body.style.overflowY = 'hidden';
+  }
+  else {
+    document.body.style.overflowY = 'scroll';
+  }
+
   return (
     <>
       <div className="list-items">
