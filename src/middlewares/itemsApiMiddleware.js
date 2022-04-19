@@ -6,6 +6,7 @@ import {
 import { loaderOff } from '../actions/loader';
 
 const apiMiddleware = (store) => (next) => (action) => {
+  const userConnectedUsername = store.getState().login.nickname;
   if (action.type === GET_ITEMS_FROM_API) {
     axios.get(
       'http://orianeberti-server.eddi.cloud/projet-13-ultimatelist-back/public/api/items',
@@ -30,7 +31,7 @@ const apiMiddleware = (store) => (next) => (action) => {
   }
   if (action.type === GET_RECO) {
     axios.get(
-      'http://orianeberti-server.eddi.cloud/projet-13-ultimatelist-back/public/api/items/recommandations/user',
+      `http://orianeberti-server.eddi.cloud/projet-13-ultimatelist-back/public/api/items/recommandations/${userConnectedUsername}`,
       {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('user_token')}`,
