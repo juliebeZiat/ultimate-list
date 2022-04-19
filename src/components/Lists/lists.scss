@@ -92,12 +92,12 @@
         color: vars.$lightColor;
 
         &-icon-podcasts {
-          filter: invert(100%);
+          filter: invert(94%) sepia(98%) saturate(1407%) hue-rotate(302deg) brightness(99%) contrast(102%);
           margin-right: .3em;
         }
 
         &-icon-jeuxvideo {
-          filter: invert(100%);
+          filter: invert(42%) sepia(12%) saturate(3196%) hue-rotate(206deg) brightness(103%) contrast(106%);
           margin-right: .3em;
           padding-bottom: .1em;
         }
