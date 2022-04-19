@@ -3,6 +3,7 @@ import {
   CHANGE_INPUT_SEARCH_VALUE,
   CHANGE_STATUS_FILTER,
   CLEAR_SEARCH_FIELD,
+  SHOW_RECO,
 } from '../actions/items';
 
 export const initialState = {
@@ -11,6 +12,7 @@ export const initialState = {
   inputSearchValue: '',
   searchResults: [],
   statusFilter: 'all',
+  recos: [],
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -37,6 +39,12 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         inputSearchValue: '',
+      };
+
+    case SHOW_RECO:
+      return {
+        ...state,
+        recos: action.reco,
       };
 
     default:

@@ -10,7 +10,7 @@ import Toggle from 'src/assets/icons/toggle-on.svg';
 import './statusFilter.scss';
 
 // == Import actions
-import { changeStatusFilter, getItemsFromApi } from 'src/actions/items';
+import { changeStatusFilter, getItemsFromApi, getReco } from 'src/actions/items';
 import { loaderOn } from '../../../actions/loader';
 
 // == Import Component
@@ -59,7 +59,7 @@ const StatusFilter = () => {
         <NavLink
           to={`/${slug}/recommandations`}
           onClick={() => {
-            dispatch(getItemsFromApi());
+            dispatch(getReco());
             dispatch(loaderOn());
           }}
         >
@@ -71,7 +71,7 @@ const StatusFilter = () => {
             isActive ? 'list-header-toggle-menu active' : 'list-header-toggle-menu'
           )}
           onClick={() => {
-            dispatch(getItemsFromApi());
+            dispatch(getReco());
             dispatch(loaderOn());
           }}
         >

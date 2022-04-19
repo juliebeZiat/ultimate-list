@@ -18,7 +18,7 @@ import { loaderOn } from '../../../actions/loader';
 
 // == Composant
 const Reco = () => {
-  const items = useSelector((state) => state.items.list);
+  const items = useSelector((state) => state.items.recos);
   const { slug } = useParams();
   const itemsFiltered = findItemsByMode(items, slug);
   const dispatch = useDispatch();
