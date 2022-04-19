@@ -9,7 +9,12 @@ import { convertDate } from 'src/functions/items';
 import { statusName } from 'src/functions/lists';
 
 // == Import actions
-import { closeItemDetails } from 'src/actions/userItems';
+import {
+  closeItemDetails,
+  saveChangeStatus,
+  changeUserItemStatus,
+  updateUserListStatus,
+} from 'src/actions/userItems';
 
 // == Import style
 import './itemDetails.scss';
@@ -42,12 +47,14 @@ const ItemDetails = () => {
     }
   };
 
+  const currentStatus = useSelector((state) => state.userItems.item_status);
+
   return (
     <>
       <div className="background-item-detail" />
       <div className="item-detail">
 
-        <img className="item-detail-image" src={currentItemShowed.item.image} alt="" />
+        <img className="item-detail-image" src={currentItemShowed.item.background_image} alt="" />
 
         <div className="item-detail-content">
           <div className="item-detail-content-left">
@@ -55,22 +62,34 @@ const ItemDetails = () => {
             <h1 className="item-detail-content-left-title">{currentItemShowed.item.name}</h1>
             <p className="item-detail-content-left-date">Ajouté le {convertDate(currentItemShowed.item_added_at)}</p>
 
-            <div className="item-detail-content-left-statusButtons">
+            <div
+              className="item-detail-content-left-statusButtons"
+              title="Cliquez pour changer le status"
+            >
               <button
                 type="button"
-                className={currentItemShowed.item_status === 0 ? cssStatusActive : cssStatusInactive}
+                className={currentStatus === 0 ? cssStatusActive : cssStatusInactive}
+                onClick={() => {
+                  dispatch(saveChangeStatus(0));
+                }}
               >
                 {statusName(0, slug)}
               </button>
               <button
                 type="button"
-                className={currentItemShowed.item_status === 1 ? cssStatusActive : cssStatusInactive}
+                className={currentStatus === 1 ? cssStatusActive : cssStatusInactive}
+                onClick={() => {
+                  dispatch(saveChangeStatus(1));
+                }}
               >
                 {statusName(1, slug)}
               </button>
               <button
                 type="button"
-                className={currentItemShowed.item_status === 2 ? cssStatusActive : cssStatusInactive}
+                className={currentStatus === 2 ? cssStatusActive : cssStatusInactive}
+                onClick={() => {
+                  dispatch(saveChangeStatus(2));
+                }}
               >
                 {statusName(2, slug)}
               </button>
@@ -93,6 +112,7 @@ const ItemDetails = () => {
                 <span
                   className="item-detail-content-right-tags-tag"
                   key={tag.id}
+                  style={{ backgroundColor: tag.color }}
                 >
                   {tag.name}
                 </span>
@@ -141,20 +161,26 @@ const ItemDetails = () => {
           <button
             className="item-detail-buttons-button"
             type="button"
+            onClick={() => {
+              dispatch(changeUserItemStatus(currentItemShowed.id, currentStatus));
+              dispatch(closeItemDetails());
+              dispatch(updateUserListStatus(currentItemShowed.id, currentStatus));
+            }}
           >
             Enregistrer les modifications
           </button>
-
-          <button
-            className="item-detail-buttons-button"
-            type="button"
-            onClick={() => {
-              dispatch(closeItemDetails());
-            }}
-          >
-            Fermer
-          </button>
         </div>
+
+        <button
+          className="item-detail-buttons-close"
+          aria-label="close button"
+          type="button"
+          title="Fermer la fenêtre"
+          onClick={() => {
+            dispatch(closeItemDetails());
+          }}
+        />
+
       </div>
     </>
   );

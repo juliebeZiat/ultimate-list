@@ -23,13 +23,6 @@ const StatusFilter = () => {
 
   const dispatch = useDispatch();
 
-  // Array used into the <select>
-  const optionsStatus = [
-    { label: statusName(0, slug), value: 0 },
-    { label: statusName(1, slug), value: 1 },
-    { label: statusName(2, slug), value: 2 },
-  ];
-
   // Variables for button add
   const addName = () => {
     switch (slug) {
@@ -137,7 +130,7 @@ const StatusFilter = () => {
         </Link>
       </div>
 
-      <UserItemsList optionsStatus={optionsStatus} />
+      <UserItemsList />
 
     </div>
   );

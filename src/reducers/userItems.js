@@ -9,6 +9,7 @@ import {
   CLOSE_ITEM_DETAILS,
   SHOW_RECO,
   REMOVE_RECO_ITEM,
+  UPDATE_USER_LIST_STATUS,
 } from '../actions/userItems';
 
 export const initialState = {
@@ -23,6 +24,10 @@ export const initialState = {
 };
 
 const reducer = (state = initialState, action = {}) => {
+  // var used in case UPDATE_USER_LIST_STATUS
+  const indexItemToUpdate = state.user_list.findIndex((item) => item.id === action.itemId);
+  const newUserList = [...state.user_list];
+
   switch (action.type) {
     case SHOW_USER_ITEMS:
       return {
@@ -83,6 +88,13 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         recos: state.recos.filter(((reco) => reco.id !== action.itemId)),
+      };
+
+    case UPDATE_USER_LIST_STATUS:
+      newUserList[indexItemToUpdate].item_status = action.newStatus;
+      return {
+        ...state,
+        user_list: newUserList,
       };
 
     default:

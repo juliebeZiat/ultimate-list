@@ -4,7 +4,6 @@ import {
   showUserItems,
   SEND_ITEM_TO_API,
   CHANGE_USER_ITEM_STATUS,
-  saveChangeStatus,
   saveItemAdded,
   showReco,
   GET_RECO,
@@ -81,10 +80,6 @@ const apiMiddleware = (store) => (next) => (action) => {
           },
         },
       )
-        .then((response) => {
-          console.log(response.data);
-          store.dispatch(saveChangeStatus(response.data.item_status));
-        })
         .catch((error) => {
           console.log(error);
         });

@@ -4,6 +4,7 @@ export const FILTER_USER_ITEMS_BY_STATUS = 'FILTER_USER_ITEMS_BY_STATUS';
 export const SEND_ITEM_TO_API = 'SEND_ITEM_TO_API';
 export const CHANGE_USER_ITEM_STATUS = 'CHANGE_USER_ITEM_STATUS';
 export const SAVE_CHANGE_STATUS = 'SAVE_CHANGE_STATUS';
+export const UPDATE_USER_LIST_STATUS = 'UPDATE_USER_LIST_STATUS';
 export const SAVE_ITEM_ADDED = 'SAVE_ITEM_ADDED';
 export const CURRENT_ITEM_CLICKED = 'CURRENT_ITEM_CLICKED';
 export const SHOW_ITEM_DETAILS = 'SHOW_ITEM_DETAILS';
@@ -35,15 +36,28 @@ export const sendItemToApi = (item) => ({
   item: item,
 });
 
+// action to send to api the new status of an item
+// dispatched in ItemDetails onClick to button "Enregistrer les modifications"
 export const changeUserItemStatus = (item, status) => ({
   type: CHANGE_USER_ITEM_STATUS,
   item: item,
   item_status: status,
 });
 
+// action to store in state the status we want to use to update an item
+// dispatched in ItemDetails onClick to buttons with status's name
+// dispatched in UserItemsList onClick to open ItemDetails
 export const saveChangeStatus = (status) => ({
   type: SAVE_CHANGE_STATUS,
   newStatus: status,
+});
+
+// action to update item_status of an item store in user_list that we use to display UserItemsList
+// dispatched in ItemDetails onClick to button "Enregistrer les modifications"
+export const updateUserListStatus = (itemId, newStatus) => ({
+  type: UPDATE_USER_LIST_STATUS,
+  itemId: itemId,
+  newStatus: newStatus,
 });
 
 export const saveItemAdded = (item) => ({
