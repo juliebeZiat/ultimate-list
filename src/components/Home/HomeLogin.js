@@ -10,6 +10,7 @@ import Podcast from 'src/assets/icons/podcast.svg';
 // == Import actions
 import { loaderOn } from '../../actions/loader';
 import { getUserItemsFromApi } from '../../actions/userItems';
+import { getModeFromApi } from '../../actions/modes';
 
 const HomeLogin = () => {
   // var to dynamize the mod's background color according to the color of mode list store in state
@@ -29,6 +30,7 @@ const HomeLogin = () => {
             style={{ backgroundColor: modeColor[1] }}
             onClick={() => {
               dispatch(getUserItemsFromApi());
+              dispatch(getModeFromApi());
               dispatch(loaderOn());
             }}
           >
@@ -43,6 +45,7 @@ const HomeLogin = () => {
             style={{ backgroundColor: modeColor[0] }}
             onClick={() => {
               dispatch(getUserItemsFromApi());
+              dispatch(getModeFromApi());
               dispatch(loaderOn());
             }}
           >
