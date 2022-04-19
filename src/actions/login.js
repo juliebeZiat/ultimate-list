@@ -3,6 +3,7 @@ export const CHANGE_LOGIN_FIELD = 'CHANGE_LOGIN_FIELD';
 export const LOG_IN = 'LOG_IN';
 export const SAVE_USER_DATA = 'SAVE_USER_DATA';
 export const TOGGLE_USER_SETTINGS_OPEN = 'TOGGLE_USER_SETTINGS_OPEN';
+export const TOGGLE_USER_SETTINGS_CLOSE = 'TOGGLE_USER_SETTINGS_CLOSE';
 export const VERIFY_USERTOKEN_IN_LOCALSTORAGE = 'VERIFY_USERTOKEN_IN_LOCALSTORAGE';
 export const DECODE_TOKEN_TO_SAVE_USERNAME = 'DECODE_TOKEN_TO_SAVE_USERNAME';
 export const LOG_OUT = 'LOG_OUT';
@@ -29,6 +30,10 @@ export const saveUserData = (token) => ({
 // Action to show or unshow the component <User /> (profile settings)
 export const toggleUserSettingsOpen = () => ({
   type: TOGGLE_USER_SETTINGS_OPEN,
+});
+
+export const toggleUserSettingsClose = () => ({
+  type: TOGGLE_USER_SETTINGS_CLOSE,
 });
 
 // Verify the token in Local Storage to allow a user to stay connect even when the user close app

@@ -4,9 +4,11 @@ import { Link } from 'react-router-dom';
 
 // == Import react hooks
 import { useSelector, useDispatch } from 'react-redux';
+import { useRef } from 'react';
 
 // == Import actions
-import { logOut } from 'src/actions/login';
+import useOnClickOutside from '../../functions/useOnClickOutside';
+import { toggleUserSettingsClose, logOut } from '../../actions/login';
 
 // eslint-disable-next-line arrow-body-style
 const User = () => {
@@ -21,8 +23,12 @@ const User = () => {
   // to settup the disconnection we need to dispatch the action logOut
   const dispatch = useDispatch();
 
+  // See functions/useOnClickOutside.js
+  const ref = useRef();
+  useOnClickOutside(ref, () => dispatch(toggleUserSettingsClose()));
+
   return (
-    <div className="user">
+    <div className="user" ref={ref}>
       {isOpen && (
       <div className="user-toggle">
         {logged && (
