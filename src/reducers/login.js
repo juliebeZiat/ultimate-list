@@ -11,6 +11,7 @@ import {
   DECODE_TOKEN_TO_SAVE_USERNAME,
   LOG_OUT,
   LOG_IN_FAIL,
+  TOGGLE_USER_SETTINGS_CLOSE,
 } from '../actions/login';
 
 export const initialState = {
@@ -49,6 +50,12 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         isSettingsOpen: !state.isSettingsOpen,
+      };
+
+    case TOGGLE_USER_SETTINGS_CLOSE:
+      return {
+        ...state,
+        isSettingsOpen: false,
       };
 
     case VERIFY_USERTOKEN_IN_LOCALSTORAGE:
