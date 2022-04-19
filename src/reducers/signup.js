@@ -35,6 +35,9 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         register: true,
         loader: false,
+        email: '',
+        username: '',
+        password: '',
       };
 
     case ERROR_MESSAGES_SIGN_UP_FAIL:

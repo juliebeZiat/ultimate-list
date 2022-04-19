@@ -22,7 +22,6 @@ const SignUp = () => {
   // If user succeed the registration, redirect to page connexion to connect
   if (registerSuccess) {
     navigate('/connexion');
-    window.location.reload();
   }
 
   return (

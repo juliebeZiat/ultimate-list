@@ -2,6 +2,7 @@ import {
   SHOW_ITEMS,
   CHANGE_INPUT_SEARCH_VALUE,
   CHANGE_STATUS_FILTER,
+  CLEAR_SEARCH_FIELD,
 } from '../actions/items';
 
 export const initialState = {
@@ -30,6 +31,12 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         statusFilter: action.newFilter,
+      };
+
+    case CLEAR_SEARCH_FIELD:
+      return {
+        ...state,
+        inputSearchValue: '',
       };
 
     default:

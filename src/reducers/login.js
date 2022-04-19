@@ -16,6 +16,7 @@ import {
 export const initialState = {
   username: '',
   password: '',
+  nickname: '',
   token: null,
   logged: false,
   isSettingsOpen: false,
@@ -67,12 +68,12 @@ const reducer = (state = initialState, action = {}) => {
       if (action.token !== null) {
         return {
           ...state,
-          username: jwt_decode(action.token).username,
+          nickname: jwt_decode(action.token).username,
         };
       }
       return {
         ...state,
-        username: '',
+        nickname: '',
       };
 
     case LOG_OUT:

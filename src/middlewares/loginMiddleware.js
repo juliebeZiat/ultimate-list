@@ -1,7 +1,9 @@
 import axios from 'axios';
 import { loaderOff } from '../actions/loader';
 
-import { logInFail, LOG_IN, saveUserData } from '../actions/login';
+import {
+  decodeTokenToSaveUsername, logInFail, LOG_IN, saveUserData,
+} from '../actions/login';
 
 const api = axios.create({
   baseURL: 'http://orianeberti-server.eddi.cloud/projet-13-ultimatelist-back/public/api',
@@ -22,10 +24,9 @@ const loginMiddleware = (store) => (next) => (action) => {
         .then((response) => {
           // we save token in localStorage in order to stay auth when page gets refresh
           localStorage.setItem('user_token', response.data.token);
-
           store.dispatch(saveUserData(response.data.token));
-
           api.defaults.headers.common.Authorization = `bearer ${response.data.token}`;
+          store.dispatch(decodeTokenToSaveUsername(response.data.token));
         })
         .catch((error) => {
           console.log(error);

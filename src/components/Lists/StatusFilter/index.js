@@ -10,7 +10,8 @@ import Toggle from 'src/assets/icons/toggle-on.svg';
 import './statusFilter.scss';
 
 // == Import actions
-import { changeStatusFilter } from 'src/actions/items';
+import { changeStatusFilter, getItemsFromApi } from 'src/actions/items';
+import { loaderOn } from '../../../actions/loader';
 
 // == Import Component
 import Lists from '../index';
@@ -95,7 +96,14 @@ const StatusFilter = () => {
 
       <div className="list-add">
         <Link className="list-add-button-link" to={`/${slug}/ajouter`}>
-          <button type="button" className="list-add-button">
+          <button
+            type="button"
+            className="list-add-button"
+            onClick={() => {
+              dispatch(getItemsFromApi());
+              dispatch(loaderOn());
+            }}
+          >
             + Ajouter un {addName()}
           </button>
         </Link>

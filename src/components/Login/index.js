@@ -29,7 +29,6 @@ const Login = () => {
   // If user get logged, navigate to the homepage
   if (logged) {
     navigate('/');
-    window.location.reload();
   }
 
   return (
