@@ -1,7 +1,7 @@
 // == Import
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { sendItemToApi } from '../../../actions/userItems';
+import { removeRecoItem, sendItemToApi } from '../../../actions/userItems';
 
 const RecoAdd = ({ recommendations }) => {
   const dispatch = useDispatch();
@@ -33,7 +33,10 @@ const RecoAdd = ({ recommendations }) => {
               type="button"
               aria-label="icon plus"
               // On click on the icon plus, add the item selected to the userList
-              onClick={() => dispatch(sendItemToApi(item.id))}
+              onClick={() => {
+                dispatch(sendItemToApi(item.id));
+                dispatch(removeRecoItem(item.id));
+              }}
             />
           </li>
         ))}

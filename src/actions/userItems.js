@@ -76,7 +76,7 @@ export const showReco = (reco) => ({
 });
 
 // Remove an item in recos array when added
-export const removeRecoItem = (recoItem) => ({
+export const removeRecoItem = (recoItemId) => ({
   type: REMOVE_RECO_ITEM,
-  item: recoItem,
+  itemId: recoItemId,
 });

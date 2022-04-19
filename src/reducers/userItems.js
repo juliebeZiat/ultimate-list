@@ -82,7 +82,7 @@ const reducer = (state = initialState, action = {}) => {
     case REMOVE_RECO_ITEM:
       return {
         ...state,
-        recos: state.recos.filter(((reco) => reco.id !== action.user_list.id)),
+        recos: state.recos.filter(((reco) => reco.id !== action.itemId)),
       };
 
     default:
