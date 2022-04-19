@@ -112,6 +112,7 @@ const ItemDetails = () => {
                 <span
                   className="item-detail-content-right-tags-tag"
                   key={tag.id}
+                  style={{ backgroundColor: tag.color }}
                 >
                   {tag.name}
                 </span>
