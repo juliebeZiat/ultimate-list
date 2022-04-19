@@ -127,6 +127,7 @@ const StatusFilter = () => {
             className="list-add-button"
             onClick={() => {
               dispatch(getItemsFromApi());
+              dispatch(getReco());
               dispatch(loaderOn());
             }}
           >

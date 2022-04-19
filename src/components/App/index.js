@@ -20,7 +20,7 @@ import Team from '../Annex/Team';
 import Reco from '../Lists/Reco';
 
 // == Import actions
-import { getItemsFromApi } from '../../actions/items';
+import { getItemsFromApi, getReco } from '../../actions/items';
 import { getUserItemsFromApi } from '../../actions/userItems';
 import { getModeFromApi } from '../../actions/modes';
 import { getUserFromApi } from '../../actions/user';
@@ -45,6 +45,7 @@ const App = () => {
     dispatch(getUserFromApi());
     dispatch(verifyUsertokenInLocalstorage(localStorageToken));
     dispatch(decodeTokenToSaveUsername(localStorageToken));
+    dispatch(getReco());
   }, []);
 
   // State logged true or false, to display different pages according to its state
