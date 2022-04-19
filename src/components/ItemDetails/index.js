@@ -9,7 +9,12 @@ import { convertDate } from 'src/functions/items';
 import { statusName } from 'src/functions/lists';
 
 // == Import actions
-import { closeItemDetails, saveChangeStatus, changeUserItemStatus } from 'src/actions/userItems';
+import {
+  closeItemDetails,
+  saveChangeStatus,
+  changeUserItemStatus,
+  updateUserListStatus,
+} from 'src/actions/userItems';
 
 // == Import style
 import './itemDetails.scss';
@@ -155,6 +160,7 @@ const ItemDetails = () => {
             onClick={() => {
               dispatch(changeUserItemStatus(currentItemShowed.id, currentStatus));
               dispatch(closeItemDetails());
+              dispatch(updateUserListStatus(currentItemShowed.id, currentStatus));
             }}
           >
             Enregistrer les modifications
