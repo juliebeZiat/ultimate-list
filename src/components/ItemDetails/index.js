@@ -54,7 +54,7 @@ const ItemDetails = () => {
       <div className="background-item-detail" />
       <div className="item-detail">
 
-        <img className="item-detail-image" src={currentItemShowed.item.image} alt="" />
+        <img className="item-detail-image" src={currentItemShowed.item.background_image} alt="" />
 
         <div className="item-detail-content">
           <div className="item-detail-content-left">
@@ -62,7 +62,10 @@ const ItemDetails = () => {
             <h1 className="item-detail-content-left-title">{currentItemShowed.item.name}</h1>
             <p className="item-detail-content-left-date">Ajouté le {convertDate(currentItemShowed.item_added_at)}</p>
 
-            <div className="item-detail-content-left-statusButtons">
+            <div
+              className="item-detail-content-left-statusButtons"
+              title="Cliquez pour changer le status"
+            >
               <button
                 type="button"
                 className={currentStatus === 0 ? cssStatusActive : cssStatusInactive}
@@ -109,6 +112,7 @@ const ItemDetails = () => {
                 <span
                   className="item-detail-content-right-tags-tag"
                   key={tag.id}
+                  style={{ backgroundColor: tag.color }}
                 >
                   {tag.name}
                 </span>
@@ -165,17 +169,18 @@ const ItemDetails = () => {
           >
             Enregistrer les modifications
           </button>
-
-          <button
-            className="item-detail-buttons-button"
-            type="button"
-            onClick={() => {
-              dispatch(closeItemDetails());
-            }}
-          >
-            Fermer
-          </button>
         </div>
+
+        <button
+          className="item-detail-buttons-close"
+          aria-label="close button"
+          type="button"
+          title="Fermer la fenêtre"
+          onClick={() => {
+            dispatch(closeItemDetails());
+          }}
+        />
+
       </div>
     </>
   );
