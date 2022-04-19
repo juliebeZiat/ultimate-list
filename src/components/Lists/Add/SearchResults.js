@@ -1,11 +1,15 @@
 // == Import
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { sendItemToApi } from '../../../actions/userItems';
 
 const SearchResults = ({ searchResults }) => {
   let subtitle = `${searchResults.length} résultat`;
   if (searchResults.length > 1) {
     subtitle += 's';
   }
+
+  const dispatch = useDispatch();
 
   return (
     <div className="add-reco">
@@ -23,7 +27,13 @@ const SearchResults = ({ searchResults }) => {
                 ))}
               </div>
             </div>
-            <button className="card-button" type="button" aria-label="icon plus" />
+            <button
+              className="card-button"
+              type="button"
+              aria-label="icon plus"
+              // On click on the icon plus, add the item selected to the userList
+              onClick={() => dispatch(sendItemToApi(item.id))}
+            />
           </li>
         ))}
       </ul>
