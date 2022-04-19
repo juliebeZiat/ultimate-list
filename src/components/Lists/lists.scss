@@ -90,6 +90,17 @@
         font-weight: bold;
         margin-right: 1em;
         color: vars.$lightColor;
+
+        &-icon-podcasts {
+          filter: invert(100%);
+          margin-right: .3em;
+        }
+
+        &-icon-jeuxvideo {
+          filter: invert(100%);
+          margin-right: .3em;
+          padding-bottom: .1em;
+        }
       }
 
     }
