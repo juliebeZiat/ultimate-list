@@ -8,6 +8,9 @@ export const SAVE_ITEM_ADDED = 'SAVE_ITEM_ADDED';
 export const CURRENT_ITEM_CLICKED = 'CURRENT_ITEM_CLICKED';
 export const SHOW_ITEM_DETAILS = 'SHOW_ITEM_DETAILS';
 export const CLOSE_ITEM_DETAILS = 'CLOSE_ITEM_DETAILS';
+export const GET_RECO = 'GET_RECO';
+export const SHOW_RECO = 'SHOW_RECO';
+export const REMOVE_RECO_ITEM = 'REMOVE_RECO_ITEM';
 
 // Fetch userList from API
 export const getUserItemsFromApi = () => ({
@@ -59,4 +62,21 @@ export const showItemDetails = () => ({
 
 export const closeItemDetails = () => ({
   type: CLOSE_ITEM_DETAILS,
+});
+
+// Fetch reco from API
+export const getReco = () => ({
+  type: GET_RECO,
+});
+
+// Display the reco to front
+export const showReco = (reco) => ({
+  type: SHOW_RECO,
+  reco: reco,
+});
+
+// Remove an item in recos array when added
+export const removeRecoItem = (recoItem) => ({
+  type: REMOVE_RECO_ITEM,
+  item: recoItem,
 });

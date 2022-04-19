@@ -6,6 +6,8 @@ import {
   CHANGE_USER_ITEM_STATUS,
   saveChangeStatus,
   saveItemAdded,
+  showReco,
+  GET_RECO,
 } from '../actions/userItems';
 import { loaderOff } from '../actions/loader';
 
@@ -27,7 +29,7 @@ const apiMiddleware = (store) => (next) => (action) => {
         },
       )
         .then((response) => {
-          // console.log('Api response list_items:', response.data);
+          // console.log('Api response list_items:', response.data.item);
 
           const actionToDispatch = showUserItems(response.data);
           store.dispatch(actionToDispatch);
@@ -85,6 +87,28 @@ const apiMiddleware = (store) => (next) => (action) => {
         })
         .catch((error) => {
           console.log(error);
+        });
+      break;
+
+    case GET_RECO:
+      axios.get(
+        `http://orianeberti-server.eddi.cloud/projet-13-ultimatelist-back/public/api/items/recommandations/${userConnectedUsername}`,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('user_token')}`,
+          },
+        },
+      )
+        .then((response) => {
+          const actionToDispatch = showReco(response.data);
+          store.dispatch(actionToDispatch);
+          // console.log('Reco:', response.data.id);
+        })
+        .catch((error) => {
+          console.log(error);
+        })
+        .finally(() => {
+          store.dispatch(loaderOff());
         });
       break;
     default:

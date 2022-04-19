@@ -10,7 +10,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { findItemsByMode } from 'src/functions/items';
 
 // == Import actions
-import { getUserItemsFromApi, sendItemToApi } from '../../../actions/userItems';
+import { getUserItemsFromApi, removeRecoItem, sendItemToApi } from '../../../actions/userItems';
 
 // == Import components
 import Lists from '../index';
@@ -18,7 +18,7 @@ import { loaderOn } from '../../../actions/loader';
 
 // == Composant
 const Reco = () => {
-  const items = useSelector((state) => state.items.recos);
+  const items = useSelector((state) => state.userItems.recos);
   const { slug } = useParams();
   const itemsFiltered = findItemsByMode(items, slug);
   const dispatch = useDispatch();
@@ -82,7 +82,10 @@ const Reco = () => {
               type="button"
               aria-label="icon plus"
               // On click on the icon plus, add the item selected to the userList
-              onClick={() => dispatch(sendItemToApi(item.id))}
+              onClick={() => {
+                dispatch(sendItemToApi(item.id));
+                dispatch(removeRecoItem(item.id));
+              }}
             />
           </li>
         ))}

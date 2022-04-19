@@ -21,7 +21,7 @@ const Add = () => {
   const dispatch = useDispatch();
 
   // var used to display the recommendation
-  const items = useSelector((state) => state.items.recos);
+  const items = useSelector((state) => state.userItems.recos);
   const { slug } = useParams();
   const itemsFiltered = findItemsByMode(items, slug);
 
