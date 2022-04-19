@@ -1,29 +1,57 @@
 @use 'src/styles/vars';
 
 .notfound {
+  text-align: center;
+  color: vars.$lightColor;
 
-  &-page {
-    text-align: center;
-    color: vars.$lightColor;
-    margin-bottom: 2rem;
-    margin-top: 2rem;
+  &-page-subtitle {
+    font-size: 1.5em;
+  }
 
-    &-message {
-      font-weight: 800;
+  &-page-message {
+    @media screen and (min-width: 768px) {
+      font-size: 3em;
     }
+    @media screen and (max-width: 768px) {
+      font-size: 2em;
+    }
+    font-weight: bold;
+    text-transform: none;
+  }
 
-    &-home {
-      text-decoration: underline;
-      :hover {
-        color: vars.$infoHoverColor;
-      }
+  &-page-home {
+    margin-bottom: 5em;
+    img {
+      width: 15px;
+      filter: invert(49%) sepia(42%) saturate(3124%) hue-rotate(310deg) brightness(99%) contrast(97%);
     }
   }
 
   &-gif {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @media screen and (min-width: 768px) {
+      width: 20%;
+    }
+    @media screen and (max-width: 767px) {
+      width: 50%;
+    }
   }
 
+  &-buttons {
+    margin: 3em auto;
+    button {
+      @media screen and (min-width: 768px) {
+        margin: 0 1em;
+      }
+      padding: .8em;
+      border: none;
+      border-radius: 1.5em;
+      background-color: vars.$logoColorTwo;
+      font-size: 1.2em;
+      width: 7em;
+      &:hover {
+        background-color: lighten(vars.$logoColorTwo, 10%);
+        transition: 0.3s;
+      }
+    }
+  }
 }

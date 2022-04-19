@@ -66,7 +66,7 @@ const UserItemsList = () => {
 
   return (
     <>
-      <div className="list-items">
+      <div className={`${slug}-list-items`}>
         {userListsFilteredByStatus(statusFilter).map((userItem) => (
           <div
             className="item"

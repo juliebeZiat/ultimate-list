@@ -78,9 +78,8 @@
 
         &-button-active {
           // un-comment when color are dynamized by mode
-          // filter:  opacity(90%);
+          filter:  opacity(90%);
           transition: 0.2s;
-          background-color: vars.$modeColor;
         }
 
         &-button,
@@ -121,7 +120,8 @@
       }
 
       &-about {
-        &-description {
+        &-description-jeuxvideo,
+        &-description-podcasts {
           max-height: 4.5rem;
           overflow: scroll;
           overflow-x: hidden;
@@ -130,6 +130,20 @@
           line-height: 1.1rem;
 
           @include mixins.scrollBar;
+        }
+
+        &-description-jeuxvideo {
+          &::-webkit-scrollbar-thumb {
+            border-radius: 25px;
+            background-color: vars.$modeColor;
+          }
+        }
+
+        &-description-podcasts {
+          &::-webkit-scrollbar-thumb {
+            border-radius: 25px;
+            background-color: vars.$iconPodcastBackgroundColor;
+          }
         }
 
         &-infos {

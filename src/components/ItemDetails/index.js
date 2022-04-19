@@ -3,10 +3,7 @@
 // == Import react hooks
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
-
-// == Import functions
-import { convertDate } from 'src/functions/items';
-import { statusName } from 'src/functions/lists';
+import { useRef } from 'react';
 
 // == Import actions
 import {
@@ -15,6 +12,11 @@ import {
   changeUserItemStatus,
   updateUserListStatus,
 } from 'src/actions/userItems';
+
+// == Import functions
+import { convertDate } from 'src/functions/items';
+import { statusName, cssProgressHeaderBySlug } from 'src/functions/lists';
+import useOnClickOutside from '../../functions/useOnClickOutside';
 
 // == Import style
 import './itemDetails.scss';
@@ -49,10 +51,14 @@ const ItemDetails = () => {
 
   const currentStatus = useSelector((state) => state.userItems.item_status);
 
+  // See functions/useOnClickOutside.js
+  const ref = useRef();
+  useOnClickOutside(ref, () => dispatch(closeItemDetails()));
+
   return (
     <>
       <div className="background-item-detail" />
-      <div className="item-detail">
+      <div className="item-detail" ref={ref}>
 
         <img className="item-detail-image" src={currentItemShowed.item.background_image} alt="" />
 
@@ -65,6 +71,7 @@ const ItemDetails = () => {
             <div
               className="item-detail-content-left-statusButtons"
               title="Cliquez pour changer le status"
+              style={cssProgressHeaderBySlug(slug)}
             >
               <button
                 type="button"
@@ -133,7 +140,7 @@ const ItemDetails = () => {
 
             <div className="item-detail-content-right-about">
               <h2 className="item-detail-subtitles">À propos...</h2>
-              <p className="item-detail-content-right-about-description">{currentItemShowed.item.description}</p>
+              <p className={`item-detail-content-right-about-description-${slug}`}>{currentItemShowed.item.description}</p>
               <ul className="item-detail-content-right-about-infos">
                 <li className="item-detail-content-right-about-infos-info">Date de sortie : {convertDate(currentItemShowed.item.release_date)}</li>
                 {itemInfosMatchingMode(currentItemShowed).map((info) => (
@@ -154,6 +161,7 @@ const ItemDetails = () => {
           <button
             className="item-detail-buttons-button"
             type="button"
+            style={cssProgressHeaderBySlug(slug)}
           >
             Supprimer
           </button>
@@ -161,6 +169,7 @@ const ItemDetails = () => {
           <button
             className="item-detail-buttons-button"
             type="button"
+            style={cssProgressHeaderBySlug(slug)}
             onClick={() => {
               dispatch(changeUserItemStatus(currentItemShowed.id, currentStatus));
               dispatch(closeItemDetails());

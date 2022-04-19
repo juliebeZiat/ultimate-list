@@ -35,6 +35,15 @@ const Lists = () => {
   // We want to get this to show the number of items per list (see line 63)
   const itemsFilteredByUser = findItemsByUser(itemsFiltered, currentUser);
 
+  // Change icon title according to its slug
+  const changeIconSlug = () => {
+    switch (slug) {
+      case 'jeuxvideo': return Videogame;
+      case 'podcasts': return Podcast;
+      default: return '';
+    }
+  };
+
   const dispatch = useDispatch();
 
   return (
@@ -71,6 +80,7 @@ const Lists = () => {
       <div className="list-header-title">
         {modes.map((mode) => (
           <h3 className="list-header-title-mode" key={mode.id}>
+            <img className={`list-header-title-mode-icon-${slug}`} src={changeIconSlug()} alt="" />
             {(mode.name).charAt(0).toUpperCase() + (mode.name).slice(1)}
             {window.location.pathname === `/${slug}/liste`
             && (

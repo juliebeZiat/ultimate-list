@@ -49,7 +49,7 @@ const User = () => {
                 Se déconnecter
               </Link>
             </div>
-            <div className="user-toggle-delete"><Link to="/">Supprimer définitivement mon profil</Link></div>
+            {/* <div className="user-toggle-delete">Supprimer définitivement mon profil</div> */}
           </>
         )}
         {!logged && (
