@@ -8,9 +8,10 @@ import Podcast from 'src/assets/icons/podcast.svg';
 import { NavLink, useParams } from 'react-router-dom';
 
 // == Import
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { findMode } from 'src/functions/modes';
 import { findItemsByMode, findItemsByUser } from 'src/functions/items';
+import { clearSearchField } from '../../actions/items';
 
 const Lists = () => {
   // Objective: display the modes into the list menu
@@ -32,6 +33,8 @@ const Lists = () => {
   // We want to get this to show the number of items per list (see line 63)
   const itemsFilteredByUser = findItemsByUser(itemsFiltered, currentUser);
 
+  const dispatch = useDispatch();
+
   return (
     <div className="list-header">
       <div className="list-header-menu">
@@ -40,6 +43,7 @@ const Lists = () => {
           className={({ isActive }) => (
             isActive ? 'list-header-menu-mode active-videogames' : 'list-header-menu-mode'
           )}
+          onClick={() => dispatch(clearSearchField())}
         >
           <img className="list-header-menu-mode-icon" src={Videogame} alt="icone jeu-video" />
         </NavLink>
@@ -48,6 +52,7 @@ const Lists = () => {
           className={({ isActive }) => (
             isActive ? 'list-header-menu-mode active-podcasts' : 'list-header-menu-mode'
           )}
+          onClick={() => dispatch(clearSearchField())}
         >
           <img className="list-header-menu-mode-icon" src={Podcast} alt="icone podcast" />
         </NavLink>
