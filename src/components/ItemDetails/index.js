@@ -3,10 +3,7 @@
 // == Import react hooks
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
-
-// == Import functions
-import { convertDate } from 'src/functions/items';
-import { statusName } from 'src/functions/lists';
+import { useRef } from 'react';
 
 // == Import actions
 import {
@@ -15,6 +12,11 @@ import {
   changeUserItemStatus,
   updateUserListStatus,
 } from 'src/actions/userItems';
+
+// == Import functions
+import { convertDate } from 'src/functions/items';
+import { statusName } from 'src/functions/lists';
+import useOnClickOutside from '../../functions/useOnClickOutside';
 
 // == Import style
 import './itemDetails.scss';
@@ -49,10 +51,14 @@ const ItemDetails = () => {
 
   const currentStatus = useSelector((state) => state.userItems.item_status);
 
+  // See functions/useOnClickOutside.js
+  const ref = useRef();
+  useOnClickOutside(ref, () => dispatch(closeItemDetails()));
+
   return (
     <>
       <div className="background-item-detail" />
-      <div className="item-detail">
+      <div className="item-detail" ref={ref}>
 
         <img className="item-detail-image" src={currentItemShowed.item.background_image} alt="" />
 
