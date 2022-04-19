@@ -2,9 +2,11 @@
 
 // == Import react hooks
 import { useSelector, useDispatch } from 'react-redux';
+import { useParams } from 'react-router-dom';
 
 // == Import functions
 import { convertDate } from 'src/functions/items';
+import { statusName } from 'src/functions/lists';
 
 // == Import actions
 import { closeItemDetails } from 'src/actions/userItems';
@@ -15,6 +17,11 @@ import './itemDetails.scss';
 const ItemDetails = () => {
   const currentItemShowed = useSelector((state) => state.userItems.itemCliked);
   const dispatch = useDispatch();
+  const { slug } = useParams();
+console.log(currentItemShowed);
+  // var for status's button css
+  const cssStatusInactive = 'item-detail-content-left-statusButtons-button';
+  const cssStatusActive = `${cssStatusInactive}-active`;
 
   return (
     <>
@@ -32,21 +39,21 @@ const ItemDetails = () => {
             <div className="item-detail-content-left-statusButtons">
               <button
                 type="button"
-                className="item-detail-content-left-statusButtons-button-active"
+                className={currentItemShowed.item_status === 0 ? cssStatusActive : cssStatusInactive}
               >
-                À faire
+                {statusName(0, slug)}
               </button>
               <button
                 type="button"
-                className="item-detail-content-left-statusButtons-button"
+                className={currentItemShowed.item_status === 1 ? cssStatusActive : cssStatusInactive}
               >
-                En cours
+                {statusName(1, slug)}
               </button>
               <button
                 type="button"
-                className="item-detail-content-left-statusButtons-button"
+                className={currentItemShowed.item_status === 2 ? cssStatusActive : cssStatusInactive}
               >
-                Terminé
+                {statusName(2, slug)}
               </button>
             </div>
 
@@ -56,7 +63,7 @@ const ItemDetails = () => {
               name="Text1"
               cols="30"
               rows="8"
-              value={currentItemShowed.item_comment}
+              defaultValue={currentItemShowed.item_comment}
             />
           </div>
 
