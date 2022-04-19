@@ -58,6 +58,10 @@ const StatusFilter = () => {
         </NavLink>
         <NavLink
           to={`/${slug}/recommandations`}
+          onClick={() => {
+            dispatch(getItemsFromApi());
+            dispatch(loaderOn());
+          }}
         >
           <img className="list-header-toggle-icon" src={Toggle} alt="toggle-icon" />
         </NavLink>
@@ -66,6 +70,10 @@ const StatusFilter = () => {
           className={({ isActive }) => (
             isActive ? 'list-header-toggle-menu active' : 'list-header-toggle-menu'
           )}
+          onClick={() => {
+            dispatch(getItemsFromApi());
+            dispatch(loaderOn());
+          }}
         >
           Recommandations
         </NavLink>

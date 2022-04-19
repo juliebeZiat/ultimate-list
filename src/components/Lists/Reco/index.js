@@ -10,10 +10,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { findItemsByMode } from 'src/functions/items';
 
 // == Import actions
-import { sendItemToApi } from '../../../actions/userItems';
+import { getUserItemsFromApi, sendItemToApi } from '../../../actions/userItems';
 
 // == Import components
 import Lists from '../index';
+import { loaderOn } from '../../../actions/loader';
 
 // == Composant
 const Reco = () => {
@@ -31,11 +32,19 @@ const Reco = () => {
           className={({ isActive }) => (
             isActive ? 'list-header-toggle-menu active' : 'list-header-toggle-menu'
           )}
+          onClick={() => {
+            dispatch(getUserItemsFromApi());
+            dispatch(loaderOn());
+          }}
         >
           Ma liste
         </NavLink>
         <NavLink
           to={`/${slug}/liste`}
+          onClick={() => {
+            dispatch(getUserItemsFromApi());
+            dispatch(loaderOn());
+          }}
         >
           <img className="list-header-toggle-icon" src={Toggle} alt="toggle-icon" />
         </NavLink>
