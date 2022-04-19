@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 // == Import react hooks
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
@@ -11,14 +9,18 @@ import {
   findItemsByUser,
   findUserItemsByStatus,
 } from 'src/functions/items';
-import { cssProgressHeaderBySlug } from 'src/functions/lists';
+import { cssProgressHeaderBySlug, statusName } from 'src/functions/lists';
 
 // == Import actions
-import { changeUserItemStatus, showItemDetails, currentItemClicked } from 'src/actions/userItems';
+import {
+  showItemDetails,
+  currentItemClicked,
+  saveChangeStatus,
+} from 'src/actions/userItems';
 
 import ItemDetails from 'src/components/ItemDetails';
 
-const UserItemsList = ({ optionsStatus }) => {
+const UserItemsList = () => {
   // get the user_items store in state
   const userItems = useSelector((state) => state.userItems.user_list);
   // get the url param
@@ -72,6 +74,7 @@ const UserItemsList = ({ optionsStatus }) => {
             onClick={() => {
               dispatch(showItemDetails());
               dispatch(currentItemClicked(userItem.id));
+              dispatch(saveChangeStatus(userItem.item_status));
             }}
           >
             <div className="item-content" key={userItem.id}>
@@ -79,19 +82,12 @@ const UserItemsList = ({ optionsStatus }) => {
               <div className="item-content-detail">
                 <div className="item-content-detail-title">{userItem.item.name}</div>
                 <div className="item-content-detail-date">Ajouté le {convertDate(userItem.item_added_at)}</div>
-                <div className="item-content-detail-status">
-                  <select
-                    defaultValue={userItem.item_status}
-                    style={cssProgressHeaderBySlug(slug)}
-                    onChange={(event) => {
-                      dispatch(changeUserItemStatus(userItem.id, Number(event.target.value)));
-                    }}
-                  >
-                    {optionsStatus.map((option) => (
-                      <option key={option.label} value={option.value}>{option.label}</option>
-                    ))}
-                  </select>
-                </div>
+                <span
+                  className="item-content-detail-status"
+                  style={cssProgressHeaderBySlug(slug)}
+                >
+                  {statusName(userItem.item_status, slug)}
+                </span>
               </div>
             </div>
           </div>
@@ -100,13 +96,6 @@ const UserItemsList = ({ optionsStatus }) => {
       {isItemModalOpen && <ItemDetails />}
     </>
   );
-};
-
-UserItemsList.propTypes = {
-  /** array of every status label et their value */
-  optionsStatus: PropTypes.arrayOf(
-    PropTypes.shape().isRequired,
-  ).isRequired,
 };
 
 // == Export

@@ -9,7 +9,12 @@ import { convertDate } from 'src/functions/items';
 import { statusName } from 'src/functions/lists';
 
 // == Import actions
-import { closeItemDetails } from 'src/actions/userItems';
+import {
+  closeItemDetails,
+  saveChangeStatus,
+  changeUserItemStatus,
+  updateUserListStatus,
+} from 'src/actions/userItems';
 
 // == Import style
 import './itemDetails.scss';
@@ -42,6 +47,8 @@ const ItemDetails = () => {
     }
   };
 
+  const currentStatus = useSelector((state) => state.userItems.item_status);
+
   return (
     <>
       <div className="background-item-detail" />
@@ -58,19 +65,28 @@ const ItemDetails = () => {
             <div className="item-detail-content-left-statusButtons">
               <button
                 type="button"
-                className={currentItemShowed.item_status === 0 ? cssStatusActive : cssStatusInactive}
+                className={currentStatus === 0 ? cssStatusActive : cssStatusInactive}
+                onClick={() => {
+                  dispatch(saveChangeStatus(0));
+                }}
               >
                 {statusName(0, slug)}
               </button>
               <button
                 type="button"
-                className={currentItemShowed.item_status === 1 ? cssStatusActive : cssStatusInactive}
+                className={currentStatus === 1 ? cssStatusActive : cssStatusInactive}
+                onClick={() => {
+                  dispatch(saveChangeStatus(1));
+                }}
               >
                 {statusName(1, slug)}
               </button>
               <button
                 type="button"
-                className={currentItemShowed.item_status === 2 ? cssStatusActive : cssStatusInactive}
+                className={currentStatus === 2 ? cssStatusActive : cssStatusInactive}
+                onClick={() => {
+                  dispatch(saveChangeStatus(2));
+                }}
               >
                 {statusName(2, slug)}
               </button>
@@ -141,6 +157,11 @@ const ItemDetails = () => {
           <button
             className="item-detail-buttons-button"
             type="button"
+            onClick={() => {
+              dispatch(changeUserItemStatus(currentItemShowed.id, currentStatus));
+              dispatch(closeItemDetails());
+              dispatch(updateUserListStatus(currentItemShowed.id, currentStatus));
+            }}
           >
             Enregistrer les modifications
           </button>
