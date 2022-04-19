@@ -18,7 +18,14 @@ const apiMiddleware = (store) => (next) => (action) => {
 
   switch (action.type) {
     case GET_USER_ITEMS_FROM_API:
-      axios.get('http://orianeberti-server.eddi.cloud/projet-13-ultimatelist-back/public/api/list_items')
+      axios.get(
+        'http://orianeberti-server.eddi.cloud/projet-13-ultimatelist-back/public/api/list_items',
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('user_token')}`,
+          },
+        },
+      )
         .then((response) => {
           // console.log('Api response list_items:', response.data);
 
@@ -45,6 +52,11 @@ const apiMiddleware = (store) => (next) => (action) => {
             id: currentUserDatas.id,
           },
         },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('user_token')}`,
+          },
+        },
       )
         .then((response) => {
           console.log(response);
@@ -60,6 +72,11 @@ const apiMiddleware = (store) => (next) => (action) => {
         `http://orianeberti-server.eddi.cloud/projet-13-ultimatelist-back/public/api/list_items/${action.item}`,
         {
           item_status: action.item_status,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('user_token')}`,
+          },
         },
       )
         .then((response) => {
