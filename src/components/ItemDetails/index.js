@@ -2,9 +2,11 @@
 
 // == Import react hooks
 import { useSelector, useDispatch } from 'react-redux';
+import { useParams } from 'react-router-dom';
 
 // == Import functions
 import { convertDate } from 'src/functions/items';
+import { statusName } from 'src/functions/lists';
 
 // == Import actions
 import { closeItemDetails } from 'src/actions/userItems';
@@ -15,6 +17,30 @@ import './itemDetails.scss';
 const ItemDetails = () => {
   const currentItemShowed = useSelector((state) => state.userItems.itemCliked);
   const dispatch = useDispatch();
+  const { slug } = useParams();
+
+  // var for status's button css
+  const cssStatusInactive = 'item-detail-content-left-statusButtons-button';
+  const cssStatusActive = `${cssStatusInactive}-active`;
+
+  // function to get the item's infos (dev, editor, host) depending on slug
+  const itemInfosMatchingMode = (itemDetails) => {
+    switch (slug) {
+      case 'jeuxvideo':
+        return [
+          `Développeur(s) : ${itemDetails.item.developer}`,
+          `Editeur : ${itemDetails.item.editor}`,
+        ];
+
+      case 'podcasts':
+        return [
+          `Animateur(s) : ${itemDetails.item.host}`,
+        ];
+
+      default:
+        return [];
+    }
+  };
 
   return (
     <>
@@ -32,21 +58,21 @@ const ItemDetails = () => {
             <div className="item-detail-content-left-statusButtons">
               <button
                 type="button"
-                className="item-detail-content-left-statusButtons-button-active"
+                className={currentItemShowed.item_status === 0 ? cssStatusActive : cssStatusInactive}
               >
-                À faire
+                {statusName(0, slug)}
               </button>
               <button
                 type="button"
-                className="item-detail-content-left-statusButtons-button"
+                className={currentItemShowed.item_status === 1 ? cssStatusActive : cssStatusInactive}
               >
-                En cours
+                {statusName(1, slug)}
               </button>
               <button
                 type="button"
-                className="item-detail-content-left-statusButtons-button"
+                className={currentItemShowed.item_status === 2 ? cssStatusActive : cssStatusInactive}
               >
-                Terminé
+                {statusName(2, slug)}
               </button>
             </div>
 
@@ -56,7 +82,7 @@ const ItemDetails = () => {
               name="Text1"
               cols="30"
               rows="8"
-              value={currentItemShowed.item_comment}
+              defaultValue={currentItemShowed.item_comment}
             />
           </div>
 
@@ -90,9 +116,14 @@ const ItemDetails = () => {
               <p className="item-detail-content-right-about-description">{currentItemShowed.item.description}</p>
               <ul className="item-detail-content-right-about-infos">
                 <li className="item-detail-content-right-about-infos-info">Date de sortie : {convertDate(currentItemShowed.item.release_date)}</li>
-                <li className="item-detail-content-right-about-infos-info">Développeur : Loulou</li>
-                <li className="item-detail-content-right-about-infos-info">Editeur : Pareil</li>
-                <li className="item-detail-content-right-about-infos-info">Réalisateur : Pas moi</li>
+                {itemInfosMatchingMode(currentItemShowed).map((info) => (
+                  <li
+                    className="item-detail-content-right-about-infos-info"
+                    key={info}
+                  >
+                    {info}
+                  </li>
+                ))}
               </ul>
             </div>
 
