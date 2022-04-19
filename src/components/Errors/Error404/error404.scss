@@ -4,6 +4,10 @@
   text-align: center;
   color: vars.$lightColor;
 
+  &-page-subtitle {
+    font-size: 1.5em;
+  }
+
   &-page-message {
     @media screen and (min-width: 768px) {
       font-size: 3em;
@@ -29,6 +33,25 @@
     }
     @media screen and (max-width: 767px) {
       width: 50%;
+    }
+  }
+
+  &-buttons {
+    margin: 3em auto;
+    button {
+      @media screen and (min-width: 768px) {
+        margin: 0 1em;
+      }
+      padding: .8em;
+      border: none;
+      border-radius: 1.5em;
+      background-color: vars.$logoColorTwo;
+      font-size: 1.2em;
+      width: 7em;
+      &:hover {
+        background-color: lighten(vars.$logoColorTwo, 10%);
+        transition: 0.3s;
+      }
     }
   }
 }
