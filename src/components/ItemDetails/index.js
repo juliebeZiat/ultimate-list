@@ -54,7 +54,7 @@ const ItemDetails = () => {
       <div className="background-item-detail" />
       <div className="item-detail">
 
-        <img className="item-detail-image" src={currentItemShowed.item.image} alt="" />
+        <img className="item-detail-image" src={currentItemShowed.item.background_image} alt="" />
 
         <div className="item-detail-content">
           <div className="item-detail-content-left">
@@ -165,17 +165,19 @@ const ItemDetails = () => {
           >
             Enregistrer les modifications
           </button>
-
-          <button
-            className="item-detail-buttons-button"
-            type="button"
-            onClick={() => {
-              dispatch(closeItemDetails());
-            }}
-          >
-            Fermer
-          </button>
         </div>
+
+        <button
+          className="item-detail-buttons-close"
+          type="button"
+          title="Fermer la fenêtre"
+          onClick={() => {
+            dispatch(closeItemDetails());
+          }}
+        >
+          X
+        </button>
+
       </div>
     </>
   );
