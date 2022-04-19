@@ -15,7 +15,7 @@ import {
 
 // == Import functions
 import { convertDate } from 'src/functions/items';
-import { statusName } from 'src/functions/lists';
+import { statusName, cssProgressHeaderBySlug } from 'src/functions/lists';
 import useOnClickOutside from '../../functions/useOnClickOutside';
 
 // == Import style
@@ -71,6 +71,7 @@ const ItemDetails = () => {
             <div
               className="item-detail-content-left-statusButtons"
               title="Cliquez pour changer le status"
+              style={cssProgressHeaderBySlug(slug)}
             >
               <button
                 type="button"
@@ -139,7 +140,7 @@ const ItemDetails = () => {
 
             <div className="item-detail-content-right-about">
               <h2 className="item-detail-subtitles">À propos...</h2>
-              <p className="item-detail-content-right-about-description">{currentItemShowed.item.description}</p>
+              <p className={`item-detail-content-right-about-description-${slug}`}>{currentItemShowed.item.description}</p>
               <ul className="item-detail-content-right-about-infos">
                 <li className="item-detail-content-right-about-infos-info">Date de sortie : {convertDate(currentItemShowed.item.release_date)}</li>
                 {itemInfosMatchingMode(currentItemShowed).map((info) => (
@@ -160,6 +161,7 @@ const ItemDetails = () => {
           <button
             className="item-detail-buttons-button"
             type="button"
+            style={cssProgressHeaderBySlug(slug)}
           >
             Supprimer
           </button>
@@ -167,6 +169,7 @@ const ItemDetails = () => {
           <button
             className="item-detail-buttons-button"
             type="button"
+            style={cssProgressHeaderBySlug(slug)}
             onClick={() => {
               dispatch(changeUserItemStatus(currentItemShowed.id, currentStatus));
               dispatch(closeItemDetails());
