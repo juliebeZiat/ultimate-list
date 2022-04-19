@@ -20,8 +20,8 @@ import Team from '../Annex/Team';
 import Reco from '../Lists/Reco';
 
 // == Import actions
-import { getItemsFromApi, getReco } from '../../actions/items';
-import { getUserItemsFromApi } from '../../actions/userItems';
+import { getItemsFromApi } from '../../actions/items';
+import { getUserItemsFromApi, getReco } from '../../actions/userItems';
 import { getModeFromApi } from '../../actions/modes';
 import { getUserFromApi } from '../../actions/user';
 import { verifyUsertokenInLocalstorage, decodeTokenToSaveUsername } from '../../actions/login';

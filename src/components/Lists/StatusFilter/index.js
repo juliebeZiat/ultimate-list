@@ -10,8 +10,9 @@ import Toggle from 'src/assets/icons/toggle-on.svg';
 import './statusFilter.scss';
 
 // == Import actions
-import { changeStatusFilter, getItemsFromApi, getReco } from 'src/actions/items';
+import { changeStatusFilter, getItemsFromApi } from 'src/actions/items';
 import { loaderOn } from '../../../actions/loader';
+import { getReco } from '../../../actions/userItems';
 
 // == Import Component
 import Lists from '../index';

@@ -7,12 +7,15 @@ import {
   CURRENT_ITEM_CLICKED,
   SHOW_ITEM_DETAILS,
   CLOSE_ITEM_DETAILS,
+  SHOW_RECO,
+  REMOVE_RECO_ITEM,
   UPDATE_USER_LIST_STATUS,
 } from '../actions/userItems';
 
 export const initialState = {
   user_list: [],
   newItem: [],
+  recos: [],
   item: '',
   item_status: '',
   newStatus: '',
@@ -73,6 +76,18 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         isItemModalOpen: false,
+      };
+
+    case SHOW_RECO:
+      return {
+        ...state,
+        recos: action.reco,
+      };
+
+    case REMOVE_RECO_ITEM:
+      return {
+        ...state,
+        recos: state.recos.filter(((reco) => reco.id !== action.itemId)),
       };
 
     case UPDATE_USER_LIST_STATUS:
