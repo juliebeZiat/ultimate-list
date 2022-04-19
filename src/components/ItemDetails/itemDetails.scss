@@ -2,7 +2,7 @@
 @use 'src/styles/mixins';
 
 .background-item-detail {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.7);
   height: 100vh;
   position: fixed;
   bottom: 0;
@@ -10,12 +10,14 @@
   left: 0;
   top: 0;
   z-index: 1;
+  backdrop-filter: blur(3px);
 }
 
 .item-detail {
   width: 45rem;
-  height: 30rem;
+  height: fit-content;
   margin: auto;
+  padding-bottom: 1rem;
   position: fixed;
   left: 50%;
   top: 50%;
@@ -26,19 +28,133 @@
   border-radius: 1.3rem;
   box-shadow: 0px 0px 3px rgb(126, 126, 126);
 
+  &-subtitles {
+    margin-top: 0.5rem;
+    margin-bottom: 0.3rem;
+  }
+
   &-image {
     display: block;
     width: 100%;
-    height: 25%;
+    height: 7rem;
     object-fit: cover;
     border-radius: 1.3rem 1.3rem 0px 0px;
   }
 
   &-content {
-    &-tags {
-      &-tag {
-        @include mixins.label;
+    display: flex;
+    color: vars.$lightColor;
+    padding: 1rem;
+
+    &-left {
+      width: 50%;
+      padding-right: 1rem;
+
+      &-title {
+        margin-bottom: 0.3rem;
+        font-weight: bold;
+        font-size: 1.5rem;
+        text-transform: none;
+        font-family: 'Inter';
       }
+
+      &-date {
+        margin-bottom: 1rem;
+        font-size: 0.8rem;
+      }
+
+      &-statusButtons {
+        margin-bottom: 2rem;
+        display: flex;
+        justify-content: center;
+        border-radius: 2em;
+        background-color: #E3E1FF;
+        width: fit-content;
+        padding: .3em;
+
+        &-button {
+          background-color: transparent;
+        }
+
+        &-button-active {
+          // un-comment when buttons are usable
+          // filter:  opacity(90%);
+          // transition: 0.5s;
+          background-color: vars.$modeColor;
+        }
+
+        &-button,
+        &-button-active {
+          border-radius: 1em;
+          border: none;
+          padding: .5em 1em;
+        }
+      }
+
+      &-comment {
+        resize: none;
+        background-color: darken(vars.$backgroundColor, 2%);
+        border-radius: 0.5rem;
+        border: 0 0 1px vars.$backgroundColor;
+        color: darken(vars.$lightColor, 35%);
+        padding: .5rem;
+
+        @include mixins.scrollBar;
+      }
+    }
+  
+    &-right {
+      width: 50%;
+
+      &-tags {
+        margin-bottom: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+
+        &-tag {
+          @include mixins.label;
+          background-color: vars.$logoColorOne;
+          border-radius: 0;
+          margin-right: .5rem;
+          margin-top: 0;
+        }
+      }
+
+      &-about {
+        &-description {
+          max-height: 4.5rem;
+          overflow: scroll;
+          overflow-x: hidden;
+          margin-bottom: 1rem;
+          font-size: 0.8rem;
+          line-height: 1.1rem;
+
+          @include mixins.scrollBar;
+        }
+
+        &-infos {
+          font-size: 0.8rem;
+
+          &-info {
+            margin-bottom: 0.4rem;
+          }
+        }
+      }
+    }
+
+  }
+
+  &-buttons {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem;
+
+    &-button {
+      border-radius: 1em;
+      border: none;
+      padding: .5em .5em;
+      background-color: vars.$modeColor;
+      box-shadow: 0 0 2px vars.$modeColor;
     }
   }
 

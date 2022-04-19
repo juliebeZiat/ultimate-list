@@ -5,6 +5,9 @@ export const SEND_ITEM_TO_API = 'SEND_ITEM_TO_API';
 export const CHANGE_USER_ITEM_STATUS = 'CHANGE_USER_ITEM_STATUS';
 export const SAVE_CHANGE_STATUS = 'SAVE_CHANGE_STATUS';
 export const SAVE_ITEM_ADDED = 'SAVE_ITEM_ADDED';
+export const CURRENT_ITEM_CLICKED = 'CURRENT_ITEM_CLICKED';
+export const SHOW_ITEM_DETAILS = 'SHOW_ITEM_DETAILS';
+export const CLOSE_ITEM_DETAILS = 'CLOSE_ITEM_DETAILS';
 
 // Fetch userList from API
 export const getUserItemsFromApi = () => ({
@@ -43,4 +46,17 @@ export const saveChangeStatus = (status) => ({
 export const saveItemAdded = (item) => ({
   type: SAVE_ITEM_ADDED,
   newItem: item,
+});
+
+export const currentItemClicked = (itemClickedId) => ({
+  type: CURRENT_ITEM_CLICKED,
+  itemClickedId: itemClickedId,
+});
+
+export const showItemDetails = () => ({
+  type: SHOW_ITEM_DETAILS,
+});
+
+export const closeItemDetails = () => ({
+  type: CLOSE_ITEM_DETAILS,
 });

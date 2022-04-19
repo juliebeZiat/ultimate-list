@@ -14,7 +14,7 @@ import {
 import { cssProgressHeaderBySlug } from 'src/functions/lists';
 
 // == Import actions
-import { changeUserItemStatus } from 'src/actions/userItems';
+import { changeUserItemStatus, showItemDetails, currentItemClicked } from 'src/actions/userItems';
 
 import ItemDetails from 'src/components/ItemDetails';
 
@@ -60,11 +60,20 @@ const UserItemsList = ({ optionsStatus }) => {
   // by dispatching the action changeStatusFilter
   // 7. and a .map is done on userListsFilteredByStatus to display the result
 
+  const isItemModalOpen = useSelector((state) => state.userItems.isItemModalOpen);
+
   return (
     <>
       <div className="list-items">
         {userListsFilteredByStatus(statusFilter).map((userItem) => (
-          <div className="item" key={userItem.id}>
+          <div
+            className="item"
+            key={userItem.id}
+            onClick={() => {
+              dispatch(showItemDetails());
+              dispatch(currentItemClicked(userItem.id));
+            }}
+          >
             <div className="item-content" key={userItem.id}>
               <img className="item-content-image" src={userItem.item.image} alt="miniature-jeu-video" />
               <div className="item-content-detail">
@@ -88,7 +97,7 @@ const UserItemsList = ({ optionsStatus }) => {
           </div>
         ))}
       </div>
-      <ItemDetails />
+      {isItemModalOpen && <ItemDetails />}
     </>
   );
 };

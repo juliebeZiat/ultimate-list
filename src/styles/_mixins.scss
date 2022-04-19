@@ -13,6 +13,21 @@
   margin-top: 0.5rem;
 }
 
+@mixin scrollBar {
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: 25px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 25px;
+    background-color: vars.$modeColor;
+  }
+}
+
 @mixin searchBar {
   border: none;
   border-radius: 500rem;
