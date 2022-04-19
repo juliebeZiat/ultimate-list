@@ -17,6 +17,7 @@ import Add from 'src/components/Lists/Add/Add';
 import User from 'src/components/User';
 import Contact from '../Annex/Contact';
 import Team from '../Annex/Team';
+import Reco from '../Lists/Reco';
 
 // == Import actions
 import { getItemsFromApi } from '../../actions/items';
@@ -62,6 +63,7 @@ const App = () => {
 
           {logged && <Route path="/:slug/liste" element={<StatusFilter />} />}
           {logged && <Route path="/:slug/ajouter" element={<Add />} />}
+          {logged && <Route path="/:slug/recommandations" element={<Reco />} />}
           {logged && <Route path="/:slug/liste/:id" element={<ItemDetails />} />}
           {logged && <Route path="/*" element={<Error404 />} />}
           {!logged && <Route path="/*" element={<Error401 />} />}
