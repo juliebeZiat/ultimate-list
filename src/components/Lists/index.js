@@ -28,7 +28,7 @@ const Lists = () => {
   // 2. use the function 'findItemsByMode' to display user items accroding to the slug
   const itemsFiltered = findItemsByMode(userItems, slug);
   // 3. fetch the username of a user
-  const currentUser = useSelector((state) => state.login.username);
+  const currentUser = useSelector((state) => state.login.nickname);
   // 4. get user items according to the slug (itemsFiltered) and the currentUser
   // We want to get this to show the number of items per list (see line 63)
   const itemsFilteredByUser = findItemsByUser(itemsFiltered, currentUser);

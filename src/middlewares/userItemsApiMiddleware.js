@@ -12,7 +12,7 @@ const apiMiddleware = (store) => (next) => (action) => {
   // to add an item we need current user connected id
   // so we need to compare the user list store in state to the current username store in state
   const userList = store.getState().user.list;
-  const userConnectedUsername = store.getState().login.username;
+  const userConnectedUsername = store.getState().login.nickname;
   const currentUserDatas = userList.find((user) => user.username === userConnectedUsername);
 
   switch (action.type) {

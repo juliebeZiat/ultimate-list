@@ -30,7 +30,7 @@ const UserItemsList = ({ optionsStatus }) => {
 
   // to sort items by their status we need :
   // 1. the username of the current connected user
-  const currentUser = useSelector((state) => state.login.username);
+  const currentUser = useSelector((state) => state.login.nickname);
   // 2. his items lists that we get with his username
   const itemsFilteredByUser = findItemsByUser(itemsFiltered, currentUser);
 
