@@ -1,29 +1,24 @@
 @use 'src/styles/vars';
 
 .notfound {
+  text-align: center;
+  color: vars.$lightColor;
 
-  &-page {
-    text-align: center;
-    color: vars.$lightColor;
-    margin-bottom: 2rem;
-    margin-top: 2rem;
+  &-page-message {
+    font-size: 3em;
+    font-weight: bold;
+    text-transform: none;
+  }
 
-    &-message {
-      font-weight: 800;
-    }
-
-    &-home {
-      text-decoration: underline;
-      :hover {
-        color: vars.$infoHoverColor;
-      }
+  &-page-home {
+    margin-bottom: 5em;
+    img {
+      width: 15px;
+      filter: invert(49%) sepia(42%) saturate(3124%) hue-rotate(310deg) brightness(99%) contrast(97%);
     }
   }
 
   &-gif {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 20%;
   }
-
 }
