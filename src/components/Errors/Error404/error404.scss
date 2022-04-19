@@ -5,7 +5,12 @@
   color: vars.$lightColor;
 
   &-page-message {
-    font-size: 3em;
+    @media screen and (min-width: 768px) {
+      font-size: 3em;
+    }
+    @media screen and (max-width: 768px) {
+      font-size: 2em;
+    }
     font-weight: bold;
     text-transform: none;
   }
@@ -19,6 +24,11 @@
   }
 
   &-gif {
-    width: 20%;
+    @media screen and (min-width: 768px) {
+      width: 20%;
+    }
+    @media screen and (max-width: 767px) {
+      width: 50%;
+    }
   }
 }
