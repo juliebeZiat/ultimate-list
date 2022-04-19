@@ -1,5 +1,5 @@
 // == Import react hooks
-import { Link, useParams } from 'react-router-dom';
+import { Link, NavLink, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
 // == Import functions
@@ -48,9 +48,27 @@ const StatusFilter = () => {
     <div className="list">
       <Lists />
       <div className="list-header-toggle">
-        <div className="list-header-toggle-menu active">Ma liste</div>
-        <img className="list-header-toggle-icon" src={Toggle} alt="toggle-icon" />
-        <div className="list-header-toggle-menu">Recommandations</div>
+        <NavLink
+          to={`/${slug}/liste`}
+          className={({ isActive }) => (
+            isActive ? 'list-header-toggle-menu active' : 'list-header-toggle-menu'
+          )}
+        >
+          Ma liste
+        </NavLink>
+        <NavLink
+          to={`/${slug}/recommandations`}
+        >
+          <img className="list-header-toggle-icon" src={Toggle} alt="toggle-icon" />
+        </NavLink>
+        <NavLink
+          to={`/${slug}/recommandations`}
+          className={({ isActive }) => (
+            isActive ? 'list-header-toggle-menu active' : 'list-header-toggle-menu'
+          )}
+        >
+          Recommandations
+        </NavLink>
       </div>
 
       <div className="list-header-progress">
