@@ -18,6 +18,7 @@ import User from 'src/components/User';
 import Contact from '../Annex/Contact';
 import Team from '../Annex/Team';
 import Reco from '../Lists/Reco';
+import Cgu from '../Annex/cgu';
 
 // == Import actions
 import { getItemsFromApi } from '../../actions/items';
@@ -71,6 +72,7 @@ const App = () => {
 
           <Route path="/contact" element={<Contact />} />
           <Route path="/a-propos" element={<Team />} />
+          <Route path="/cgu" element={<Cgu />} />
         </Routes>
       </div>
       <Footer />

@@ -26,7 +26,7 @@ const Footer = () => (
       </div>
       {/* Column4 */}
       <div className="footer-column4">
-        <Link to="/">
+        <Link to="/cgu">
           <h6 className="title4">Conditions générales d'utilisation</h6>
         </Link>
       </div>

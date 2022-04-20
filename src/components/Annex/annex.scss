@@ -110,3 +110,17 @@
     }
   }
 }
+
+.cgu {
+  width: 40%;
+  margin: auto;
+  color: vars.$lightColor;
+
+  h1 {
+    text-align: center;
+  }
+
+  p, h2 {
+    margin-bottom: 1em;
+  }
+}
