@@ -40,18 +40,24 @@ const App = () => {
 
   // Dispatch all data we want when we visit the app
   const dispatch = useDispatch();
+
+  // dispatch we need to get logged
   useEffect(() => {
-    dispatch(getItemsFromApi());
-    dispatch(getUserItemsFromApi());
-    dispatch(getModeFromApi());
-    dispatch(getUserFromApi());
     dispatch(verifyUsertokenInLocalstorage(localStorageToken));
     dispatch(decodeTokenToSaveUsername(localStorageToken));
-    dispatch(getReco());
   }, []);
 
   // State logged true or false, to display different pages according to its state
   const logged = useSelector((state) => state.login.logged);
+
+  // dispatch we need only when logged
+  if (logged) {
+    dispatch(getUserFromApi());
+    dispatch(getItemsFromApi());
+    dispatch(getUserItemsFromApi());
+    dispatch(getModeFromApi());
+    dispatch(getReco());
+  }
 
   return (
     <div className="container-app">
