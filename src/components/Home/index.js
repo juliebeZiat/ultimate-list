@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 
 // == Import style
 import './home.scss';
-import Logo from 'src/assets/LogoUL.png';
 
 // == Import components
 import HomeLogin from './HomeLogin';

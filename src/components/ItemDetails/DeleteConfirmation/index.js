@@ -17,7 +17,8 @@ const DeleteConfirmation = ({ itemName, itemId }) => {
   const dispatch = useDispatch();
 
   return (
-    <div className="background-popup">
+    <>
+      <div className="background-popup" />
       <div className="popup">
         <h1 className="popup-title">Êtes vous sûr de vouloir supprimer <span className="popup-title-itemName">{itemName}</span> de votre liste ?</h1>
         <div className="popup-confirmationButtons">
@@ -30,7 +31,7 @@ const DeleteConfirmation = ({ itemName, itemId }) => {
               dispatch(closeItemDetails());
             }}
           >
-            Oui
+            Oui, je supprime
           </button>
 
           <button
@@ -45,7 +46,7 @@ const DeleteConfirmation = ({ itemName, itemId }) => {
         </div>
 
       </div>
-    </div>
+    </>
   );
 };
 

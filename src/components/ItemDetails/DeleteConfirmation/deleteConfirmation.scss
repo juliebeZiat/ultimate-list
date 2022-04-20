@@ -8,6 +8,7 @@
   left: 0;
   top: 0;
   z-index: 3;
+  border-radius: 1.3rem;
 }
 
 .popup {
@@ -16,6 +17,7 @@
   top: 50%;
   transform: translate(-50%, -50%);
   width: 20rem;
+  z-index: 4;
 
   background-color: vars.$backgroundColor;
   border-radius: 1.3rem;
