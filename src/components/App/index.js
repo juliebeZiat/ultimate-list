@@ -9,7 +9,6 @@ import Footer from 'src/components/Footer';
 import Login from 'src/components/Login';
 import SignUp from 'src/components/SignUp';
 import StatusFilter from 'src/components/Lists/StatusFilter';
-import ItemDetails from 'src/components/ItemDetails';
 import Error404 from 'src/components/Errors/Error404';
 import Error401 from 'src/components/Errors/Error401';
 import Home from 'src/components/Home';
@@ -40,18 +39,24 @@ const App = () => {
 
   // Dispatch all data we want when we visit the app
   const dispatch = useDispatch();
+
+  // dispatch we need to get logged
   useEffect(() => {
-    dispatch(getItemsFromApi());
-    dispatch(getUserItemsFromApi());
-    dispatch(getModeFromApi());
-    dispatch(getUserFromApi());
     dispatch(verifyUsertokenInLocalstorage(localStorageToken));
     dispatch(decodeTokenToSaveUsername(localStorageToken));
-    dispatch(getReco());
   }, []);
 
   // State logged true or false, to display different pages according to its state
   const logged = useSelector((state) => state.login.logged);
+
+  // dispatch we need only when logged
+  if (logged) {
+    dispatch(getUserFromApi());
+    dispatch(getItemsFromApi());
+    dispatch(getUserItemsFromApi());
+    dispatch(getModeFromApi());
+    dispatch(getReco());
+  }
 
   return (
     <div className="container-app">
@@ -64,17 +69,16 @@ const App = () => {
           <Route path="/connexion" element={<Login />} />
           <Route path="/inscription" element={<SignUp />} />
 
-          {logged && <Route path="/:slug/liste" element={<StatusFilter />} />}
-          {logged && <Route path="/:slug/liste/ajouter" element={<Add />} />}
-          {logged && <Route path="/:slug/liste/recommandations" element={<Reco />} />}
-          {logged && <Route path="/:slug/liste/:id" element={<ItemDetails />} />}
-          {logged && <Route path="/*" element={<Error404 />} />}
-          {!logged && <Route path="/*" element={<Error401 />} />}
+          <Route path="/:slug/liste" element={logged ? <StatusFilter /> : <Error401 />} />
+          <Route path="/:slug/liste/ajouter" element={logged ? <Add /> : <Error401 />} />
+          <Route path="/:slug/liste/recommandations" element={logged ? <Reco /> : <Error401 />} />
 
           <Route path="/contact" element={<Contact />} />
           <Route path="/a-propos" element={<Team />} />
           <Route path="/cgu" element={<Cgu />} />
           <Route path="/mentions-legales" element={<Legal />} />
+
+          <Route path="/*" element={<Error404 />} />
         </Routes>
       </div>
       <Footer />

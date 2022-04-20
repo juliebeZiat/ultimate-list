@@ -14,7 +14,6 @@ const SignUp = () => {
   const registerSuccess = useSelector((state) => state.signup.register);
 
   const errorMessages = useSelector((state) => state.signup.errorMessages);
-  const failSignUp = useSelector((state) => state.signup.fail);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -46,7 +45,7 @@ const SignUp = () => {
         }}
       >
         <div className="sign-form-input">
-          {failSignUp && <div className="error-message">{errorMessages.email}</div>}
+          {errorMessages.email !== undefined && <div className="error-message">{errorMessages.email}</div>}
           <Field
             identifier="email"
             label="Email"
@@ -55,7 +54,7 @@ const SignUp = () => {
               dispatch(changeSignupField(identifier, newValue));
             }}
           />
-          {failSignUp && <div className="error-message">{errorMessages.username}</div>}
+          {errorMessages.username !== undefined && <div className="error-message">{errorMessages.username}</div>}
           <Field
             identifier="username"
             label="Nom d'utilisateur"
@@ -64,7 +63,7 @@ const SignUp = () => {
               dispatch(changeSignupField(identifier, newValue));
             }}
           />
-          {failSignUp && <div className="error-message">{errorMessages.plainPassword}</div>}
+          {errorMessages.plainPassword !== undefined && <div className="error-message">{errorMessages.plainPassword}</div>}
           <Field
             identifier="password"
             label="Mot de passe"

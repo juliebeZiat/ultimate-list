@@ -28,7 +28,6 @@ const signupMiddleware = (store) => (next) => (action) => {
         })
         .catch((error) => {
           store.dispatch(errorMessagesSignUpFail(error.response.data));
-          console.log(error.response.data);
         })
         .finally(() => {
           store.dispatch(loaderOff());
