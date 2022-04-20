@@ -44,6 +44,7 @@ const User = () => {
                   localStorage.removeItem('user_token');
                   // and the value of state "logged" change for false
                   dispatch(logOut());
+                  dispatch(toggleUserSettingsClose());
                 }}
               >
                 Se déconnecter
