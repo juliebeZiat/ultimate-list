@@ -44,6 +44,13 @@ const ItemDetails = () => {
           `Animateur(s) : ${itemDetails.item.host}`,
         ];
 
+      case 'films':
+        return [
+          `Réalisateur : ${itemDetails.item.autor}`,
+          `Producteur : ${itemDetails.item.productor}`,
+          `Acteurs principaux : ${itemDetails.item.host}`,
+        ];
+
       default:
         return [];
     }

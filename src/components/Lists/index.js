@@ -3,6 +3,7 @@ import './lists.scss';
 import './Add/add.scss';
 import Videogame from 'src/assets/icons/videogame.svg';
 import Podcast from 'src/assets/icons/podcast.svg';
+import Movie from 'src/assets/icons/movie.svg';
 
 // == Import Component
 import { NavLink, useParams } from 'react-router-dom';
@@ -40,6 +41,7 @@ const Lists = () => {
     switch (slug) {
       case 'jeuxvideo': return Videogame;
       case 'podcasts': return Podcast;
+      case 'films': return Movie;
       default: return '';
     }
   };
@@ -74,6 +76,19 @@ const Lists = () => {
           }}
         >
           <img className="list-header-menu-mode-icon" src={Podcast} alt="icone podcast" />
+        </NavLink>
+        <NavLink
+          to="/films/liste"
+          className={({ isActive }) => (
+            isActive ? 'list-header-menu-mode active-films' : 'list-header-menu-mode'
+          )}
+          onClick={() => {
+            dispatch(clearSearchField());
+            dispatch(getUserItemsFromApi());
+            dispatch(loaderOn());
+          }}
+        >
+          <img className="list-header-menu-mode-icon" src={Movie} alt="icone films" />
         </NavLink>
       </div>
 

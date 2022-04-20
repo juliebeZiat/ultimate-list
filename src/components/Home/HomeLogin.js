@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import './home.scss';
 import Videogame from 'src/assets/icons/videogame.svg';
 import Podcast from 'src/assets/icons/podcast.svg';
+import Movie from 'src/assets/icons/movie.svg';
 
 // == Import actions
 import { loaderOn } from '../../actions/loader';
@@ -51,6 +52,21 @@ const HomeLogin = () => {
           >
             <img className="home-login-mode-podcast-icon" src={Podcast} alt="icone podcast" />
             <p className="mode-title">Podcasts</p>
+          </div>
+        </Link>
+
+        <Link to="/films/liste">
+          <div
+            className="home-login-mode-films"
+            style={{ backgroundColor: modeColor[2] }}
+            onClick={() => {
+              dispatch(getUserItemsFromApi());
+              dispatch(getModeFromApi());
+              dispatch(loaderOn());
+            }}
+          >
+            <img className="home-login-mode-films-icon" src={Movie} alt="icone podcast" />
+            <p className="mode-title">Films</p>
           </div>
         </Link>
 

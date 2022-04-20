@@ -82,7 +82,7 @@
   }
 }
   
-.jeuxvideo-list-items, .podcasts-list-items {
+.jeuxvideo-list-items, .podcasts-list-items, .films-list-items {
   overflow-y: scroll;
   height: 500px;
   margin: auto;
@@ -169,4 +169,9 @@
 .podcasts-list-items::-webkit-scrollbar-thumb {
   border-radius: 25px;
   background-color: vars.$iconPodcastBackgroundColor;
+}
+
+.films-list-items::-webkit-scrollbar-thumb {
+  border-radius: 25px;
+  background-color: vars.$modeMovie;
 }

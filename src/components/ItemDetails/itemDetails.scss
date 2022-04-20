@@ -151,7 +151,8 @@
 
       &-about {
         &-description-jeuxvideo,
-        &-description-podcasts {
+        &-description-podcasts,
+        &-description-films {
           max-height: 4.5rem;
           overflow: scroll;
           overflow-x: hidden;
@@ -182,6 +183,13 @@
           &::-webkit-scrollbar-thumb {
             border-radius: 25px;
             background-color: vars.$iconPodcastBackgroundColor;
+          }
+        }
+
+        &-description-films {
+          &::-webkit-scrollbar-thumb {
+            border-radius: 25px;
+            background-color: vars.$modeMovie;
           }
         }
 
