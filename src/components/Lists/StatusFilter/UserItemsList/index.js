@@ -1,6 +1,7 @@
 // == Import react hooks
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import WaitingGif from 'src/assets/gif/valerie_no_items.gif';
 
 // == Import functions
 import {
@@ -10,6 +11,7 @@ import {
   findUserItemsByStatus,
 } from 'src/functions/items';
 import { cssProgressHeaderBySlug, statusName } from 'src/functions/lists';
+import { findMode } from 'src/functions/modes';
 
 // == Import actions
 import {
@@ -35,6 +37,7 @@ const UserItemsList = () => {
   const currentUser = useSelector((state) => state.login.nickname);
   // 2. his items lists that we get with his username
   const itemsFilteredByUser = findItemsByUser(itemsFiltered, currentUser);
+  console.log(itemsFilteredByUser);
 
   // 3. retrieve the actual status filter store in state
   const statusFilter = useSelector((state) => state.items.statusFilter);
@@ -72,8 +75,24 @@ const UserItemsList = () => {
     document.body.style.overflowY = 'scroll';
   }
 
+  // 1. fetch the modes list
+  const modesToDisplay = useSelector((state) => state.modes.list);
+  // 3. use the function 'findModes' to display items according to the slug (see .map line 58)
+  const modes = findMode(modesToDisplay, slug);
+
   return (
     <>
+      {itemsFilteredByUser.length === 0 && (
+        modes.map((mode) => (
+          <div className="no-item">
+            <div className="no-item-message">Tu n'as pas encore de {mode.name.toLowerCase()} dans ta liste !</div>
+            <div className="no-item-link">Tu peux en rajouter en cliquant sur <Link to={`/${slug}/liste/ajouter`}>Ajouter un {mode.name.toLowerCase()}</Link>.</div>
+            <div className="no-item-link">En manque d'inspiration ? Tu peux aller voir nos <Link to={`/${slug}/liste/recommandations`}>recommandations</Link>.</div>
+            <img src={WaitingGif} alt="" />
+          </div>
+        ))
+      )}
+      {itemsFilteredByUser.length > 0 && (
       <div className={`${slug}-list-items`}>
         {userListsFilteredByStatus(statusFilter).map((userItem) => (
           <div
@@ -101,6 +120,7 @@ const UserItemsList = () => {
           </div>
         ))}
       </div>
+      )}
       {isItemModalOpen && <ItemDetails />}
     </>
   );

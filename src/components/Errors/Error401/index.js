@@ -1,6 +1,6 @@
 // == Import style
 import { Link } from 'react-router-dom';
-import ErrorGif from 'src/assets/404_domi.gif';
+import ErrorGif from 'src/assets/gif/enzo_401.gif';
 
 const Error401 = () => (
   <div className="notfound">
