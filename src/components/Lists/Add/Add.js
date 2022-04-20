@@ -42,6 +42,7 @@ const Add = () => {
     switch (slug) {
       case 'jeuxvideo': return 'jeu vidéo';
       case 'podcasts': return 'podcast';
+      case 'films': return 'film';
       default: return '';
     }
   };

@@ -13,7 +13,7 @@
     &-menu {
       display: flex;
       
-      @media screen and (min-width: 1024px) {
+      @media screen and (min-width: 1025px) {
         margin-top: 1em;
         position: fixed;
         top: 5rem;
@@ -21,7 +21,7 @@
         flex-direction: column;
         height: 100vh;
       }
-      @media screen and (max-width: 768px) {
+      @media screen and (max-width: 1024px) {
         justify-content: center;
         margin-right: .5em;
       }
@@ -39,7 +39,7 @@
           filter: invert(100%);
         }
 
-        @media screen and (max-width: 768px) {
+        @media screen and (max-width: 1024px) {
           margin-left: .5em;
         }
 

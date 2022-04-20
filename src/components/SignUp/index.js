@@ -16,6 +16,8 @@ const SignUp = () => {
   const errorMessages = useSelector((state) => state.signup.errorMessages);
   const failSignUp = useSelector((state) => state.signup.fail);
 
+  // console.log(errorMessages.email.length);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -46,7 +48,7 @@ const SignUp = () => {
         }}
       >
         <div className="sign-form-input">
-          {failSignUp && <div className="error-message">{errorMessages.email}</div>}
+          {errorMessages.email !== [''] && <div className="error-message">{errorMessages.email}</div>}
           <Field
             identifier="email"
             label="Email"

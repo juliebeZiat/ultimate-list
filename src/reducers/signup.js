@@ -6,7 +6,11 @@ export const initialState = {
   username: '',
   password: '',
   loader: false,
-  errorMessages: [],
+  errorMessages: {
+    email: [],
+    username: [],
+    plainPassword: [],
+  },
   fail: false,
 };
 
