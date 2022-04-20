@@ -6,12 +6,7 @@ export const initialState = {
   username: '',
   password: '',
   loader: false,
-  errorMessages: {
-    email: [],
-    username: [],
-    plainPassword: [],
-  },
-  fail: false,
+  errorMessages: '',
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -48,7 +43,6 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         errorMessages: action.errorMessages,
-        fail: true,
       };
 
     default:
