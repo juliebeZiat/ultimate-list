@@ -50,6 +50,8 @@ const Login = () => {
           event.preventDefault();
           dispatch(loaderOn());
           dispatch(logIn());
+          dispatch(changeLoginField('username', ''));
+          dispatch(changeLoginField('password', ''));
         }}
       >
         {registerSuccess && (
