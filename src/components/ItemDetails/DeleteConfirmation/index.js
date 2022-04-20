@@ -19,7 +19,7 @@ const DeleteConfirmation = ({ itemName, itemId }) => {
   return (
     <div className="background-popup">
       <div className="popup">
-        <h1 className="popup-title">Êtes vous sûrs de vouloir supprimer <span className="popup-title-itemName">{itemName}</span> de votre liste ?</h1>
+        <h1 className="popup-title">Êtes vous sûr de vouloir supprimer <span className="popup-title-itemName">{itemName}</span> de votre liste ?</h1>
         <div className="popup-confirmationButtons">
           <button
             className="popup-confirmationButtons-button"
