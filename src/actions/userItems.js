@@ -13,6 +13,7 @@ export const GET_RECO = 'GET_RECO';
 export const SHOW_RECO = 'SHOW_RECO';
 export const REMOVE_RECO_ITEM = 'REMOVE_RECO_ITEM';
 export const DELETE_ITEM_FROM_USERLIST = 'DELETE_ITEM_FROM_USERLIST';
+export const REMOVE_DELETED_ITEM = 'REMOVE_DELETED_ITEM';
 
 // Fetch userList from API
 export const getUserItemsFromApi = () => ({
@@ -99,4 +100,9 @@ export const removeRecoItem = (recoItemId) => ({
 export const deleteItemFromUserlist = (itemId) => ({
   type: DELETE_ITEM_FROM_USERLIST,
   itemId: itemId,
+});
+
+export const removeDeletedItem = (deletedItemId) => ({
+  type: REMOVE_DELETED_ITEM,
+  deletedItemId: deletedItemId,
 });

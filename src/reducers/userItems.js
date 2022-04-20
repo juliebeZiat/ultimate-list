@@ -10,6 +10,7 @@ import {
   SHOW_RECO,
   REMOVE_RECO_ITEM,
   UPDATE_USER_LIST_STATUS,
+  REMOVE_DELETED_ITEM,
 } from '../actions/userItems';
 
 export const initialState = {
@@ -95,6 +96,12 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         user_list: newUserList,
+      };
+
+    case REMOVE_DELETED_ITEM:
+      return {
+        ...state,
+        user_list: state.user_list.filter(((item) => item.id !== action.deletedItemId)),
       };
 
     default:

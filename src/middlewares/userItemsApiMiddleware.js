@@ -8,6 +8,7 @@ import {
   showReco,
   GET_RECO,
   DELETE_ITEM_FROM_USERLIST,
+  removeDeletedItem,
 } from '../actions/userItems';
 import { loaderOff } from '../actions/loader';
 
@@ -61,7 +62,6 @@ const apiMiddleware = (store) => (next) => (action) => {
         },
       )
         .then((response) => {
-          console.log(response);
           store.dispatch(saveItemAdded(response.data));
         })
         .catch((error) => {
@@ -117,10 +117,9 @@ const apiMiddleware = (store) => (next) => (action) => {
           },
         },
       )
-        .then((response) => {
-          // const actionToDispatch = showReco(response.data);
-          // store.dispatch(actionToDispatch);
-          console.log('delete:', response);
+        .then(() => {
+          const actionToDispatch = removeDeletedItem(action.itemId);
+          store.dispatch(actionToDispatch);
         })
         .catch((error) => {
           console.log(error);

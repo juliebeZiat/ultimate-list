@@ -172,6 +172,7 @@ const ItemDetails = () => {
             style={cssProgressHeaderBySlug(slug)}
             onClick={() => {
               dispatch(deleteItemFromUserlist(currentItemShowed.id));
+              dispatch(closeItemDetails());
             }}
           >
             Supprimer
