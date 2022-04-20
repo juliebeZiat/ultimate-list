@@ -52,7 +52,7 @@ const StatusFilter = () => {
           Ma liste
         </NavLink>
         <NavLink
-          to={`/${slug}/recommandations`}
+          to={`/${slug}/liste/recommandations`}
           onClick={() => {
             dispatch(getReco());
             dispatch(loaderOn());
@@ -61,7 +61,7 @@ const StatusFilter = () => {
           <img className="list-header-toggle-icon" src={Toggle} alt="toggle-icon" />
         </NavLink>
         <NavLink
-          to={`/${slug}/recommandations`}
+          to={`/${slug}/liste/recommandations`}
           className={({ isActive }) => (
             isActive ? 'list-header-toggle-menu active' : 'list-header-toggle-menu'
           )}
@@ -116,7 +116,7 @@ const StatusFilter = () => {
       </div>
 
       <div className="list-add">
-        <Link className="list-add-button-link" to={`/${slug}/ajouter`}>
+        <Link className="list-add-button-link" to={`/${slug}/liste/ajouter`}>
           <button
             type="button"
             className="list-add-button"
