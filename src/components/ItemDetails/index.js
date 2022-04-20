@@ -11,13 +11,16 @@ import {
   saveChangeStatus,
   changeUserItemStatus,
   updateUserListStatus,
-  deleteItemFromUserlist,
+  showDeleteConfirmation,
 } from 'src/actions/userItems';
 
 // == Import functions
 import { convertDate } from 'src/functions/items';
 import { statusName, cssProgressHeaderBySlug } from 'src/functions/lists';
 import useOnClickOutside from '../../functions/useOnClickOutside';
+
+// == Import component
+import DeleteConfirmation from './DeleteConfirmation';
 
 // == Import style
 import './itemDetails.scss';
@@ -59,14 +62,19 @@ const ItemDetails = () => {
 
   const currentStatus = useSelector((state) => state.userItems.item_status);
 
-  // See functions/useOnClickOutside.js
-  const ref = useRef();
-  useOnClickOutside(ref, () => dispatch(closeItemDetails()));
+  // // See functions/useOnClickOutside.js
+  // const ref = useRef();
+  // useOnClickOutside(ref, () => dispatch(closeItemDetails()));
+
+  const isDeleteModalOpen = useSelector((state) => state.userItems.isDeleteModalOpen);
 
   return (
     <>
+      {isDeleteModalOpen && <DeleteConfirmation itemName={currentItemShowed.item.name} itemId={currentItemShowed.id} />}
       <div className="background-item-detail" />
-      <div className="item-detail" ref={ref}>
+
+      {/* <div className="item-detail" ref={ref}> */}
+      <div className="item-detail">
 
         <img className="item-detail-image" src={currentItemShowed.item.background_image} alt="" />
 
@@ -171,8 +179,7 @@ const ItemDetails = () => {
             type="button"
             style={cssProgressHeaderBySlug(slug)}
             onClick={() => {
-              dispatch(deleteItemFromUserlist(currentItemShowed.id));
-              dispatch(closeItemDetails());
+              dispatch(showDeleteConfirmation());
             }}
           >
             Supprimer
