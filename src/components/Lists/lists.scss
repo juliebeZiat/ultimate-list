@@ -62,6 +62,14 @@
             background-color: lighten(vars.$iconPodcastBackgroundColor, 10%);
           }
         }
+
+        &.active-films {
+          background-color: vars.$modeMovie;
+
+          &:hover {
+            background-color: lighten(vars.$modeMovie, 10%);
+          }
+        }
       }
     }
 
@@ -98,6 +106,12 @@
 
         &-icon-jeuxvideo {
           filter: invert(42%) sepia(12%) saturate(3196%) hue-rotate(206deg) brightness(103%) contrast(106%);
+          margin-right: .3em;
+          padding-bottom: .1em;
+        }
+
+        &-icon-films {
+          filter: invert(36%) sepia(54%) saturate(1311%) hue-rotate(317deg) brightness(97%) contrast(97%);
           margin-right: .3em;
           padding-bottom: .1em;
         }

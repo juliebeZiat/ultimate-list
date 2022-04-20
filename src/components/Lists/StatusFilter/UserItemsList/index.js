@@ -86,7 +86,7 @@ const UserItemsList = () => {
             }}
           >
             <div className="item-content" key={userItem.id}>
-              <img className="item-content-image" src={userItem.item.image} alt="miniature-jeu-video" />
+              <img className="item-content-image" src={userItem.item.image} alt="miniature" />
               <div className="item-content-detail">
                 <div className="item-content-detail-title">{userItem.item.name}</div>
                 <div className="item-content-detail-date">Ajouté le {convertDate(userItem.item_added_at)}</div>

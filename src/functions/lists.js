@@ -15,6 +15,12 @@ export function cssProgressHeaderBySlug(currentSlug) {
       };
       return cssProgressHeader;
 
+    case 'films':
+      cssProgressHeader = {
+        backgroundColor: '#EF5870',
+      };
+      return cssProgressHeader;
+
     default:
       cssProgressHeader = {
         backgroundColor: '#FFA47A',
@@ -33,6 +39,8 @@ export function statusName(status, slug) {
           return 'À jouer';
         case 'podcasts':
           return 'À écouter';
+        case 'films':
+          return 'À voir';
         default: return '';
       }
     }
@@ -44,6 +52,8 @@ export function statusName(status, slug) {
           return 'Fini';
         case 'podcasts':
           return 'Écouté';
+        case 'films':
+          return 'Vu';
         default: return '';
       }
     }
