@@ -12,7 +12,7 @@
   a:hover {
     color: vars.$lightColor;
   }
-
+  
   &-title {
     font-size: 3rem;
   }
@@ -21,8 +21,20 @@
     font-size: 2em;
     margin-bottom: 1em;
     font-weight: bold;
-  }
 
+    &-first {
+      color: vars.$logoColorThree;
+    }
+
+    &-second {
+      color: vars.$logoColorOne;
+    }
+
+    &-third {
+      color: vars.$logoColorTwo;
+    }
+  }
+  
   &-tagline {
     margin: 2em auto;
     color: #989898;
@@ -73,7 +85,7 @@
       font-weight: normal;
 
       span {
-        color: vars.$appColor;
+        color: vars.$infoColor;
         font-weight: bold;
       }
     }
