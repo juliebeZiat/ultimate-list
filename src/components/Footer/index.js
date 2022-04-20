@@ -6,13 +6,13 @@ const Footer = () => (
   <div className="footer">
     <div className="footer-columns">
       {/* Column1 */}
-      <div className="footer-column1">
+      <div className="footer-column">
         <Link to="/a-propos">
           <h6 className="title1">Qui sommes-nous ?</h6>
         </Link>
       </div>
       {/* Column2 */}
-      <div className="footer-column2">
+      <div className="footer-column">
         <Link to="/contact">
           <h6 className="title2">Contactez-nous</h6>
         </Link>
@@ -25,13 +25,13 @@ const Footer = () => (
         <p className="copyright">&copy; 2022 | Ultimate List</p>
       </div>
       {/* Column4 */}
-      <div className="footer-column4">
+      <div className="footer-column">
         <Link to="/cgu">
           <h6 className="title4">Conditions générales d'utilisation</h6>
         </Link>
       </div>
       {/* Column5 */}
-      <div className="footer-column5">
+      <div className="footer-column">
         <Link to="/mentions-legales">
           <h6 className="title5">Mentions Légales</h6>
         </Link>

@@ -122,21 +122,39 @@
       overflow: hidden;
       max-height: 65px;
       color: darken(vars.$lightColor, 40%);
+      opacity: 0;
     }
 
     .card-tags {
       position: absolute;
       bottom: 1rem;
-        .card-tag {
-          display: inline-block;
-          margin: 0.2rem;
-        }
+
+      .card-tag {
+        display: inline-block;
+        margin: 0.2rem;
+      }
     }
+  }
+
+  &:hover .card-description {
+    opacity: 1;
+    transition: 0.3s;
+  }
+
+  &:hover .card-tags {
+    opacity: 0;
+    transition: 0.3s;
+  }
+
+  &:hover .card-image {
+    transition: 0.3s;
+    filter: opacity(40%);
   }
 
   .card-button {
     @include addButton;
   }
+
 }
 
 @mixin errorMessage {

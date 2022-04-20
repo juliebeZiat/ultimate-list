@@ -6,17 +6,34 @@
   color: vars.$lightColor;
   text-align: center;
   
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 600px) {
     &-columns {
       display: flex;
       flex-wrap: wrap;
       margin: auto;
       font-size: .8em;
+      width: 70%;
 
       &-column3 {
         margin: 1em 0;
         order: 6;
       }
+
+      .footer-column {
+        margin-bottom: .5em;
+      }
+    }
+  }
+
+  @media screen and (min-width: 426px) and (max-width: 1024px) {
+    font-size: 1em;
+    width: 70%;
+    .footer-column {
+      margin-right: 1em;
+    }
+
+    .title3 {
+      width: 200px;
     }
   }
 
