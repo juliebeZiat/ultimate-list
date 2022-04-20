@@ -11,6 +11,7 @@ import {
   saveChangeStatus,
   changeUserItemStatus,
   updateUserListStatus,
+  deleteItemFromUserlist,
 } from 'src/actions/userItems';
 
 // == Import functions
@@ -169,6 +170,9 @@ const ItemDetails = () => {
             className="item-detail-buttons-button"
             type="button"
             style={cssProgressHeaderBySlug(slug)}
+            onClick={() => {
+              dispatch(deleteItemFromUserlist(currentItemShowed.id));
+            }}
           >
             Supprimer
           </button>

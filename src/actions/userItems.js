@@ -12,6 +12,7 @@ export const CLOSE_ITEM_DETAILS = 'CLOSE_ITEM_DETAILS';
 export const GET_RECO = 'GET_RECO';
 export const SHOW_RECO = 'SHOW_RECO';
 export const REMOVE_RECO_ITEM = 'REMOVE_RECO_ITEM';
+export const DELETE_ITEM_FROM_USERLIST = 'DELETE_ITEM_FROM_USERLIST';
 
 // Fetch userList from API
 export const getUserItemsFromApi = () => ({
@@ -93,4 +94,9 @@ export const showReco = (reco) => ({
 export const removeRecoItem = (recoItemId) => ({
   type: REMOVE_RECO_ITEM,
   itemId: recoItemId,
+});
+
+export const deleteItemFromUserlist = (itemId) => ({
+  type: DELETE_ITEM_FROM_USERLIST,
+  itemId: itemId,
 });
