@@ -12,6 +12,10 @@ export const CLOSE_ITEM_DETAILS = 'CLOSE_ITEM_DETAILS';
 export const GET_RECO = 'GET_RECO';
 export const SHOW_RECO = 'SHOW_RECO';
 export const REMOVE_RECO_ITEM = 'REMOVE_RECO_ITEM';
+export const DELETE_ITEM_FROM_USERLIST = 'DELETE_ITEM_FROM_USERLIST';
+export const REMOVE_DELETED_ITEM = 'REMOVE_DELETED_ITEM';
+export const SHOW_DELETE_CONFIRMATION = 'SHOW_DELETE_CONFIRMATION';
+export const CLOSE_DELETE_CONFIRMATION = 'CLOSE_DELETE_CONFIRMATION';
 
 // Fetch userList from API
 export const getUserItemsFromApi = () => ({
@@ -93,4 +97,22 @@ export const showReco = (reco) => ({
 export const removeRecoItem = (recoItemId) => ({
   type: REMOVE_RECO_ITEM,
   itemId: recoItemId,
+});
+
+export const deleteItemFromUserlist = (itemId) => ({
+  type: DELETE_ITEM_FROM_USERLIST,
+  itemId: itemId,
+});
+
+export const removeDeletedItem = (deletedItemId) => ({
+  type: REMOVE_DELETED_ITEM,
+  deletedItemId: deletedItemId,
+});
+
+export const showDeleteConfirmation = () => ({
+  type: SHOW_DELETE_CONFIRMATION,
+});
+
+export const closeDeleteConfirmation = () => ({
+  type: CLOSE_DELETE_CONFIRMATION,
 });

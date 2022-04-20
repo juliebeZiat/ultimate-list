@@ -10,6 +10,9 @@ import {
   SHOW_RECO,
   REMOVE_RECO_ITEM,
   UPDATE_USER_LIST_STATUS,
+  REMOVE_DELETED_ITEM,
+  SHOW_DELETE_CONFIRMATION,
+  CLOSE_DELETE_CONFIRMATION,
 } from '../actions/userItems';
 
 export const initialState = {
@@ -21,6 +24,7 @@ export const initialState = {
   newStatus: '',
   isItemModalOpen: false,
   itemCliked: {},
+  isDeleteModalOpen: false,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -95,6 +99,24 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         user_list: newUserList,
+      };
+
+    case REMOVE_DELETED_ITEM:
+      return {
+        ...state,
+        user_list: state.user_list.filter(((item) => item.id !== action.deletedItemId)),
+      };
+
+    case SHOW_DELETE_CONFIRMATION:
+      return {
+        ...state,
+        isDeleteModalOpen: true,
+      };
+
+    case CLOSE_DELETE_CONFIRMATION:
+      return {
+        ...state,
+        isDeleteModalOpen: false,
       };
 
     default:

@@ -11,12 +11,16 @@ import {
   saveChangeStatus,
   changeUserItemStatus,
   updateUserListStatus,
+  showDeleteConfirmation,
 } from 'src/actions/userItems';
 
 // == Import functions
 import { convertDate } from 'src/functions/items';
 import { statusName, cssProgressHeaderBySlug } from 'src/functions/lists';
 import useOnClickOutside from '../../functions/useOnClickOutside';
+
+// == Import component
+import DeleteConfirmation from './DeleteConfirmation';
 
 // == Import style
 import './itemDetails.scss';
@@ -58,6 +62,8 @@ const ItemDetails = () => {
 
   const currentStatus = useSelector((state) => state.userItems.item_status);
 
+  const isDeleteModalOpen = useSelector((state) => state.userItems.isDeleteModalOpen);
+
   // See functions/useOnClickOutside.js
   const ref = useRef();
   useOnClickOutside(ref, () => dispatch(closeItemDetails()));
@@ -66,6 +72,7 @@ const ItemDetails = () => {
     <>
       <div className="background-item-detail" />
       <div className="item-detail" ref={ref}>
+        {isDeleteModalOpen && <DeleteConfirmation itemName={currentItemShowed.item.name} itemId={currentItemShowed.id} />}
 
         <img className="item-detail-image" src={currentItemShowed.item.background_image} alt="" />
 
@@ -169,6 +176,9 @@ const ItemDetails = () => {
             className="item-detail-buttons-button"
             type="button"
             style={cssProgressHeaderBySlug(slug)}
+            onClick={() => {
+              dispatch(showDeleteConfirmation());
+            }}
           >
             Supprimer
           </button>

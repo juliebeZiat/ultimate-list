@@ -7,6 +7,8 @@ import {
   saveItemAdded,
   showReco,
   GET_RECO,
+  DELETE_ITEM_FROM_USERLIST,
+  removeDeletedItem,
 } from '../actions/userItems';
 import { loaderOff } from '../actions/loader';
 
@@ -60,7 +62,6 @@ const apiMiddleware = (store) => (next) => (action) => {
         },
       )
         .then((response) => {
-          console.log(response);
           store.dispatch(saveItemAdded(response.data));
         })
         .catch((error) => {
@@ -106,6 +107,28 @@ const apiMiddleware = (store) => (next) => (action) => {
           store.dispatch(loaderOff());
         });
       break;
+
+    case DELETE_ITEM_FROM_USERLIST:
+      axios.delete(
+        `http://orianeberti-server.eddi.cloud/projet-13-ultimatelist-back/public/api/list_items/${action.itemId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('user_token')}`,
+          },
+        },
+      )
+        .then(() => {
+          const actionToDispatch = removeDeletedItem(action.itemId);
+          store.dispatch(actionToDispatch);
+        })
+        .catch((error) => {
+          console.log(error);
+        })
+        .finally(() => {
+          store.dispatch(loaderOff());
+        });
+      break;
+
     default:
   }
   next(action);
