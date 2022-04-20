@@ -9,7 +9,6 @@ import Footer from 'src/components/Footer';
 import Login from 'src/components/Login';
 import SignUp from 'src/components/SignUp';
 import StatusFilter from 'src/components/Lists/StatusFilter';
-import ItemDetails from 'src/components/ItemDetails';
 import Error404 from 'src/components/Errors/Error404';
 import Error401 from 'src/components/Errors/Error401';
 import Home from 'src/components/Home';
@@ -70,17 +69,16 @@ const App = () => {
           <Route path="/connexion" element={<Login />} />
           <Route path="/inscription" element={<SignUp />} />
 
-          {logged && <Route path="/:slug/liste" element={<StatusFilter />} />}
-          {logged && <Route path="/:slug/ajouter" element={<Add />} />}
-          {logged && <Route path="/:slug/recommandations" element={<Reco />} />}
-          {logged && <Route path="/:slug/liste/:id" element={<ItemDetails />} />}
-          {logged && <Route path="/*" element={<Error404 />} />}
-          {!logged && <Route path="/*" element={<Error401 />} />}
+          <Route path="/:slug/liste" element={logged ? <StatusFilter /> : <Error401 />} />
+          <Route path="/:slug/ajouter" element={logged ? <Add /> : <Error401 />} />
+          <Route path="/:slug/recommandations" element={logged ? <Reco /> : <Error401 />} />
 
           <Route path="/contact" element={<Contact />} />
           <Route path="/a-propos" element={<Team />} />
           <Route path="/cgu" element={<Cgu />} />
           <Route path="/mentions-legales" element={<Legal />} />
+
+          <Route path="/*" element={<Error404 />} />
         </Routes>
       </div>
       <Footer />
