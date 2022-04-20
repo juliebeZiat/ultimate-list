@@ -70,8 +70,8 @@ const App = () => {
           <Route path="/inscription" element={<SignUp />} />
 
           <Route path="/:slug/liste" element={logged ? <StatusFilter /> : <Error401 />} />
-          <Route path="/:slug/ajouter" element={logged ? <Add /> : <Error401 />} />
-          <Route path="/:slug/recommandations" element={logged ? <Reco /> : <Error401 />} />
+          <Route path="/:slug/liste/ajouter" element={logged ? <Add /> : <Error401 />} />
+          <Route path="/:slug/liste/recommandations" element={logged ? <Reco /> : <Error401 />} />
 
           <Route path="/contact" element={<Contact />} />
           <Route path="/a-propos" element={<Team />} />
