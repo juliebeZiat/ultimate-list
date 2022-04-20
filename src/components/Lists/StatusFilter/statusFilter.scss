@@ -175,3 +175,17 @@
   border-radius: 25px;
   background-color: vars.$modeMovie;
 }
+
+.no-item {
+  text-align: center;
+  color: vars.$lightColor;
+
+  &-message {
+    font-size: 1.3em;
+    margin-bottom: 1em;
+  }
+
+  &-link {
+    margin-bottom: .5em;
+  }
+}

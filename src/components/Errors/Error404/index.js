@@ -1,7 +1,7 @@
 // == Import style
 import './error404.scss';
 import { Link } from 'react-router-dom';
-import ErrorGif from 'src/assets/404_domi.gif';
+import ErrorGif from 'src/assets/gif/404_domi.gif';
 import Heart from 'src/assets/icons/heart.svg';
 
 const Error404 = () => (
