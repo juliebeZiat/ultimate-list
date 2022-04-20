@@ -26,6 +26,7 @@ const DeleteConfirmation = ({ itemName, itemId }) => {
             type="button"
             onClick={() => {
               dispatch(deleteItemFromUserlist(itemId));
+              dispatch(closeDeleteConfirmation());
               dispatch(closeItemDetails());
             }}
           >
