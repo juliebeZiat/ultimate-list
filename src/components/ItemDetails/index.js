@@ -62,19 +62,17 @@ const ItemDetails = () => {
 
   const currentStatus = useSelector((state) => state.userItems.item_status);
 
-  // // See functions/useOnClickOutside.js
-  // const ref = useRef();
-  // useOnClickOutside(ref, () => dispatch(closeItemDetails()));
-
   const isDeleteModalOpen = useSelector((state) => state.userItems.isDeleteModalOpen);
+
+  // See functions/useOnClickOutside.js
+  const ref = useRef();
+  useOnClickOutside(ref, () => dispatch(closeItemDetails()));
 
   return (
     <>
-      {isDeleteModalOpen && <DeleteConfirmation itemName={currentItemShowed.item.name} itemId={currentItemShowed.id} />}
       <div className="background-item-detail" />
-
-      {/* <div className="item-detail" ref={ref}> */}
-      <div className="item-detail">
+      <div className="item-detail" ref={ref}>
+        {isDeleteModalOpen && <DeleteConfirmation itemName={currentItemShowed.item.name} itemId={currentItemShowed.id} />}
 
         <img className="item-detail-image" src={currentItemShowed.item.background_image} alt="" />
 
