@@ -11,7 +11,6 @@ import {
   findUserItemsByStatus,
 } from 'src/functions/items';
 import { cssProgressHeaderBySlug, statusName } from 'src/functions/lists';
-import { findMode } from 'src/functions/modes';
 
 // == Import actions
 import {
@@ -75,22 +74,25 @@ const UserItemsList = () => {
     document.body.style.overflowY = 'scroll';
   }
 
-  // 1. fetch the modes list
-  const modesToDisplay = useSelector((state) => state.modes.list);
-  // 3. use the function 'findModes' to display items according to the slug (see .map line 58)
-  const modes = findMode(modesToDisplay, slug);
+  // Variables for button add
+  const addName = () => {
+    switch (slug) {
+      case 'jeuxvideo': return 'jeu vidéo';
+      case 'podcasts': return 'podcast';
+      case 'films': return 'film';
+      default: return '';
+    }
+  };
 
   return (
     <>
       {itemsFilteredByUser.length === 0 && (
-        modes.map((mode) => (
-          <div className="no-item">
-            <div className="no-item-message">Tu n'as pas encore de {mode.name.toLowerCase()} dans ta liste !</div>
-            <div className="no-item-link">Tu peux en rajouter en cliquant sur <Link to={`/${slug}/liste/ajouter`}>Ajouter un {mode.name.toLowerCase()}</Link>.</div>
-            <div className="no-item-link">En manque d'inspiration ? Tu peux aller voir nos <Link to={`/${slug}/liste/recommandations`}>recommandations</Link>.</div>
-            <img src={WaitingGif} alt="" />
-          </div>
-        ))
+        <div className="no-item">
+          <div className="no-item-message">Tu n'as pas encore de {addName()} dans ta liste !</div>
+          <div className="no-item-link">Tu peux en rajouter en cliquant sur <Link to={`/${slug}/liste/ajouter`}>Ajouter un {addName()}</Link>.</div>
+          <div className="no-item-link">En manque d'inspiration ? Tu peux aller voir nos <Link to={`/${slug}/liste/recommandations`}>recommandations</Link>.</div>
+          <img src={WaitingGif} alt="" />
+        </div>
       )}
       {itemsFilteredByUser.length > 0 && (
       <div className={`${slug}-list-items`}>
