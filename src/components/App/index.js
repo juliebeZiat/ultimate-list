@@ -65,8 +65,8 @@ const App = () => {
           <Route path="/inscription" element={<SignUp />} />
 
           {logged && <Route path="/:slug/liste" element={<StatusFilter />} />}
-          {logged && <Route path="/:slug/ajouter" element={<Add />} />}
-          {logged && <Route path="/:slug/recommandations" element={<Reco />} />}
+          {logged && <Route path="/:slug/liste/ajouter" element={<Add />} />}
+          {logged && <Route path="/:slug/liste/recommandations" element={<Reco />} />}
           {logged && <Route path="/:slug/liste/:id" element={<ItemDetails />} />}
           {logged && <Route path="/*" element={<Error404 />} />}
           {!logged && <Route path="/*" element={<Error401 />} />}
