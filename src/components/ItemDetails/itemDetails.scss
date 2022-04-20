@@ -98,9 +98,7 @@
         }
 
         &-button-active {
-          // un-comment when color are dynamized by mode
           filter:  opacity(90%);
-          transition: 0.2s;
         }
 
         &-button,
@@ -222,7 +220,6 @@
       border: none;
       padding: .5em .5em;
       background-color: vars.$modeColor;
-      box-shadow: 0 0 2px vars.$modeColor;
 
       &:hover {
         background-color: darken(vars.$modeColor, 5%);
