@@ -36,7 +36,6 @@ const UserItemsList = () => {
   const currentUser = useSelector((state) => state.login.nickname);
   // 2. his items lists that we get with his username
   const itemsFilteredByUser = findItemsByUser(itemsFiltered, currentUser);
-  console.log(itemsFilteredByUser);
 
   // 3. retrieve the actual status filter store in state
   const statusFilter = useSelector((state) => state.items.statusFilter);

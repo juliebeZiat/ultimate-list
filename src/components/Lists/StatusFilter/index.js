@@ -48,6 +48,7 @@ const StatusFilter = () => {
           className={({ isActive }) => (
             isActive ? 'list-header-toggle-menu active' : 'list-header-toggle-menu'
           )}
+          end
         >
           Ma liste
         </NavLink>
@@ -69,6 +70,7 @@ const StatusFilter = () => {
             dispatch(getReco());
             dispatch(loaderOn());
           }}
+          end
         >
           Recommandations
         </NavLink>

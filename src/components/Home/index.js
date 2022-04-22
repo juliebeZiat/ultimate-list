@@ -15,11 +15,13 @@ const Home = () => {
     <div className="home">
       <h1 className="home-title">Ultimate List</h1>
 
-      <h2 className="home-subtitle">
-        <span className="home-subtitle-first">Découvrez. </span>
-        <span className="home-subtitle-second">Partagez. </span>
-        <span className="home-subtitle-third">Créez. </span>
-      </h2>
+      {!logged && (
+        <h2 className="home-subtitle">
+          <span className="home-subtitle-first">Découvrez. </span>
+          <span className="home-subtitle-second">Partagez. </span>
+          <span className="home-subtitle-third">Créez. </span>
+        </h2>
+      )}
 
       <p className="home-tagline">Créez d’incroyables todo-list pour sauvegarder et organiser tous vos souvenirs et recommandations de vos amis</p>
       {/* If user is not logged, show <HomeLogout />, otherwise show <HomeLogin /> */}
