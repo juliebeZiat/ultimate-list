@@ -47,6 +47,15 @@ const Add = () => {
     }
   };
 
+  const modPlaceholder = () => {
+    switch (slug) {
+      case 'jeuxvideo': return 'Assassin\'s Creed, Elden Ring, God of War...';
+      case 'podcasts': return 'Floodcast, 2 heures de perdues, Transfert...';
+      case 'films': return 'Dune, L\'Effet Papillon, Moonrise Kingdom...';
+      default: return '';
+    }
+  };
+
   return (
     <>
       <Lists />
@@ -55,7 +64,7 @@ const Add = () => {
           <h2 className="add-modSubtitle">Ajouter un {modSubtitle()}</h2>
           <input
             className="input-search"
-            placeholder="Assassin's Creed, Elden Ring, God of War..."
+            placeholder={modPlaceholder()}
             type="search"
             id="item-search"
             value={inputValue}
