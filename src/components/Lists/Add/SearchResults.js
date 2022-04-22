@@ -23,7 +23,13 @@ const SearchResults = ({ searchResults }) => {
               <p className="card-description">{item.developer}{item.host}</p>
               <div className="card-tags">
                 {item.tags.map((tag) => (
-                  <span className="card-tag" key={tag.id}>{tag.name}</span>
+                  <span
+                    className="card-tag"
+                    key={tag.id}
+                    style={{ backgroundColor: tag.color }}
+                  >
+                    {tag.name}
+                  </span>
                 ))}
               </div>
             </div>
