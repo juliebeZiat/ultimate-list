@@ -36,6 +36,7 @@ const Reco = () => {
             dispatch(getUserItemsFromApi());
             dispatch(loaderOn());
           }}
+          end
         >
           Ma liste
         </NavLink>
@@ -49,10 +50,11 @@ const Reco = () => {
           <img className="list-header-toggle-icon" src={Toggle} alt="toggle-icon" />
         </NavLink>
         <NavLink
-          to={`/${slug}/recommandations`}
+          to={`/${slug}/liste/recommandations`}
           className={({ isActive }) => (
             isActive ? 'list-header-toggle-menu active' : 'list-header-toggle-menu'
           )}
+          end
         >
           Recommandations
         </NavLink>
